@@ -4,13 +4,15 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //
 import "./css/index.css";
-import App from "./App";
+import App from "./router/App";
+import ErrorPage from "./router/errorPage";
 
 //
-const router = new createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />
   },
 ]);
 
