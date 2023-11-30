@@ -60,8 +60,9 @@ const SlideShow = React.memo(function SlideShow({ data, scrollStep }) {
           <img
             src={data.url}
             alt="img slide show"
-            key={index}
             className="img-slide-elements"
+            key={index}
+            onClick={() => window.location.href = `${data.link}`}
           />
         ))}
       </div>

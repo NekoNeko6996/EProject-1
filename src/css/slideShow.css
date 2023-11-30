@@ -87,7 +87,8 @@
   display: none;
 }
 
-#slideShow-container img {
+.img-slide-elements {
+  
   width: 100% !important;
   cursor: pointer;
 

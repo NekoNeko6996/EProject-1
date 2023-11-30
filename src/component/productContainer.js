@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-//
+import PropTypes from "prop-types";
+// css
 import "../css/productContainer.css";
 
 //
-function ProductContainerLoader({ quantity, random, sort }) {
+function ProductContainerLoader({ limit, page, random, sort, callback }) {
+  const [dataResponse, setDataResponse] = useState([]);
   const [data, setData] = useState([]);
 
+  // fetch data
   useEffect(() => {
     fetch("https://655ef68a879575426b443edb.mockapi.io/api/v1/productDB", {
       method: "GET",
@@ -15,10 +18,24 @@ function ProductContainerLoader({ quantity, random, sort }) {
       },
     })
       .then((response) => response.json())
-      .then((data) => setData(data))
+      .then((data) => {
+        setDataResponse(data);
+        callback(data);
+      })
       .catch((err) => console.error(err));
-  }, []);
+  }, [callback]);
 
+  // create, update data to load item
+  useEffect(() => {
+    let data = dataResponse.filter((data, index) => {
+      if (index >= (page - 1) * limit && index < page * limit) {
+        return data;
+      }
+      return false;
+    });
+    setData(data);
+  }, [page, limit, dataResponse]);
+  
   return (
     <>
       {data.map((data) => (
@@ -43,5 +60,13 @@ function ProductContainerLoader({ quantity, random, sort }) {
     </>
   );
 }
+
+ProductContainerLoader.propTypes = {
+  limit: PropTypes.number,
+  page: PropTypes.number,
+  random: PropTypes.bool,
+  sort: PropTypes.object,
+  callback: PropTypes.func,
+};
 
 export default ProductContainerLoader;
