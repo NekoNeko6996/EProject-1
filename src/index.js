@@ -31,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactComponent />
+      },
+      {
+        path: "/sale/:saleStatus",
+        element: <HomeComponent />,
       }
     ],
   },

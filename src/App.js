@@ -87,7 +87,7 @@ function App() {
           </div>
         </span>
 
-        <a href="/">
+        <a href="/sale/0">
           <span className="span-nav-option">
             <p className="text-hover-animate">SALES</p>
           </span>

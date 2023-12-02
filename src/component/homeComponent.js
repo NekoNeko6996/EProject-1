@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
+import { useParams } from "react-router-dom";
 
 // css
 import "../css/home.css";
@@ -19,7 +20,54 @@ import { dataBanner } from "../database/data";
 function HomeComponent() {
   const [pageCount, setPageCount] = useState(0);
   const [page, setPage] = useState(1);
+  const [sortObject, setSortObject] = useState({});
+  const [searchText, setSearchText] = useState("");
+  const [priceFrom, setPriceFrom] = useState(0);
+  const [priceTo, setPriceTo] = useState(0);
+
+  const params = useParams();
+
+  // limit item in one page
   const limitItems = 20;
+  
+  // search
+  const onSort = useCallback((action, event) => {
+    if (event) event.preventDefault();
+
+    switch (action) {
+      case "search":
+        setSortObject({
+          action: action,
+          value: searchText,
+        });
+        break;
+      case "price":
+        setSortObject({
+          action: action,
+          value: { priceFrom, priceTo },
+        });
+        break;
+      case "sale":
+        window.scroll({
+          top: 800,
+          behavior: "smooth"
+        })
+        setSortObject({
+          action: "sale",
+          value: "",
+        })
+        break;
+
+      default:
+        break;
+    }
+  }, [priceFrom, priceTo, searchText]);
+
+  useEffect(() => {
+    if (params.saleStatus) {
+      onSort("sale");
+    }
+  }, [params, onSort]);
 
   // on page change
   const handlePageClick = (page) => {
@@ -70,14 +118,24 @@ function HomeComponent() {
         </div>
       </div>
       <nav id="home-2-nav">
-        <form action="/" id="search-box">
+        <form
+          action="/"
+          id="search-box"
+          onSubmit={(event) => onSort("search", event)}
+        >
           <input
             type="text"
             name="search"
             id="search-input"
             placeholder="Search Watch..."
+            onChange={(event) => setSearchText(event.target.value)}
           />
-          <input type="button" value="Search" id="search-btn" />
+          <input
+            type="button"
+            value="Search"
+            id="search-btn"
+            onClick={() => onSort("search")}
+          />
         </form>
       </nav>
       <section id="home-section">
@@ -92,12 +150,26 @@ function HomeComponent() {
           <h5 id="home-aside-price">Price</h5>
           <div id="price-input-box">
             <p>$</p>
-            <input type="number" name="price-from" id="price-input-from" />
+            <input
+              type="number"
+              name="price-from"
+              id="price-input-from"
+              onChange={(event) => setPriceFrom(event.target.value)}
+            />
             <p>-</p>
             <p>$</p>
-            <input type="number" name="price" id="price-input-to" />
+            <input
+              type="number"
+              name="price"
+              id="price-input-to"
+              onChange={(event) => setPriceTo(event.target.value)}
+            />
           </div>
-          <button id="price-sort-btn" className="black-hover-btn">
+          <button
+            id="price-sort-btn"
+            className="black-hover-btn"
+            onClick={() => onSort("price")}
+          >
             Sort
           </button>
         </aside>
@@ -107,6 +179,7 @@ function HomeComponent() {
               callback={(data) => productCallBackFunc(data)}
               limit={limitItems}
               page={page}
+              sort={sortObject}
             />
           </section>
           <ReactPaginate
