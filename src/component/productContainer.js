@@ -1,44 +1,34 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+
 // css
 import "../css/productContainer.css";
 
+// product data
+import { productDB } from "../database/data";
+
 //
 function ProductContainerLoader({ limit, page, random, sort, callback }) {
-  const [dataResponse, setDataResponse] = useState([]);
   const [data, setData] = useState([]);
 
-  // fetch data
-  useEffect(() => {
-    fetch("https://655ef68a879575426b443edb.mockapi.io/api/v1/productDB", {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setDataResponse(data);
-        callback(data);
-      })
-      .catch((err) => console.error(err));
-  }, [callback]);
+  
 
   // create, update data to load item
   useEffect(() => {
-    let data = dataResponse.filter((data, index) => {
+    let data = productDB.filter((data, index) => {
       if (index >= (page - 1) * limit && index < page * limit) {
         return data;
       }
       return false;
     });
     setData(data);
-  }, [page, limit, dataResponse]);
-  
+    callback(productDB);
+  }, [page, limit, callback]);
+
   return (
     <>
-      {data.map((data) => (
+      {data.map((data, index) => (
         <Link to={`/product/${data.id}`} className="productLink" key={data.id}>
           <div className="items-box">
             <img src={data.imgUrl.no1} alt={data.name} className="items-img" />

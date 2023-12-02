@@ -21,7 +21,6 @@ const SlideShow = React.memo(function SlideShow({ data, scrollStep }) {
           step.current--;
         }
       } else {
-        console.log("right");
         if (currentScroll >= scrollStep * (data.length - 1)) {
           container.scrollLeft = 0;
           step.current = 0;
@@ -62,7 +61,7 @@ const SlideShow = React.memo(function SlideShow({ data, scrollStep }) {
             alt="img slide show"
             className="img-slide-elements"
             key={index}
-            onClick={() => window.location.href = `${data.link}`}
+            onClick={() => (window.location.href = `${data.link}`)}
           />
         ))}
       </div>
@@ -80,10 +79,9 @@ const SlideShow = React.memo(function SlideShow({ data, scrollStep }) {
   );
 });
 
-// xác địng kiểu dữ liệu của biến truyền vào
-//có thể kiểm tra nhiều thuộc tính khác
+// set type
 SlideShow.propTypes = {
-  data: PropTypes.array.isRequired, // hoặc PropTypes.arrayOf(PropTypes.any).isRequired
+  data: PropTypes.array.isRequired,
   scrollStep: PropTypes.number.isRequired,
 };
 //

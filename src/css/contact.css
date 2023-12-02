@@ -1,0 +1,100 @@
+/* contact container */
+#contact-container {
+    width: 1440px;
+
+    margin: 30px 0 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact-title-h1 {
+    animation: contact-title-animate .4s linear;
+    margin: 40px 0 30px 0;
+    position: relative;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+#contact-textarea {
+    height: 400px;
+    width: 600px;
+    margin: 0 0 30px 0;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    animation: contact-title-animate .4s .2s linear;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    position: relative;
+}
+
+#contact-email-input-container {
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 20px 0;
+    animation: contact-title-animate .4s .4s linear;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    position: relative;
+}
+
+#contact-input-email {
+    height: 35px;
+    width: 80%;
+    padding: 0 0 0 10px;
+}
+
+#contact-send-btn {
+    height: 35px;
+    width: 18%;
+}
+
+#contact-title-h2 {
+    margin: 40px 0 30px 0;
+    position: relative;
+    opacity: 0;
+    animation: contact-title-animate .4s .6s linear;
+    animation-fill-mode: forwards;
+}
+
+#contact-container p {
+    position: relative;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+#contact-p-01 {
+    animation: contact-title-animate .4s .8s linear;
+}
+#contact-p-02 {
+    animation: contact-title-animate .4s 1s linear;
+}
+#contact-p-03 {
+    animation: contact-title-animate .4s 1.2s linear;
+}
+
+#contact-map {
+    border: 1px solid black;
+    position: relative;
+    opacity: 0;
+    animation: contact-title-animate .4s 1.4s linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes contact-title-animate {
+    0% {
+        opacity: 0;
+        top: -20px;
+    }
+    50% {
+        opacity: .5;
+        top: -10px;
+    }
+    100% {
+        opacity: 1;
+        top: 0px;
+    }
+}
+
+
+

@@ -1,7 +1,9 @@
 import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 // css
 import "./css/app.css";
+import "react-toastify/dist/ReactToastify.css";
 //
 
 // Resource
@@ -15,7 +17,9 @@ function App() {
     <div id="App">
       <header id="home-header">
         <img src="#" alt="Logo" id="logo" />
-        <h1 id="hone-name-shop-header">AlBERTO & CO</h1>
+        <a href="/" id="hone-name-shop-header">
+          <h1>AlBERTO & CO</h1>
+        </a>
         <div id="home-account-box">
           <a href="/">
             <p id="home-account-p">Account</p>
@@ -28,6 +32,12 @@ function App() {
         </div>
       </header>
       <nav id="home-nav">
+        <a href="/">
+          <span className="span-nav-option">
+            <p className="text-hover-animate">HOME</p>
+          </span>
+        </a>
+        
         <span id="span-tech" className="span-nav-option">
           <p className="text-hover-animate">TECHNOLOGY</p>
           <div className="hidden-option">
@@ -87,25 +97,25 @@ function App() {
           </span>
         </a>
 
-        <a href="/">
+        <a href="/contact">
           <span className="span-nav-option">
             <p className="text-hover-animate">CONTACT US</p>
           </span>
         </a>
-
-        <span
-          className="span-nav-option"
-          onClick={() =>
-            window.scroll({
-              top: 750,
-              behavior: "smooth",
-            })
-          }
-        >
-          <p className="text-hover-animate">SEARCH</p>
-        </span>
       </nav>
       <Outlet></Outlet>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <footer id="home-footer">
         <div id="footer-about">
           <h4>ABOUT THE SHOP</h4>

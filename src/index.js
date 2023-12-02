@@ -11,8 +11,9 @@ import App from "./App";
 import ErrorPage from "./router/errorPage";
 import HomeComponent from "./component/homeComponent";
 import Product from "./router/product";
+import ContactComponent from "./component/contactComponent";
 
-// variable
+// router 
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/product/:productId",
         element: <Product />
+      },
+      {
+        path: "/contact",
+        element: <ContactComponent />
       }
     ],
   },
