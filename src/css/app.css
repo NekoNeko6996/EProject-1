@@ -11,7 +11,6 @@
 
 #App {
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,20 +25,24 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 45px;
+  top: 25px;
 }
 
 #logo {
   position: relative;
-  height: 85px;
-  width: 85px;
+  height: 150px;
+  width: 150px;
 
   background-color: rgb(138, 138, 138);
 }
 #hone-name-shop-header {
-  margin-top: 20px;
+  margin-top: 10px;
   text-decoration: none;
-  color: black;
+  color: #444444;
+}
+#hone-name-shop-header h1 {
+ font-weight: 600;
+
 }
 
 #home-account-box {
@@ -67,7 +70,7 @@
   position: sticky;
   top: 0;
   margin-top: 60px;
-  padding: 0 20px 0 20px;
+  padding: 0 50px 0 50px;
 
   display: flex;
   flex-direction: row;
@@ -183,7 +186,6 @@
   background-color: var(--theme-color);
   display: flex;
   flex-direction: row;
-
 }
 #home-footer h4 {
   margin: 35px 0px 0px 75px;

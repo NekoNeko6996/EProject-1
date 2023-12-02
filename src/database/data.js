@@ -1,5 +1,6 @@
 import homeBanner01 from "../resource/img/home-banner.png";
 import homeBanner02 from "../resource/img/home-banner-2.png";
+import homeBanner03 from "../resource/img/home-banner-3.png";
 
 // banner img url
 const dataBanner = [
@@ -9,6 +10,10 @@ const dataBanner = [
   },
   {
     url: homeBanner02,
+    link: "/",
+  },
+  {
+    url: homeBanner03,
     link: "/",
   },
 ];
@@ -26,7 +31,7 @@ const productDB = [
       no4: "",
     },
     price: 1200000,
-    sale: 0,
+    sale: 10,
     tech: "mechanical",
     availability: {
       status: true,

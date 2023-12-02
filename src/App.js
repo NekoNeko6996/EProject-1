@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 //
 
 // Resource
-// import bannerImg from "../resource/img/home-banner.png";
+import logo from "./resource/logo/Logo.png";
 import iconFacebook from "./resource/icon/icons8-facebook-50.png";
 import iconInstagram from "./resource/icon/icons8-instagram-50.png";
 import iconTwitter from "./resource/icon/icons8-twitter-50.png";
@@ -16,9 +16,11 @@ function App() {
   return (
     <div id="App">
       <header id="home-header">
-        <img src="#" alt="Logo" id="logo" />
+        <a href="/">
+          <img src={logo} alt="Logo" id="logo" />
+        </a>
         <a href="/" id="hone-name-shop-header">
-          <h1>AlBERTO & CO</h1>
+          <h1>AlBERTO</h1>
         </a>
         <div id="home-account-box">
           <a href="/">
@@ -37,7 +39,7 @@ function App() {
             <p className="text-hover-animate">HOME</p>
           </span>
         </a>
-        
+
         <span id="span-tech" className="span-nav-option">
           <p className="text-hover-animate">TECHNOLOGY</p>
           <div className="hidden-option">
