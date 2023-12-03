@@ -8,9 +8,9 @@ import "./css/index.css";
 
 // component
 import App from "./App";
-import ErrorPage from "./router/errorPage";
+import ErrorPage from "./component/errorPage";
 import HomeComponent from "./component/homeComponent";
-import Product from "./router/product";
+import ProductComponent from "./component/productComponent";
 import ContactComponent from "./component/contactComponent";
 
 // router 
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:productId",
-        element: <Product />
+        element: <ProductComponent />
       },
       {
         path: "/contact",

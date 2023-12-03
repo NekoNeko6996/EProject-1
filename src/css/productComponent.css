@@ -1,0 +1,163 @@
+#info-product-container {
+  display: flex;
+  margin: 30px 0 40px 0;
+  flex-direction: row;
+  width: 1440px;
+  justify-content: space-between;
+}
+
+#info-product-img {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 0 60px;
+}
+
+#watch-img {
+  width: 500px;
+  height: 500px;
+  background: grey;
+  text-align: center;
+  font-size: 30px;
+  line-height: 550px;
+}
+
+#more-watch-img {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#more-watch-img div {
+  width: 155px;
+  height: 155px;
+  background: grey;
+  text-align: center;
+  font-size: 20px;
+  line-height: 190px;
+  color: white;
+}
+
+/* --- */
+#info-product-buy-container {
+  width: 50%;
+  padding: 30px;
+  border: 1px solid #bbbbbb;
+  margin: 0 60px 0 0;
+}
+
+#swatch {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#sku {
+  font-size: 20px;
+  color: grey;
+}
+
+#name {
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+#rating {
+  margin-top: 10px;
+}
+
+#rating span {
+  font-size: 25px;
+}
+
+#rating p {
+  display: inline-block;
+  font-size: 20px;
+  color: grey;
+  margin-left: 10px;
+}
+
+/* --- */
+#detail {
+  margin-top: 20px;
+  margin-left: 42px;
+}
+
+.product-detail-child {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+  border-bottom: 1px solid #bbbbbb;
+  margin: 15px 0 15px 0;
+}
+.product-detail-child p {
+  width: 45%;
+}
+
+#quantity {
+  margin: 50px 0 30px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#quantity p {
+  font-size: 20px;
+  text-align: center;
+  align-self: center;
+  margin: 0 20px 0 0;
+}
+
+#quantity input {
+  width: 80px;
+  height: 35px;
+  font-size: 20px;
+  text-align: center;
+}
+
+#quantity button {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  border: none;
+  background: white;
+}
+
+#buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#buttons button {
+  width: 45%;
+  height: 50px;
+  font-size: 25px;
+}
+
+#price {
+  font-size: 40px;
+  color: rgb(234, 86, 86);
+  position: absolute;
+  right: 0;
+}
+
+/* --your also like container-- */
+#your-also-like-title {
+  justify-self: left;
+  margin: 30px 0 10px 0;
+}
+#your-also-like-container {
+  width: 1440px;
+  padding-top: 20px;
+
+  margin: 10px 0 60px 0;
+  border-top: 1px solid #666666;
+  border-bottom: 1px solid #666666;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
