@@ -11,5 +11,6 @@
 `react-scripts`
 `react-toastify`
 `web-vitals`
+`classnames`
 
 # `npm start` TO RUN THIS PROJECT
