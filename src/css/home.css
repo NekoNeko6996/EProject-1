@@ -64,6 +64,7 @@
   border-radius: 10px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   overflow: hidden;
   border: 2px solid rgb(170, 170, 170);
   margin: 10px 0 10px 0;
@@ -71,25 +72,26 @@
 }
 #search-input {
   height: 100%;
-  width: 85%;
-  margin-left: 10px;
+  width: 92%;
+  padding-left: 10px;
   font-size: 18px;
   border: none;
   outline: none;
   position: relative;
 }
 #search-btn {
-  height: 35px;
-  width: 60px;
+  height: 30px;
+  width: 30px;
   font-size: 16px;
-  margin-left: 10px;
+  margin-right: 10px;
   border-radius: 13px;
   cursor: pointer;
   border: none;
-  background-color: #cccccc;
   position: relative;
 }
-
+#search-btn:hover {
+  scale: 1.07;
+}
 /* home section */
 #home-section {
   width: 1440px;
@@ -102,31 +104,22 @@
 
 /* aside */
 #home-sort-option {
-  height: 260px;
+  height: 300px;
   width: 230px;
 
   background-color: var(--theme-color);
   position: relative;
 }
 
-#home-sort-option p {
+#in-stock-p {
   margin: 5px 0px 0px 45px;
 }
+#out-stock-p {
+  margin: 5px 0px 0px 45px;
+  color: #AAA;
+}
 
-#price-input-box {
-  display: flex;
-  flex-direction: row;
-  width: 85%;
-  justify-content: space-around;
-  margin-left: 18px;
-}
-#price-input-box p {
-  margin-left: 0 !important;
-}
-#price-input-box input {
-  height: 30px;
-  width: 65px;
-}
+
 #price-sort-btn {
   height: 30px;
   width: 81%;

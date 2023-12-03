@@ -167,7 +167,7 @@ function App() {
           <a href="/">Return Policy</a>
           <a href="/">Privacy Policy</a>
           <a href="/">Terms of Use</a>
-          <a href="/">Contact Us</a>
+          <a href="/contact">Contact Us</a>
         </div>
         <div id="footer-create-new-account">
           <h4>NEW MEMBER</h4>

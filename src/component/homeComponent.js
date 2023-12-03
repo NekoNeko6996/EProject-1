@@ -9,60 +9,74 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // component
 import ProductContainerLoader from "../component/productContainer";
 import SlideShow from "../component/slideShow";
+import MultiRangeSlider from "./multiRangeSlide";
 
 // resource
 import iconFreeShip from "../resource/icon/free_ship_icon_small.png";
 import iconContact from "../resource/icon/contact_icon_small.png";
 import iconPayment from "../resource/icon/payment_icon_small.png";
+import searchIcon from "../resource/icon/search.png";
 
 import { dataBanner } from "../database/data";
 
 function HomeComponent() {
-  const [pageCount, setPageCount] = useState(0);
+  const [maxPage, setMaxPage] = useState(0);
   const [page, setPage] = useState(1);
+  const [inStock, setInStock] = useState(0);
+  const [outStock, setOutStock] = useState(0);
   const [sortObject, setSortObject] = useState({});
   const [searchText, setSearchText] = useState("");
   const [priceFrom, setPriceFrom] = useState(0);
   const [priceTo, setPriceTo] = useState(0);
 
+  // url params
   const params = useParams();
 
   // limit item in one page
   const limitItems = 20;
-  
+
+  // min, max, unit of price slider
+  const min = 0,
+    max = 3000,
+    unit = "000"; // unit is 1000 VND 1000 * 3000 = 3.000.000 (max)
+
   // search
-  const onSort = useCallback((action, event) => {
-    if (event) event.preventDefault();
+  const onSort = useCallback(
+    (action, event) => {
+      if (event) event.preventDefault();
 
-    switch (action) {
-      case "search":
-        setSortObject({
-          action: action,
-          value: searchText,
-        });
-        break;
-      case "price":
-        setSortObject({
-          action: action,
-          value: { priceFrom, priceTo },
-        });
-        break;
-      case "sale":
-        window.scroll({
-          top: 800,
-          behavior: "smooth"
-        })
-        setSortObject({
-          action: "sale",
-          value: "",
-        })
-        break;
+      switch (action) {
+        case "search":
+          setSortObject({
+            action: action,
+            value: searchText,
+          });
+          break;
+        case "price":
+          setSortObject({
+            action: action,
+            value: { priceFrom, priceTo },
+          });
+          break;
+        case "sale":
+          window.scroll({
+            top: 800,
+            behavior: "smooth",
+          });
+          setSortObject({
+            action: "sale",
+            value: "",
+          });
+          break;
 
-      default:
-        break;
-    }
-  }, [priceFrom, priceTo, searchText]);
+        default:
+          break;
+      }
+    },
+    [priceFrom, priceTo, searchText]
+  );
 
+  // act based on params
   useEffect(() => {
     if (params.saleStatus) {
       onSort("sale");
@@ -78,9 +92,11 @@ function HomeComponent() {
     });
   };
 
-  // on item data load success
+  // set maximum number of pages, in stock and out stock
   const productCallBackFunc = (data) => {
-    setPageCount(Math.ceil(data.length / 20));
+    setInStock(data.length);
+    setOutStock(1);
+    setMaxPage(Math.ceil(data.length / 20));
   };
 
   return (
@@ -130,39 +146,28 @@ function HomeComponent() {
             placeholder="Search Watch..."
             onChange={(event) => setSearchText(event.target.value)}
           />
-          <input
-            type="button"
-            value="Search"
-            id="search-btn"
-            onClick={() => onSort("search")}
-          />
+          <img src={searchIcon} alt="searchIcon" id="search-btn" onClick={() => onSort("search")} />
         </form>
       </nav>
       <section id="home-section">
         <aside id="home-sort-option">
           <h5 id="home-availability">Availability</h5>
-          <p>
-            In stock (<span>231</span>)
+          <p id="in-stock-p">
+            In stock (<span>{inStock}</span>)
           </p>
-          <p>
-            Out stock (<span>12</span>)
+          <p id="out-stock-p">
+            Out stock (<span>{outStock}</span>)
           </p>
           <h5 id="home-aside-price">Price</h5>
           <div id="price-input-box">
-            <p>$</p>
-            <input
-              type="number"
-              name="price-from"
-              id="price-input-from"
-              onChange={(event) => setPriceFrom(event.target.value)}
-            />
-            <p>-</p>
-            <p>$</p>
-            <input
-              type="number"
-              name="price"
-              id="price-input-to"
-              onChange={(event) => setPriceTo(event.target.value)}
+            <MultiRangeSlider
+              min={min}
+              max={max}
+              unit={unit}
+              onChange={({ min, max }) => {
+                setPriceFrom(min);
+                setPriceTo(max);
+              }}
             />
           </div>
           <button
@@ -187,7 +192,7 @@ function HomeComponent() {
             onPageChange={handlePageClick}
             pageRangeDisplayed={3}
             marginPagesDisplayed={2}
-            pageCount={pageCount}
+            pageCount={maxPage}
             previousLabel="< previous"
             pageClassName="page-item"
             pageLinkClassName="page-link"
