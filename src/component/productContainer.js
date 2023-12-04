@@ -44,6 +44,12 @@ function ProductContainerLoader({ limit, page, random, sort, callback }) {
         break;
     }
 
+    // get random
+    if(random) {
+      let shuffled = sortData.sort(() => 0.5 - Math.random());
+      sortData = shuffled.slice(limit)
+    }
+
     // pagination
     let data = sortData.filter((data, index) =>
       (index >= (page - 1) * limit && index < page * limit) ? data : false
@@ -52,7 +58,7 @@ function ProductContainerLoader({ limit, page, random, sort, callback }) {
     // set and return callback data
     setData(data);  
     callback(sort.action ? data : productDB);
-  }, [page, limit, callback, sort]);
+  }, [page, limit, callback, sort, random]);
 
   return (
     <>

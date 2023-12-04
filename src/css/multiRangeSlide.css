@@ -2,8 +2,8 @@
   --width: 200px;
   --slide-track-color: #AAAAAA;
   --slide-track-high-left-background: #666666;
-  --slide-range-background: #9fe5e1;
-  --slide-thumb-background: white;
+  --slide-range-background: #333;
+  --slide-thumb-background: #999;
 }
 
 .container {

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 // component
 import ProductContainerLoader from "./productContainer";
@@ -7,11 +8,40 @@ import ProductContainerLoader from "./productContainer";
 // css
 import "../css/productComponent.css";
 
+// resource
+import noImgData from "../resource/img/noImgData.png";
+
+// data base
+import { productDB } from "../database/data";
+
 function ProductComponent() {
   const productId = useParams().productId;
+  const product = productDB[productId];
 
   const productCallback = () => {};
 
+  // change img scr when click
+  const onImgClick = (src) => {
+    document.getElementById("watch-img").src = src;
+  };
+
+  const onAddToCartClick = (btn) => {
+    btn.disabled = true;
+    const sessionS = window.sessionStorage;
+    let prevData;
+
+    if (sessionS.getItem("productAdd"))
+      prevData = sessionS.getItem("productAdd");
+
+    window.sessionStorage.setItem(
+      "productAdd",
+      `${prevData ? prevData + "," + productId : productId}`
+    );
+    toast.success("Add to cart successfully!");
+    btn.disabled = false;
+  };
+
+  // scroll when load new product
   useEffect(() => {
     window.scroll({
       top: 0,
@@ -23,58 +53,85 @@ function ProductComponent() {
     <>
       <div id="info-product-container">
         <div id="info-product-img">
-          <div id="watch-img">Watch Img</div>
+          <img
+            id="watch-img"
+            src={product.imgUrl.no1 || noImgData}
+            alt="Watch-img"
+          />
           <div id="more-watch-img">
-            <div>More Watch Img</div>
-            <div>More Watch Img</div>
-            <div>More Watch Img</div>
+            <img
+              src={product.imgUrl.no1 || noImgData}
+              alt="watch-img"
+              onClick={(event) => onImgClick(event.target.src)}
+            />
+            <img
+              src={product.imgUrl.no2 || noImgData}
+              alt="watch-img"
+              onClick={(event) => onImgClick(event.target.src)}
+            />
+            <img
+              src={product.imgUrl.no3 || noImgData}
+              alt="watch-img"
+              onClick={(event) => onImgClick(event.target.src)}
+            />
           </div>
         </div>
         <div id="info-product-buy-container">
-          <div id="swatch">SWATCH</div>
-          <div id="sku">SKU: YMA301</div>
-          <div id="name">Name of Watch</div>
+          <p id="swatch">SWATCH</p>
+          <p id="sku">SKU: {product.SKU}</p>
+          <p id="name">{product.name}</p>
           <div id="rating">
-            <span>★★★★★</span>
-            <p>(320 people rated it)</p>
+            <span>
+              {"★".repeat(product.rate.star)}
+              {"☆".repeat(5 - product.rate.star)}
+            </span>
+            <p>({product.rate.amount} people rated it)</p>
           </div>
           <div id="detail">
-            <div className="product-detail-child">
-              <p>Collection</p>
-              <p>Classic</p>
+            <div id="describe">
+              <p>{product.properties.describe}</p>
             </div>
             <div className="product-detail-child">
               <p>Movement</p>
-              <p>Quartz</p>
+              <p>{product.properties.movement}</p>
             </div>
             <div className="product-detail-child">
               <p>Case Color</p>
-              <p>Black Stainless Steel</p>
+              <p>{product.properties.caseColor}</p>
             </div>
             <div className="product-detail-child">
               <p>Dial Color</p>
-              <p>Black Dial</p>
+              <p>{product.properties.dialColor}</p>
             </div>
             <div className="product-detail-child">
-              <p>Sdivap</p>
-              <p>Red Leather Sdivap</p>
+              <p>Strap</p>
+              <p>{product.properties.strap}</p>
             </div>
             <div className="product-detail-child">
               <p>Water Resistant</p>
-              <p>30 meters</p>
+              <p>{product.properties.waterResistant}</p>
             </div>
             <div className="product-detail-child">
               <p>Warranty</p>
-              <p>2 years</p>
+              <p>{product.properties.warranty}</p>
             </div>
           </div>
           <div id="quantity">
             <p>Qty</p>
             <input type="number" id="qty" min="1" />
-            <div id="price">$1920.00</div>
+            <div id="price">
+              {product.price.toLocaleString("VN-vi", {
+                style: "currency",
+                currency: "VND",
+              })}
+            </div>
           </div>
           <div id="buttons">
-            <button id="add-to-cart" className="black-hover-btn">
+            <button
+              id="add-to-cart"
+              className="black-hover-btn"
+              onClick={(event) => onAddToCartClick(event.target)}
+            >
               Add to cart
             </button>
             <button id="buy-now" className="black-hover-btn">
@@ -83,10 +140,10 @@ function ProductComponent() {
           </div>
         </div>
       </div>
-      <h2 id="your-also-like-title">YOUR ALSO LIKE</h2>
+      <h2 id="your-also-like-title">YOUR MIGHT ALSO LIKE</h2>
       <div id="your-also-like-container">
         <ProductContainerLoader
-          limit={5}
+          limit={10}
           page={1}
           sort={{ action: "", value: "" }}
           callback={productCallback}

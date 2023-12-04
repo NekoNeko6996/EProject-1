@@ -36,9 +36,9 @@ function HomeComponent() {
   const limitItems = 20;
 
   // min, max, unit of price slider
-  const min = 0,
-    max = 3000,
-    unit = "000"; // unit is 1000 VND 1000 * 3000 = 3.000.000 (max)
+  const min = 10,
+    max = 500,
+    unit = "00000"; // unit is 100.000 VND 100.000 * 400 = 40.000.000 (max)
 
   // search
   const onSort = useCallback(
