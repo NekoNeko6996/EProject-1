@@ -15,10 +15,15 @@
 
 ## `npm start` TO RUN THIS PROJECT
 
-
-## ...
+## V0.0.37 
+- Add login and sign up page
+- create event login, sign up, and logout
+- fix bug 
 
 ## V0.0.36
 - Add product database
 - Almost completed product page
 - fix bug
+
+## ...
+

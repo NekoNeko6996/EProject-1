@@ -12,6 +12,7 @@ import ErrorPage from "./component/errorPage";
 import HomeComponent from "./component/homeComponent";
 import ProductComponent from "./component/productComponent";
 import ContactComponent from "./component/contactComponent";
+import LoginComponent from "./component/loginComponent";
 
 // router 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       }
     ],
   },
+  {
+    path: "/login",
+    element: <LoginComponent />
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

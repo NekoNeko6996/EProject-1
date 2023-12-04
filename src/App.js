@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { useEffect, useState } from "react";
 
 // css
 import "./css/app.css";
@@ -12,7 +13,26 @@ import iconFacebook from "./resource/icon/icons8-facebook-50.png";
 import iconInstagram from "./resource/icon/icons8-instagram-50.png";
 import iconTwitter from "./resource/icon/icons8-twitter-50.png";
 
+//
 function App() {
+  const [cartAmount, setCartAmount] = useState(0);
+  const CartDataSession = window.sessionStorage.getItem("productAdd");
+
+  useEffect(() => {
+    let CartData;
+
+    // convert data from sessionStorage to ID array
+    if (CartDataSession) {
+      CartData = CartDataSession.split(",").map(Number);
+      setCartAmount(CartData.length);
+    }
+  }, [CartDataSession]);
+
+  const onLogout = () => {
+    window.sessionStorage.removeItem("user");
+    window.location.reload();
+  }
+
   return (
     <div id="App">
       <header id="home-header">
@@ -23,13 +43,17 @@ function App() {
           <h1>AlBERTO</h1>
         </a>
         <div id="home-account-box">
-          <a href="/">
-            <p id="home-account-p">Account</p>
-          </a>
-          <a href="/">
-            <p id="home-cart-p">
-              Cart (<span id="cart-value">0</span>)
-            </p>
+          <div id="user-container">
+            {window.sessionStorage.getItem("user") ? (
+              <p id="home-account-p" onClick={onLogout}>Logout</p>
+            ) : (
+              <a href="/login">
+                <p id="home-account-p">Login</p>
+              </a>
+            )}
+          </div>
+          <a href="/cart">
+            <p id="home-cart-p">Cart ({cartAmount})</p>
           </a>
         </div>
       </header>
