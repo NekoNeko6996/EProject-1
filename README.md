@@ -15,6 +15,11 @@
 
 ## `npm start` TO RUN THIS PROJECT
 
+## V0.0.38
+- Authenticate and authorize when users log in
+- Add registration link in footer
+- fix bug
+
 ## V0.0.37 
 - Add login and sign up page
 - create event login, sign up, and logout
