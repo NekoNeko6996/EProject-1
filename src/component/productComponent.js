@@ -30,6 +30,10 @@ function ProductComponent() {
     const sessionS = window.sessionStorage;
     let prevData;
 
+    if(!sessionS.getItem("user")) {
+      window.location.href = "/login"
+      return;
+    }
     if (sessionS.getItem("productAdd"))
       prevData = sessionS.getItem("productAdd");
 

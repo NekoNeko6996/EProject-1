@@ -45,19 +45,21 @@ function ProductContainerLoader({ limit, page, random, sort, callback }) {
     }
 
     // get random
-    if(random) {
+    if (random) {
       let shuffled = sortData.sort(() => 0.5 - Math.random());
-      sortData = shuffled.slice(limit)
+      sortData = shuffled.slice(limit);
     }
 
     // pagination
-    let data = sortData.filter((data, index) =>
-      (index >= (page - 1) * limit && index < page * limit) ? data : false
+    let dataOnOnePage = sortData.filter((data, index) =>
+      index >= (page - 1) * limit && index < page * limit ? data : false
     );
-    
-    // set and return callback data
-    setData(data);  
-    callback(sort.action ? data : productDB);
+
+    // set data to load items
+    setData(dataOnOnePage);
+
+    // return data
+    callback(sort.action ? sortData : productDB);
   }, [page, limit, callback, sort, random]);
 
   return (
@@ -86,11 +88,11 @@ function ProductContainerLoader({ limit, page, random, sort, callback }) {
 }
 
 ProductContainerLoader.propTypes = {
-  limit: PropTypes.number,
-  page: PropTypes.number,
+  limit: PropTypes.number.isRequired,
+  page: PropTypes.number.isRequired,
   random: PropTypes.bool,
   sort: PropTypes.object,
-  callback: PropTypes.func,
+  callback: PropTypes.func.isRequired,
 };
 
 export default ProductContainerLoader;

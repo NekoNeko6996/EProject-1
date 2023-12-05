@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { useEffect, useState } from "react";
 
 // css
@@ -31,6 +31,14 @@ function App() {
   const onLogout = () => {
     window.sessionStorage.removeItem("user");
     window.location.reload();
+  }
+
+  const onRegisterClick = () => {
+    if(window.sessionStorage.getItem("user")) {
+      toast.warn("You are logged in");
+      return;
+    }
+    window.location.href = "/signup";
   }
 
   return (
@@ -132,7 +140,7 @@ function App() {
       <Outlet></Outlet>
       <ToastContainer
         position="bottom-center"
-        autoClose={5000}
+        autoClose={4000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -198,7 +206,7 @@ function App() {
           <p>
             Subscribe to receive updates, access to exclusive deals, and more.
           </p>
-          <button id="footer-register-btn" className="black-hover-btn">
+          <button id="footer-register-btn" className="black-hover-btn" onClick={onRegisterClick}>
             REGISTER NOW
           </button>
         </div>

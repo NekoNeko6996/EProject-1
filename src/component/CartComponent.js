@@ -1,16 +1,13 @@
+// css
+import "../css/cart.css";
 
-
-
-
+//
 function CartComponent() {
-
-
-
-    return (
-        <>
-
-        </>
-    )
+  return (
+    <>
+        
+    </>
+  );
 }
 
 export default CartComponent;

@@ -1,3 +1,7 @@
+#login-container > * {
+  --theme-color: #FA887E;
+}
+
 #login-container {
   width: 350px;
   height: 500px;
@@ -7,9 +11,25 @@
   position: relative;
   
 }
+
+#login-page-nav {
+  height: 60px;
+  width: 100%;
+  position: absolute;
+  background-color: #EEE;
+  top: 0;
+}
+
+
 #chk {
   display: none;
 }
+
+.login-page-request-p {
+  margin: 0 0 0 55px;
+  color: #999;
+}
+
 #login {
   position: relative;
   width: 100%;
@@ -37,7 +57,7 @@ label {
   background: #EEE;
   justify-content: center;
   display: flex;
-  margin: 20px auto;
+  margin: 5px auto 10px auto;
   padding: 10px;
   border: none;
   outline: none;
@@ -45,6 +65,10 @@ label {
   transition: 0.2s ease-in;
   cursor: pointer;
 }
+#login .login-input {
+  margin: 25px auto;
+}
+
 .login-btn:hover {
   background: #aaa;
 }
@@ -55,7 +79,7 @@ label {
   transform: translateY(-180px);
   transition: 0.6s ease-in-out;
   position: relative;
-  background-color: #999;
+  background-color: var(--theme-color);
 }
 .login-btn {
   width: 70%;
@@ -64,7 +88,7 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 40px auto;
+  margin: 30px auto;
 }
 .bot {
   width: 100%;
@@ -76,7 +100,7 @@ label {
 #sign-up label {
   color: white;
   transform: scale(0.6);
-  margin: 120px 60px 30px 60px;
+  margin: 120px 60px 20px 60px;
 }
 #chk:checked ~ #sign-up {
   transform: translateY(-500px);
@@ -89,7 +113,7 @@ label {
 }
 
 #chk:checked ~ #login {
-  background-color: #999;
+  background-color: var(--theme-color);
 }
 #chk:checked ~ #login label {
   transform: scale(0.6);

@@ -38,7 +38,7 @@ function HomeComponent() {
   // min, max, unit of price slider
   const min = 10,
     max = 500,
-    unit = "00000"; // unit is 100.000 VND 100.000 * 400 = 40.000.000 (max)
+    unit = "00000"; // unit is 100.000 VND 100.000 * 500 = 50.000.000 (max)
 
   // search
   const onSort = useCallback(
@@ -97,6 +97,7 @@ function HomeComponent() {
     setInStock(data.length);
     setOutStock(1);
     setMaxPage(Math.ceil(data.length / 20));
+    console.log(data.length);
   };
 
   return (
@@ -146,7 +147,12 @@ function HomeComponent() {
             placeholder="Search Watch..."
             onChange={(event) => setSearchText(event.target.value)}
           />
-          <img src={searchIcon} alt="searchIcon" id="search-btn" onClick={() => onSort("search")} />
+          <img
+            src={searchIcon}
+            alt="searchIcon"
+            id="search-btn"
+            onClick={() => onSort("search")}
+          />
         </form>
       </nav>
       <section id="home-section">
