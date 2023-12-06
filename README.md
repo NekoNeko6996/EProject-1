@@ -15,20 +15,25 @@
 
 ## `npm start` TO RUN THIS PROJECT
 
+## V0.0.4
+- Completed compatibility for devices with small screens such as phones for home, product, login, and sales pages.
+- Optimize user experience on UI
+- Fix bug
+
 ## V0.0.38
 - Authenticate and authorize when users log in
 - Add registration link in footer
-- fix bug
+- Fix bug
 
 ## V0.0.37 
 - Add login and sign up page
 - create event login, sign up, and logout
-- fix bug 
+- Fix bug 
 
 ## V0.0.36
 - Add product database
 - Almost completed product page
-- fix bug
+- Fix bug
 
 ## ...
 

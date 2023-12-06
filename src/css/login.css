@@ -1,5 +1,28 @@
+#login-page-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#login-page-nav a {
+  color: black;
+  text-decoration: none;
+  padding: 0 20px 0 20px;
+}
+
+.text-hover-animate::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background-color: black;
+  top: 20px;
+  transition: 0.3s;
+}
+
+/* ----- */
 #login-container > * {
-  --theme-color: #FA887E;
+  --theme-color: #fa887e;
 }
 
 #login-container {
@@ -9,17 +32,15 @@
   border-radius: 10px;
   box-shadow: 0 0 10px #999;
   position: relative;
-  
 }
 
 #login-page-nav {
   height: 60px;
   width: 100%;
   position: absolute;
-  background-color: #EEE;
+  background-color: #eee;
   top: 0;
 }
-
 
 #chk {
   display: none;
@@ -54,7 +75,7 @@ label {
 .login-input {
   width: 70%;
   height: 35px;
-  background: #EEE;
+  background: #eee;
   justify-content: center;
   display: flex;
   margin: 5px auto 10px auto;
@@ -69,9 +90,7 @@ label {
   margin: 25px auto;
 }
 
-.login-btn:hover {
-  background: #aaa;
-}
+
 #sign-up {
   height: 460px;
   background: #eee;
@@ -85,11 +104,16 @@ label {
   width: 70%;
   height: 35px;
   border-radius: 5px;
+  border: none;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 30px auto;
+  background-color: #fa887e;
+  color: white;
 }
+
 .bot {
   width: 100%;
   display: flex;
@@ -118,4 +142,14 @@ label {
 #chk:checked ~ #login label {
   transform: scale(0.6);
   color: white;
+}
+
+
+
+
+/* ------------ */
+@media screen and (max-width: 500px) {
+  #login-page-nav a {
+    padding: 0 10px 0 10px;
+  }
 }

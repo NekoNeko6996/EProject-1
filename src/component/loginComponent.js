@@ -70,7 +70,28 @@ function LoginComponent() {
 
   return (
     <>
-      <nav id="login-page-nav"></nav>
+      <nav id="login-page-nav">
+        <a href="/">
+          <span className="span-nav-option">
+            <p className="text-hover-animate">HOME</p>
+          </span>
+        </a>
+        <a href="/service">
+          <span className="span-nav-option">
+            <p className="text-hover-animate">SERVICE</p>
+          </span>
+        </a>
+        <a href="/sale/0">
+          <span className="span-nav-option">
+            <p className="text-hover-animate">SALES</p>
+          </span>
+        </a>
+        <a href="/contact">
+          <span className="span-nav-option">
+            <p className="text-hover-animate">CONTACT US</p>
+          </span>
+        </a>
+      </nav>
       <div id="login-container">
         <input type="checkbox" id="chk" aria-hidden="true"></input>
         <div id="login">
@@ -138,6 +159,8 @@ function LoginComponent() {
             </button>
           </form>
         </div>
+
+        {/* message box */}
         <ToastContainer
           position="bottom-center"
           autoClose={3000}

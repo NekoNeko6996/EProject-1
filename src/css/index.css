@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
@@ -21,9 +22,10 @@ code {
   --background-color: rgb(240, 240, 240);
   --theme-color: rgb(241, 241, 241);
   --box-shadow: 0 0 6px #818181;
+  
 }
 
-#root {
+#root { 
   width: 100%;
   position: relative;
   min-height: 100vh;

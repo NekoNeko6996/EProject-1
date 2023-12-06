@@ -1,20 +1,22 @@
 /* home banner */
 #home-banner {
-  height: 500px;
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   background-color: var(--theme-color);
   position: relative;
   margin: 20px 0 20px 0;
 }
 /* home 2 banner box */
 #home-2-banner-box {
-  width: 1440px;
-  height: 80px;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 80px;
   background-color: var(--theme-color);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  overflow: hidden;
 }
 
 .home-2-banner-item {
@@ -46,7 +48,8 @@
 
 /* home 2 navigation */
 #home-2-nav {
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   height: 60px;
 
   background-color: var(--theme-color);
@@ -59,7 +62,8 @@
 /* search box */
 #search-box {
   height: 45px;
-  width: 600px;
+  width: 80%;
+  max-width: 600px;
   background-color: white;
   border-radius: 10px;
   display: flex;
@@ -94,7 +98,8 @@
 }
 /* home section */
 #home-section {
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   margin-top: 30px;
   display: flex;
   flex-direction: row;
@@ -105,10 +110,17 @@
 /* aside */
 #home-sort-option {
   height: 300px;
-  width: 230px;
+  min-width: 230px;
 
+  display: flex;
+  
   background-color: var(--theme-color);
   position: relative;
+  margin: 0 0 10px 0;
+}
+#home-sort-option > div {
+  height: 300px;
+  width: 230px;
 }
 
 #in-stock-p {
@@ -136,7 +148,8 @@
 }
 /* - */
 #home-product-section {
-  width: 1200px;
+  width: 100%;
+  max-width: 1230px;
 
   position: relative;
   display: flex;
@@ -144,4 +157,26 @@
   flex-wrap: wrap;
   justify-content: center;
   padding-bottom: 20px;
+}
+
+
+
+/* ---------------------- */
+
+
+@media screen and (max-width: 850px) {
+  #home-2-banner-box {
+    flex-direction: column;
+  }
+}
+
+
+@media screen and (max-width: 630px) {
+  #home-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  #home-sort-option {
+    width: 100%;
+  }
 }

@@ -34,7 +34,7 @@ function HomeComponent() {
 
   // limit item in one page
   const limitItems = 20;
-
+  
   // min, max, unit of price slider
   const min = 10,
     max = 500,
@@ -97,7 +97,6 @@ function HomeComponent() {
     setInStock(data.length);
     setOutStock(1);
     setMaxPage(Math.ceil(data.length / 20));
-    console.log(data.length);
   };
 
   return (
@@ -157,32 +156,34 @@ function HomeComponent() {
       </nav>
       <section id="home-section">
         <aside id="home-sort-option">
-          <h5 id="home-availability">Availability</h5>
-          <p id="in-stock-p">
-            In stock (<span>{inStock}</span>)
-          </p>
-          <p id="out-stock-p">
-            Out stock (<span>{outStock}</span>)
-          </p>
-          <h5 id="home-aside-price">Price</h5>
-          <div id="price-input-box">
-            <MultiRangeSlider
-              min={min}
-              max={max}
-              unit={unit}
-              onChange={({ min, max }) => {
-                setPriceFrom(min);
-                setPriceTo(max);
-              }}
-            />
+          <div>
+            <h5 id="home-availability">Availability</h5>
+            <p id="in-stock-p">
+              In stock (<span>{inStock}</span>)
+            </p>
+            <p id="out-stock-p">
+              Out stock (<span>{outStock}</span>)
+            </p>
+            <h5 id="home-aside-price">Price</h5>
+            <div id="price-input-box">
+              <MultiRangeSlider
+                min={min}
+                max={max}
+                unit={unit}
+                onChange={({ min, max }) => {
+                  setPriceFrom(min);
+                  setPriceTo(max);
+                }}
+              />
+            </div>
+            <button
+              id="price-sort-btn"
+              className="black-hover-btn"
+              onClick={() => onSort("price")}
+            >
+              Sort
+            </button>
           </div>
-          <button
-            id="price-sort-btn"
-            className="black-hover-btn"
-            onClick={() => onSort("price")}
-          >
-            Sort
-          </button>
         </aside>
         <div id="paginate-container">
           <section id="home-product-section">

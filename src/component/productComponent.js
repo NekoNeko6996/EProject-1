@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -15,8 +15,15 @@ import noImgData from "../resource/img/noImgData.png";
 import { productDB } from "../database/data";
 
 function ProductComponent() {
+  const [quantity, setQuantity] = useState(1);
+
   const productId = useParams().productId;
   const product = productDB[productId];
+
+  // limit items
+  const limit = 12;
+  // load default page 1
+  const defaultPage = 1;
 
   const productCallback = () => {};
 
@@ -30,8 +37,8 @@ function ProductComponent() {
     const sessionS = window.sessionStorage;
     let prevData;
 
-    if(!sessionS.getItem("user")) {
-      window.location.href = "/login"
+    if (!sessionS.getItem("user")) {
+      window.location.href = "/login";
       return;
     }
     if (sessionS.getItem("productAdd"))
@@ -92,9 +99,9 @@ function ProductComponent() {
             <p>({product.rate.amount} people rated it)</p>
           </div>
           <div id="detail">
-            <div id="describe">
+            {/* <div id="describe">
               <p>{product.properties.describe}</p>
-            </div>
+            </div> */}
             <div className="product-detail-child">
               <p>Movement</p>
               <p>{product.properties.movement}</p>
@@ -121,10 +128,20 @@ function ProductComponent() {
             </div>
           </div>
           <div id="quantity">
-            <p>Qty</p>
-            <input type="number" id="qty" min="1" />
+            <div id="quantity-input-container">
+              <button
+                onClick={() =>
+                  setQuantity((prev) => (prev <= 1 ? prev : (prev -= 1)))
+                }
+              ></button>
+              <p>{quantity}</p>
+              <button
+                id="add-quantity-btn"
+                onClick={() => setQuantity((prev) => (prev += 1))}
+              ></button>
+            </div>
             <div id="price">
-              {product.price.toLocaleString("VN-vi", {
+              {(product.price * quantity).toLocaleString("VN-vi", {
                 style: "currency",
                 currency: "VND",
               })}
@@ -147,8 +164,8 @@ function ProductComponent() {
       <h2 id="your-also-like-title">YOUR MIGHT ALSO LIKE</h2>
       <div id="your-also-like-container">
         <ProductContainerLoader
-          limit={10}
-          page={1}
+          limit={limit}
+          page={defaultPage}
           sort={{ action: "", value: "" }}
           callback={productCallback}
         />

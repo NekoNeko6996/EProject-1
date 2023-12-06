@@ -13,6 +13,7 @@ import HomeComponent from "./component/homeComponent";
 import ProductComponent from "./component/productComponent";
 import ContactComponent from "./component/contactComponent";
 import LoginComponent from "./component/loginComponent";
+import CartComponent from "./component/CartComponent";
 
 // router 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/sale/:saleStatus",
         element: <HomeComponent />,
+      },
+      {
+        path: "/cart",
+        element: <CartComponent />
       }
     ],
   },

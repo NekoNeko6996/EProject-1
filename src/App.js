@@ -28,18 +28,27 @@ function App() {
     }
   }, [CartDataSession]);
 
+  //
   const onLogout = () => {
     window.sessionStorage.removeItem("user");
     window.location.reload();
-  }
+  };
 
+  //
   const onRegisterClick = () => {
-    if(window.sessionStorage.getItem("user")) {
+    if (window.sessionStorage.getItem("user")) {
       toast.warn("You are logged in");
       return;
     }
     window.location.href = "/signup";
-  }
+  };
+
+  // nav
+  const onHideBtnClick = () => {
+    const nav = document.getElementById("home-nav");
+    if (nav.className === "home-nav-close") nav.className = "home-nav-open";
+    else nav.className = "home-nav-close";
+  };
 
   return (
     <div id="App">
@@ -53,7 +62,9 @@ function App() {
         <div id="home-account-box">
           <div id="user-container">
             {window.sessionStorage.getItem("user") ? (
-              <p id="home-account-p" onClick={onLogout}>Logout</p>
+              <p id="home-account-p" onClick={onLogout}>
+                Logout
+              </p>
             ) : (
               <a href="/login">
                 <p id="home-account-p">Login</p>
@@ -65,7 +76,8 @@ function App() {
           </a>
         </div>
       </header>
-      <nav id="home-nav">
+
+      <nav className="home-nav-close" id="home-nav">
         <a href="/">
           <span className="span-nav-option">
             <p className="text-hover-animate">HOME</p>
@@ -85,6 +97,7 @@ function App() {
             </ul>
           </div>
         </span>
+
         <span id="span-product" className="span-nav-option">
           <p className="text-hover-animate">PRODUCT</p>
           <div className="hidden-option">
@@ -110,9 +123,6 @@ function App() {
                 <li>For Him</li>
               </a>
               <a href="/">
-                <li>For Kids</li>
-              </a>
-              <a href="/">
                 <li>Personalized Gifts</li>
               </a>
             </ul>
@@ -136,8 +146,12 @@ function App() {
             <p className="text-hover-animate">CONTACT US</p>
           </span>
         </a>
+        <div id="nav-hidden-btn" onClick={onHideBtnClick}></div>
       </nav>
+      {/* child loader */}
       <Outlet></Outlet>
+
+      {/* message box */}
       <ToastContainer
         position="bottom-center"
         autoClose={4000}
@@ -206,7 +220,11 @@ function App() {
           <p>
             Subscribe to receive updates, access to exclusive deals, and more.
           </p>
-          <button id="footer-register-btn" className="black-hover-btn" onClick={onRegisterClick}>
+          <button
+            id="footer-register-btn"
+            className="black-hover-btn"
+            onClick={onRegisterClick}
+          >
             REGISTER NOW
           </button>
         </div>

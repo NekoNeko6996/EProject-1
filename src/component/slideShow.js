@@ -5,27 +5,33 @@ import React from "react";
 //
 
 const SlideShow = React.memo(function SlideShow({ data, scrollStep }) {
+  const containerElement = useRef(null);
   const step = useRef(0);
   //
   const onSlideClick = useCallback(
+
     (direction) => {
       const container = document.getElementById("img-slide-container");
       const currentScroll = container.scrollLeft;
+      let finalScrollStep = scrollStep;
+
+      if(containerElement.current.offsetWidth < scrollStep)
+        finalScrollStep = containerElement.current.offsetWidth;
 
       if (direction === "left") {
         if (currentScroll <= 0) {
-          container.scrollLeft = scrollStep * (data.length - 1);
+          container.scrollLeft = finalScrollStep * (data.length - 1);
           step.current = data.length - 1;
         } else {
-          container.scrollLeft = currentScroll - scrollStep;
+          container.scrollLeft = currentScroll - finalScrollStep;
           step.current--;
         }
       } else {
-        if (currentScroll >= scrollStep * (data.length - 1)) {
+        if (currentScroll >= finalScrollStep * (data.length - 1)) {
           container.scrollLeft = 0;
           step.current = 0;
         } else {
-          container.scrollLeft = currentScroll + scrollStep;
+          container.scrollLeft = currentScroll + finalScrollStep;
           step.current++;
         }
       }
@@ -52,7 +58,7 @@ const SlideShow = React.memo(function SlideShow({ data, scrollStep }) {
   }, [onSlideClick]);
 
   return (
-    <div id="slideShow-container">
+    <div id="slideShow-container" ref={containerElement}>
       <div id="slide-btn-left" onClick={() => onSlideClick("left")}></div>
       <div id="img-slide-container">
         {data.map((data, index) => (
