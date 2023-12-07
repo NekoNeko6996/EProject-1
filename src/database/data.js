@@ -7,7 +7,7 @@ import homeBanner03 from "../resource/img/home-banner-3.png";
 const dataBanner = [
   {
     url: homeBanner01,
-    link: "/", //redirect link (optional)
+    link: "/", //redirect link when click banner (optional)
   },
   {
     url: homeBanner02,
@@ -31,6 +31,7 @@ const productDB = [
       no3: "",
       no4: "",
     },
+    gift: "her",
     price: 1200000,
     sale: 0,
     tech: "mechanical",
@@ -39,7 +40,7 @@ const productDB = [
       amount: 21,
     },
     properties: {
-      describe:
+      collection:
         "The PCAT from Citizen improves on this classic collection with a modern design, including a two-tone, rose gold stainless-steel 43mm case and a two-tone stainless-steel bracelet, capped off with a blue dial. It uses a Tachymeter bezel, and in addition to Eco-Drive technology, it includes advanced features such as atomic timekeeping with synchronized time adjustment in 43 cities worldwide, power reserve indicator, a perpetual calendar and a chronograph. This timepiece is the definition of sporty elegance, with a timeless style that can be effortlessly dressed up or down as the situation changes.",
       movement: "E660 EcoDrive Technology",
       caseColor: "Two Tone Stainless Steel Case",
@@ -49,8 +50,8 @@ const productDB = [
       warranty: "2 years",
     },
     rate: {
-      star: 4,
-      amount: 223,
+      star: 5,
+      amount: 213,
     },
   },
   {
@@ -63,6 +64,7 @@ const productDB = [
       no3: "https://shopalbertopr.com/cdn/shop/products/MKT5044-3_af15e3a3-ae79-4749-93e6-cae0c3238899_1000x1000.png?v=1605662805",
       no4: "",
     },
+    gift: "her",
     price: 1200000,
     sale: 90,
     tech: "quartz",
@@ -71,7 +73,7 @@ const productDB = [
       amount: 10,
     },
     properties: {
-      describe:
+      collection:
         "The iconic Runway is back and better than ever in an innovative smartwatch design. In gold-plated stainless steel, this Michael Kors Access style offers a new highly personalized experience with heart rate tracking, swimproof technology, NFC payments, GPS functionality and more. Customize the full-round display with new digital dial designs that connect to and visually show your heart rate, receive notifications (on the go) and automatically track your activity from the sidewalk to the gym. Smartwatches built with Wear OS by Google™ are compatible with iPhone® and Android™ phones. Wear OS by Google and other related marks are trademarks of Google LLC. Touchscreen smartwatches built with Wear OS by Google require a phone running Android 6.0+ (excluding Go edition) and iOS 10.0+. Supported features may vary between platforms and countries",
       movement:
         "Powered by Wear OS by Google Compatible with iPhone and Android phonesSocial Media UpdatesText/Email AlertsApp Notifications",
@@ -96,6 +98,7 @@ const productDB = [
       no3: "https://shopalbertopr.com/cdn/shop/products/MKT5077-3_387x490.png?v=1605662631",
       no4: "https://shopalbertopr.com/cdn/shop/products/MKT5077-4_1173x1800.jpg?v=1605662631",
     },
+    gift: "her",
     price: 3200000,
     sale: 0,
     tech: "quartz",
@@ -104,7 +107,7 @@ const productDB = [
       amount: 14,
     },
     properties: {
-      describe:
+      collection:
         "Busy lifestyles call for a smart watch that lets you stay organized, in touch and ready for any late-breaking developments or change of plans. Though it boasts a traditional design, when synced to your smartphone, the touchscreen displays all sorts of practical features, from text, e-mail and incoming call notifications to fitness tracking and payment technology.",
       movement:
         "Powered by Wear OS by Google Compatible with iPhone and Android phones Social Media Updates Text/Email Alerts App Notifications",
@@ -129,6 +132,7 @@ const productDB = [
       no3: "https://shopalbertopr.com/cdn/shop/products/MKT5020-3_1000x1000.png?v=1605663087",
       no4: "https://shopalbertopr.com/cdn/shop/products/shopping_500x500.png?v=1605663087",
     },
+    gift: "her",
     price: 2200000,
     sale: 50,
     tech: "quartz",
@@ -137,7 +141,7 @@ const productDB = [
       amount: 7,
     },
     properties: {
-      describe:
+      collection:
         "The Michael Kors Access Gen 4 Sofie smartwatch is better than ever. Powered by Wear OS by Google™, this version is equipped with heart-rate tracking, payment methods, swimproof functionality and more to keep you connected to your goals and favorite apps. We kept the design the same—a slim profile crafted from stainless steel featuring pavé accents, plus multiple display faces and an interchangeable strap for the ultimate in customization.",
       movement:
         "Powered by Wear OS by Google Compatible with iPhone and Android phones Social Media Updates Text/Email Alerts App Notifications",
@@ -155,6 +159,7 @@ const productDB = [
   },
   {
     id: 4,
+    gift: "her",
     name: "RUNWAY",
     SKU: "MK8086",
     imgUrl: {
@@ -171,7 +176,7 @@ const productDB = [
       amount: 0,
     },
     properties: {
-      describe:
+      collection:
         "The Michael Kors Access Gen 4 Sofie smartwatch is better than ever.",
       movement: "Quartz",
       caseColor: "Stainless steel case",
@@ -187,6 +192,7 @@ const productDB = [
   },
   {
     id: 5,
+    gift: "her",
     name: "PARKER",
     SKU: "MK6414",
     imgUrl: {
@@ -203,7 +209,7 @@ const productDB = [
       amount: 12,
     },
     properties: {
-      describe:
+      collection:
         "The Michael Kors Access Gen 4 Sofie smartwatch is better than ever.",
       movement: "Quartz",
       caseColor: "Rose Gold Plated Stainless Steel Case",
@@ -219,6 +225,7 @@ const productDB = [
   },
   {
     id: 6,
+    gift: "her",
     name: "JARYN",
     SKU: "MK4438",
     imgUrl: {
@@ -235,7 +242,7 @@ const productDB = [
       amount: 47,
     },
     properties: {
-      describe:
+      collection:
         "The Michael Kors Access Gen 4 Sofie smartwatch is better than ever.",
       movement: "Quartz",
       caseColor: "Stainless steel case",
@@ -251,6 +258,7 @@ const productDB = [
   },
   {
     id: 7,
+    gift: "her",
     name: "PYPER",
     SKU: "MK3901",
     imgUrl: {
@@ -267,7 +275,7 @@ const productDB = [
       amount: 102,
     },
     properties: {
-      describe:
+      collection:
         "The Michael Kors Access Gen 4 Sofie smartwatch is better than ever. real",
       movement: "Quartz",
       caseColor: "Stainless steel case",
@@ -283,6 +291,7 @@ const productDB = [
   },
   {
     id: 8,
+    gift: "her",
     name: "CINTHIA",
     SKU: "MK3641",
     imgUrl: {
@@ -299,7 +308,7 @@ const productDB = [
       amount: 6,
     },
     properties: {
-      describe:
+      collection:
         "The Michael Kors Access Gen 4 Sofie smartwatch is better than ever. real",
       movement: "Quartz",
       caseColor: "Stainless steel case",
@@ -315,6 +324,7 @@ const productDB = [
   },
   {
     id: 9,
+    gift: "her",
     name: "PORTIA",
     SKU: "MK3639",
     imgUrl: {
@@ -331,7 +341,7 @@ const productDB = [
       amount: 14,
     },
     properties: {
-      describe:
+      collection:
         "The Michael Kors Access Gen 4 Sofie smartwatch is better than ever. ",
       movement: "Quartz",
       caseColor: "Gold-Tone Stainless steel case",
@@ -347,6 +357,7 @@ const productDB = [
   },
   {
     id: 10,
+    gift: "her",
     name: "LAURYN",
     SKU: "MK2757",
     imgUrl: {
@@ -363,7 +374,7 @@ const productDB = [
       amount: 11,
     },
     properties: {
-      describe: "Scratch Resistant Mineral Crystal",
+      collection: "Scratch Resistant Mineral Crystal",
       movement: "Quartz",
       caseColor: "Rose Gold-tone stainless steel case",
       dialColor: "Mother of Pearl",
@@ -378,6 +389,7 @@ const productDB = [
   },
   {
     id: 11,
+    gift: "her",
     name: "MOVADO BOLD MID-SIZE TWO-TONE ROSE GOLD WATCH",
     SKU: "3600504",
     imgUrl: {
@@ -394,7 +406,7 @@ const productDB = [
       amount: 3,
     },
     properties: {
-      describe: "K1 crystal ",
+      collection: "K1 crystal ",
       movement: "Swiss Quartz",
       caseColor: "Stainless Steel and Rose Gold ion-plated case",
       dialColor:
@@ -410,6 +422,7 @@ const productDB = [
   },
   {
     id: 12,
+    gift: "her",
     name: "MUSEUM CLASSIC WATCH",
     SKU: "0606876",
     imgUrl: {
@@ -426,7 +439,7 @@ const productDB = [
       amount: 6,
     },
     properties: {
-      describe: "Crysal is special",
+      collection: "Crysal is special",
       movement: "Swiss Quartz",
       caseColor: "Stainless Steel and Flower Gold ion-plated case",
       dialColor: "Silver-toned dial with matching frosted-textured outer ring",
@@ -441,6 +454,7 @@ const productDB = [
   },
   {
     id: 13,
+    gift: "her",
     name: "LUNO SPORT WATCH",
     SKU: "0606380",
     imgUrl: {
@@ -457,7 +471,7 @@ const productDB = [
       amount: 34,
     },
     properties: {
-      describe: "Sapphire Crystal",
+      collection: "Sapphire Crystal",
       movement: "Swiss Quartz",
       caseColor: "Stainless Steel",
       dialColor: "Blue Dial with Silver Tone Hands",
@@ -472,6 +486,7 @@ const productDB = [
   },
   {
     id: 14,
+    gift: "her",
     name: "PORTRAIT GENT WATCH",
     SKU: "SFDR00519",
     imgUrl: {
@@ -488,7 +503,7 @@ const productDB = [
       amount: 0,
     },
     properties: {
-      describe:
+      collection:
         "The new Ferragamo Portrait Gent is a contemporary and glamourous collection with a vintage inspiration. It is characterized by geometrical shapes and a minimalist taste. The strap versions come with karung leather in 3 classical yet very chic color variations.",
       movement: "Quartz Movement",
       caseColor: "IP Gold 1N Rectangular Case",
@@ -504,6 +519,7 @@ const productDB = [
   },
   {
     id: 15,
+    gift: "her",
     name: "MINUETTO WATCH",
     SKU: "SF8200519",
     imgUrl: {
@@ -520,7 +536,7 @@ const productDB = [
       amount: 2,
     },
     properties: {
-      describe:
+      collection:
         "The new Ferragamo Portrait Gent is a contemporary and glamourous collection with a vintage inspiration. It is characterized by geometrical shapes and a minimalist taste. The strap versions come with karung leather in 3 classical yet very chic color variations.",
       movement: "Quartz Movement",
       caseColor: "IP Gold 1N Case",
@@ -536,6 +552,7 @@ const productDB = [
   },
   {
     id: 16,
+    gift: "her",
     name: "SAWYER",
     SKU: "MK2580",
     imgUrl: {
@@ -552,7 +569,7 @@ const productDB = [
       amount: 10,
     },
     properties: {
-      describe:
+      collection:
         "The new Ferragamo Portrait Gent is a contemporary and glamourous collection with a vintage inspiration. It is characterized by geometrical shapes and a minimalist taste. The strap versions come with karung leather in 3 classical yet very chic color variations.",
       movement: "Quartz",
       caseColor: "Rose-Gold Plated Stainless Steel",
@@ -568,6 +585,7 @@ const productDB = [
   },
   {
     id: 17,
+    gift: "her",
     name: "MUSEUM SPORT BLACK PVD WATCH",
     SKU: "0606615",
     imgUrl: {
@@ -584,7 +602,7 @@ const productDB = [
       amount: 4,
     },
     properties: {
-      describe:
+      collection:
         "The new Ferragamo Portrait Gent is a contemporary and glamourous collection with a vintage inspiration. It is characterized by geometrical shapes and a minimalist taste.",
       movement: "Swiss Quartz",
       caseColor: "Black PVD-finished Stainless Steel",
@@ -602,6 +620,7 @@ const productDB = [
   },
   {
     id: 18,
+    gift: "her",
     name: "SPORT EDGE WATCH",
     SKU: "0606927",
     imgUrl: {
@@ -618,7 +637,7 @@ const productDB = [
       amount: 21,
     },
     properties: {
-      describe:
+      collection:
         "The new Ferragamo Portrait Gent is a contemporary and glamourous collection with a vintage inspiration. It is characterized by geometrical shapes and a minimalist taste.",
       movement: "Swiss Quartz",
       caseColor: "Stainless Steel Case",
@@ -634,6 +653,7 @@ const productDB = [
   },
   {
     id: 19,
+    gift: "her",
     name: "MUSEUM CLASSIC WATCH",
     SKU: "0606610",
     imgUrl: {
@@ -650,7 +670,7 @@ const productDB = [
       amount: 18,
     },
     properties: {
-      describe:
+      collection:
         "The new Ferragamo Portrait Gent is a contemporary and glamourous collection with a vintage inspiration. It is characterized by geometrical shapes and a minimalist taste.",
       movement: "Swiss Quartz",
       caseColor: "Stainless Steel",
@@ -667,6 +687,7 @@ const productDB = [
   },
   {
     id: 20,
+    gift: "her",
     name: "MOVADO BOLD BLACK TITANIUM WATCH",
     SKU: "3600190",
     imgUrl: {
@@ -677,13 +698,13 @@ const productDB = [
     },
     price: 28000000,
     sale: 0,
-    tech: "quartz",
+    tech: "mechanical",
     availability: {
       status: true,
       amount: 12,
     },
     properties: {
-      describe:
+      collection:
         "The new Ferragamo Portrait Gent is a contemporary and glamourous collection with a vintage inspiration. It is characterized by geometrical shapes and a minimalist taste.",
       movement: "Swiss Quartz",
       caseColor: "Titanium",
@@ -699,6 +720,7 @@ const productDB = [
   },
   {
     id: 21,
+    gift: "him",
     name: "MOVADO BOLD MEDIUM TWO-TONE WATCH",
     SKU: "3600129",
     imgUrl: {
@@ -709,13 +731,13 @@ const productDB = [
     },
     price: 12000000,
     sale: 0,
-    tech: "quartz",
+    tech: "mechanical",
     availability: {
       status: true,
       amount: 10,
     },
     properties: {
-      describe:
+      collection:
         "The new Ferragamo Portrait Gent is a contemporary and glamourous collection with a vintage inspiration. It is characterized by geometrical shapes and a minimalist taste.",
       movement: "Swiss Quartz",
       caseColor: "Yellow Gold Ion-Plated Stainless Steel",
@@ -732,6 +754,7 @@ const productDB = [
   },
   {
     id: 22,
+    gift: "him",
     name: "MOVADO BOLD MEDIUM YELLOW GOLD WATCH",
     SKU: " 3600104",
     imgUrl: {
@@ -742,13 +765,13 @@ const productDB = [
     },
     price: 21000000,
     sale: 99,
-    tech: "quartz",
+    tech: "mechanical",
     availability: {
       status: true,
       amount: 400,
     },
     properties: {
-      describe:
+      collection:
         "The new Ferragamo Portrait Gent is a contemporary and glamourous collection with a vintage inspiration. It is characterized by geometrical shapes and a minimalist taste.",
       movement: "Swiss Quartz",
       caseColor: "Yellow Gold Ion-Plated Stainless Steel",
@@ -764,6 +787,7 @@ const productDB = [
   },
   {
     id: 23,
+    gift: "him",
     name: "HERITAGE SERIES CALENDOPLAN S CHRONOGRAPH WATCH",
     SKU: " 3650062",
     imgUrl: {
@@ -774,13 +798,13 @@ const productDB = [
     },
     price: 25000000,
     sale: 0,
-    tech: "quartz",
+    tech: "mechanical",
     availability: {
       status: true,
       amount: 10,
     },
     properties: {
-      describe:
+      collection:
         "The new Ferragamo Portrait Gent is a contemporary and glamourous collection with a vintage inspiration. It is characterized by geometrical shapes and a minimalist taste.",
       movement: "Swiss Quartz",
       caseColor:
@@ -799,6 +823,7 @@ const productDB = [
   },
   {
     id: 24,
+    gift: "him",
     name: "MOVADO BOLD LARGE EVOLUTION WATCH",
     SKU: "3600510",
     imgUrl: {
@@ -809,18 +834,513 @@ const productDB = [
     },
     price: 23000000,
     sale: 20,
-    tech: "quartz",
+    tech: "mechanical",
     availability: {
       status: true,
       amount: 50,
     },
     properties: {
-      describe:
-        "The new Ferragamo Portrait Gent is a contemporary and glamourous describe with a vintage inspiration. It is characterized by geometrical shapes and a minimalist taste.",
+      collection:
+        "The new Ferragamo Portrait Gent is a contemporary and glamourous collection with a vintage inspiration. It is characterized by geometrical shapes and a minimalist taste.",
       movement: "Swiss Quartz",
       caseColor: "Blue Ion plated Stainless Steel case",
       dialColor: "Blue Sunray dial with matching Sunray dot/hands",
       strap: "Blue ion-plated stainless steel link bracelet",
+      waterResistant: "30 meters",
+      warranty: "2 years",
+    },
+    rate: {
+      star: 5,
+      amount: 213,
+    },
+  },
+  {
+    id: 25,
+    gift: "him",
+    name: "IT'S TIME",
+    SKU: "REL0102BLNMAR0U",
+    imgUrl: {
+      no1: "https://shopalbertopr.com/cdn/shop/products/PDTSHOT_8_3cb3cd8a-41c7-43b0-baf1-a103b8378bd7_1000x.png?v=1635102820",
+      no2: "https://shopalbertopr.com/cdn/shop/products/rel0102blnmar0u_1_1000x.jpg?v=1635102820",
+      no3: "",
+      no4: "",
+    },
+    price: 23000000,
+    sale: 20,
+    tech: "mechanical",
+    availability: {
+      status: true,
+      amount: 50,
+    },
+    properties: {
+      collection:
+        "Woman leather watch with square case in silver-plated metal alloy. Case handcarved. Quartz movement. Mineral crystal and handmade adjustable watchband.",
+      movement: "Swiss Quartz",
+      caseColor: "Blue Ion plated Stainless Steel case",
+      dialColor: "Blue Sunray dial with matching Sunray dot/hands",
+      strap: "Blue ion-plated stainless steel link bracelet",
+      waterResistant: "30 meters",
+      warranty: "2 years",
+    },
+    rate: {
+      star: 5,
+      amount: 213,
+    },
+  },
+  {
+    id: 26,
+    gift: "him",
+    name: "PRT WATCH",
+    SKU: "AW7023-52A",
+    imgUrl: {
+      no1: "https://shopalbertopr.com/cdn/shop/products/AW7023-52A_1_1000x.png?v=1605669258",
+      no2: "https://shopalbertopr.com/cdn/shop/products/AW7023-52A-2_1000x.png?v=1605669258",
+      no3: "",
+      no4: "",
+    },
+    price: 25000000,
+    sale: 20,
+    tech: "mechanical",
+    availability: {
+      status: true,
+      amount: 50,
+    },
+    properties: {
+      collection:
+        "Woman leather watch with square case in silver-plated metal alloy. Case handcarved. Quartz movement. Mineral crystal and handmade adjustable watchband.",
+      movement: "Swiss Quartz",
+      caseColor: "Blue Ion plated Stainless Steel case",
+      dialColor: "Blue Sunray dial with matching Sunray dot/hands",
+      strap: "Blue ion-plated stainless steel link bracelet",
+      waterResistant: "30 meters",
+      warranty: "2 years",
+    },
+    rate: {
+      star: 5,
+      amount: 213,
+    },
+  },
+  {
+    id: 27,
+    gift: "him",
+    name: "BRYCEN WATCH",
+    SKU: "BL5568-54L",
+    imgUrl: {
+      no1: "https://shopalbertopr.com/cdn/shop/products/BL5568-54L_1_1000x.png?v=1605666756",
+      no2: "https://shopalbertopr.com/cdn/shop/products/BL5568-54L-2_1000x.png?v=1605666756",
+      no3: "https://shopalbertopr.com/cdn/shop/products/BL5568-54L-3_1000x.png?v=1605666756",
+      no4: "https://shopalbertopr.com/cdn/shop/products/BL5568-54L-4_1000x.png?v=1605666756",
+    },
+    price: 28000000,
+    sale: 20,
+    tech: "mechanical",
+    availability: {
+      status: true,
+      amount: 12,
+    },
+    properties: {
+      collection:
+        "Taking it up a notch with the reinvented Citizen Perpetual Calendar Chrono timepiece with a 1/20 second chronograph, perpetual calendar and dual time in a stainless steel case and bracelet completed with a blue-gray dial. Featuring our Eco-Drive technology – powered by light, any light. Never needs a battery. Caliber number E820.",
+      movement: "Eco Drive Technology",
+      caseColor: "Stainless Steel Bracelet",
+      dialColor: "Blue Dial with Luminous Hands",
+      strap: "Eco Drive Technology",
+      waterResistant: "30 meters",
+      warranty: "2 years",
+    },
+    rate: {
+      star: 5,
+      amount: 213,
+    },
+  },
+  {
+    id: 28,
+    gift: "him",
+    name: "PROMASTER DIVER WATCH",
+    SKU: "BN0191-55L",
+    imgUrl: {
+      no1: "https://shopalbertopr.com/cdn/shop/products/BN0191-55L_1_1000x.png?v=1605669002",
+      no2: "https://shopalbertopr.com/cdn/shop/products/BN0191-55L-2_1000x.png?v=1605669002",
+      no3: "",
+      no4: "",
+    },
+    price: 29000000,
+    sale: 20,
+    tech: "mechanical",
+    availability: {
+      status: true,
+      amount: 13,
+    },
+    properties: {
+      collection:
+        "Proof that a dive watch can be fun & functional with the CITIZEN ISO-compliant Promaster Diver. .",
+      movement: "Eco Drive Technology",
+      caseColor: "Stainless Steel Bracelet",
+      dialColor: "Blue, Luminous Hands and Markers",
+      strap: "Eco Drive Technology",
+      waterResistant: "30 meters",
+      warranty: "2 years",
+    },
+    rate: {
+      star: 5,
+      amount: 213,
+    },
+  },
+  {
+    id: 29,
+    gift: "him",
+    name: "Piccadilly Steel 40",
+    SKU: "PC40MAD2R",
+    imgUrl: {
+      no1: "https://shopalbertopr.com/cdn/shop/products/0731516000016_NAPCNF106_999_A_1800x1800.jpg?v=1645586157",
+      no2: "https://shopalbertopr.com/cdn/shop/products/0731516000085_NAPCNF106_999_E_800x.jpg?v=1645586158",
+      no3: "https://shopalbertopr.com/cdn/shop/products/0731516000054_NAPCNF106_999_H_1800x1800.jpg?v=1645586159",
+      no4: "",
+    },
+    price: 98000000,
+    sale: 20,
+    tech: "mechanical",
+    availability: {
+      status: true,
+      amount: 2,
+    },
+    properties: {
+      collection:
+        "Proof that a dive watch can be fun & functional with the CITIZEN ISO-compliant Promaster Diver. .",
+      movement: "Automatic",
+      caseColor: "Stainless Steel",
+      dialColor: "Blue, Luminous Hands and Markers",
+      strap: "Eco Drive Technology",
+      waterResistant: "30 meters",
+      warranty: "2 years",
+    },
+    rate: {
+      star: 5,
+      amount: 213,
+    },
+  },
+  {
+    id: 30,
+    gift: "him",
+    name: "Datejust 41",
+    SKU: "126334",
+    imgUrl: {
+      no1: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2924.jpg",
+      no2: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2929.jpg",
+      no3: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2932-416x416.jpg",
+      no4: "",
+    },
+    price: 98000000,
+    sale: 20,
+    tech: "mechanical",
+    availability: {
+      status: true,
+      amount: 2,
+    },
+    properties: {
+      collection:
+        "Proof that a dive watch can be fun & functional with the CITIZEN ISO-compliant Promaster Diver. .",
+      movement: "Automatic",
+      caseColor: "Jubilee",
+      dialColor: "Black Dial",
+      strap: "Eco Drive Technology",
+      waterResistant: "30 meters",
+      warranty: "2 years",
+    },
+    rate: {
+      star: 5,
+      amount: 213,
+    },
+  },
+  {
+    id: 31,
+    gift: "him",
+    name: "Yacht-Master",
+    SKU: "16622",
+    imgUrl: {
+      no1: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2918.jpg",
+      no2: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2939-416x416.jpg",
+      no3: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2943-416x416.jpg",
+      no4: "",
+    },
+    price: 21000000,
+    sale: 20,
+    tech: "mechanical",
+    availability: {
+      status: true,
+      amount: 4,
+    },
+    properties: {
+      collection:
+        "Proof that a dive watch can be fun & functional with the CITIZEN ISO-compliant Promaster Diver. .",
+      movement: "Automatic",
+      caseColor: "Stainless Steel",
+      dialColor: "platinum dial",
+      strap: "Eco Drive Technology",
+      waterResistant: "30 meters",
+      warranty: "2 years",
+    },
+    rate: {
+      star: 5,
+      amount: 213,
+    },
+  },
+  {
+    id: 32,
+    gift: "him",
+    name: "Submariner ",
+    SKU: "14060M ",
+    imgUrl: {
+      no1: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2919.jpg",
+      no2: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2909-416x416.jpg",
+      no3: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2911-416x416.jpg",
+      no4: "",
+    },
+    price: 27000000,
+    sale: 20,
+    tech: "mechanical",
+    availability: {
+      status: true,
+      amount: 7,
+    },
+    properties: {
+      collection:
+        "Proof that a dive watch can be fun & functional with the CITIZEN ISO-compliant Promaster Diver. .",
+      movement: "Automatic",
+      caseColor: "minor marks",
+      dialColor: "D-Serial",
+      strap: "Eco Drive Technology",
+      waterResistant: "30 meters",
+      warranty: "2 years",
+    },
+    rate: {
+      star: 5,
+      amount: 213,
+    },
+  },
+  {
+    id: 33,
+    gift: "him",
+    name: "Daytona",
+    SKU: "116508",
+    imgUrl: {
+      no1: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2870.jpg",
+      no2: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2867-416x416.jpg",
+      no3: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2868-416x416.jpg",
+      no4: "",
+    },
+    price: 21000000,
+    sale: 20,
+    tech: "mechanical",
+    availability: {
+      status: true,
+      amount: 4,
+    },
+    properties: {
+      collection:
+        "Proof that a dive watch can be fun & functional with the CITIZEN ISO-compliant Promaster Diver. .",
+      movement: "Automatic",
+      caseColor: "Stainless Steel",
+      dialColor: "Yellow gold",
+      strap: "Eco Drive Technology",
+      waterResistant: "30 meters",
+      warranty: "2 years",
+    },
+    rate: {
+      star: 5,
+      amount: 213,
+    },
+  },
+  {
+    id: 34,
+    gift: "him",
+    name: "Datejust 36",
+    SKU: "126233",
+    imgUrl: {
+      no1: "https://millenarywatches.com/wp-content/uploads/2023/08/IMG_1999.jpg",
+      no2: "https://millenarywatches.com/wp-content/uploads/2023/08/IMG_2002-416x416.jpg",
+      no3: "https://millenarywatches.com/wp-content/uploads/2023/08/IMG_2004-416x416.jpg",
+      no4: "",
+    },
+    price: 22000000,
+    sale: 20,
+    tech: "mechanical",
+    availability: {
+      status: true,
+      amount: 3,
+    },
+    properties: {
+      collection:
+        "Proof that a dive watch can be fun & functional with the CITIZEN ISO-compliant Promaster Diver. .",
+      movement: "Automatic",
+      caseColor: "Champagne Dial",
+      dialColor: "yellow gold fluted bezel",
+      strap: "Eco Drive Technology",
+      waterResistant: "30 meters",
+      warranty: "2 years",
+    },
+    rate: {
+      star: 5,
+      amount: 213,
+    },
+  },
+  {
+    id: 35,
+    gift: "him",
+    name: "Oyster Date",
+    SKU: "6919",
+    imgUrl: {
+      no1: "https://millenarywatches.com/wp-content/uploads/2023/09/IMG_2111.jpg",
+      no2: "https://millenarywatches.com/wp-content/uploads/2023/09/IMG_2112-416x416.jpg",
+      no3: "https://millenarywatches.com/wp-content/uploads/2023/09/IMG_2118-416x416.jpg",
+      no4: "https://millenarywatches.com/wp-content/uploads/2023/09/IMG_2117-416x416.jpg",
+    },
+    price: 24000000,
+    sale: 0,
+    tech: "mechanical",
+    availability: {
+      status: true,
+      amount: 1,
+    },
+    properties: {
+      collection:
+        "A classic and elegant Rolex Oyster Date reference 6919 with an engine-tuned bezel and Jubilee bracelet.",
+      movement: "Automatic",
+      caseColor: "Box & Original Receipt",
+      dialColor: "platinum dial",
+      strap: "Eco Drive Technology",
+      waterResistant: "30 meters",
+      warranty: "2 years",
+    },
+    rate: {
+      star: 5,
+      amount: 213,
+    },
+  },
+  {
+    id: 36,
+    gift: "him",
+    name: "Daytona Two-Tone",
+    SKU: "116503",
+    imgUrl: {
+      no1: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2686-2.jpg",
+      no2: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2672-416x367.jpg",
+      no3: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2669-416x397.jpg",
+      no4: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2668-416x277.jpg",
+    },
+    price: 21000000,
+    sale: 0,
+    tech: "mechanical",
+    availability: {
+      status: true,
+      amount: 4,
+    },
+    properties: {
+      collection:
+        "Proof that a dive watch can be fun & functional with the CITIZEN ISO-compliant Promaster Diver. .",
+      movement: "Automatic",
+      caseColor: "Stainless Steel",
+      dialColor: "Black Dial",
+      strap: "Eco Drive Technology",
+      waterResistant: "30 meters",
+      warranty: "2 years",
+    },
+    rate: {
+      star: 5,
+      amount: 213,
+    },
+  },
+  {
+    id: 37,
+    gift: "him",
+    name: "Sky-Dweller",
+    SKU: "336934",
+    imgUrl: {
+      no1: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2777.jpg",
+      no2: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2771-416x416.jpg",
+      no3: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2770-416x416.jpg",
+      no4: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2772-416x416.jpg",
+    },
+    price: 21000000,
+    sale: 0,
+    tech: "mechanical",
+    availability: {
+      status: true,
+      amount: 9,
+    },
+    properties: {
+      collection:
+        "Proof that a dive watch can be fun & functional with the CITIZEN ISO-compliant Promaster Diver. .",
+      movement: "Automatic",
+      caseColor: "Stainless Steel",
+      dialColor: "Green Dial Unworn",
+      strap: "Eco Drive Technology",
+      waterResistant: "30 meters",
+      warranty: "2 years",
+    },
+    rate: {
+      star: 5,
+      amount: 213,
+    },
+  },
+  {
+    id: 38,
+    gift: "him",
+    name: "Explorer II ",
+    SKU: "16550",
+    imgUrl: {
+      no1: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2680.jpg",
+      no2: "https://millenarywatches.com/wp-content/uploads/2023/11/Namnlo%CC%88st-1-416x416.jpg",
+      no3: "https://millenarywatches.com/wp-content/uploads/2023/11/Namnlo%CC%88st-1-1-416x416.jpg",
+      no4: "https://millenarywatches.com/wp-content/uploads/2023/11/Namnlo%CC%88st-1-2-416x416.jpg",
+    },
+    price: 28000000,
+    sale: 0,
+    tech: "mechanical",
+    availability: {
+      status: true,
+      amount: 4,
+    },
+    properties: {
+      collection:
+        "Presenting a rare and unique opportunity for the collector. A Rolex Explorer II reference 16550 complete with box, papers, and additional accessories with matching serial numbers. The watch is unpolished and presented with a striking black “spider dial”. The tritium on the indices and hands have developed a stunning matching patina.",
+      movement: "Automatic",
+      caseColor: "Complete Rare Collector’s set",
+      dialColor: "Rail Dial",
+      strap: "Eco Drive Technology",
+      waterResistant: "30 meters",
+      warranty: "2 years",
+    },
+    rate: {
+      star: 5,
+      amount: 213,
+    },
+  },
+  {
+    id: 39,
+    gift: "him",
+    name: "Day Date",
+    SKU: "118138",
+    imgUrl: {
+      no1: "https://millenarywatches.com/wp-content/uploads/2022/05/IMG_5233.jpg",
+      no2: "https://millenarywatches.com/wp-content/uploads/2022/05/IMG_5235-768x768.jpg",
+      no3: "https://millenarywatches.com/wp-content/uploads/2022/05/IMG_5234-768x768.jpg",
+      no4: "https://millenarywatches.com/wp-content/uploads/2022/05/IMG_5237-768x768.jpg",
+    },
+    price: 25000000,
+    sale: 0,
+    tech: "mechanical",
+    availability: {
+      status: true,
+      amount: 4,
+    },
+    properties: {
+      collection:
+        "An iconic Rolex watch with a clear Rolex design language. This Day-Date 36 reference 118138 is presented with a striking green sunburst dial with a green alligator leather strap. The green color pairs perfectly with the yellow gold of the case. The watch comes with box and papers dated 2014. It is in excellent pre-owned condition and has never been polished. with the CITIZEN ISO-compliant Promaster Diver. .",
+      movement: "Automatic",
+      caseColor: "Green Dial 2014",
+      dialColor: "Yellow Gold",
+      strap: "Eco Drive Technology",
       waterResistant: "30 meters",
       warranty: "2 years",
     },

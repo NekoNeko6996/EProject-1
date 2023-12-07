@@ -12,10 +12,16 @@ import logo from "./resource/logo/Logo.png";
 import iconFacebook from "./resource/icon/icons8-facebook-50.png";
 import iconInstagram from "./resource/icon/icons8-instagram-50.png";
 import iconTwitter from "./resource/icon/icons8-twitter-50.png";
+import upArrow from "./resource/icon/icons8-double-up-50.png";
 
 //
 function App() {
   const [cartAmount, setCartAmount] = useState(0);
+  const [userStatus, setUserStatus] = useState(null);
+
+  // eslint-disable-next-line no-unused-vars
+  const [numberAccess, setNumberAccess] = useState(2314);
+  //
   const CartDataSession = window.sessionStorage.getItem("productAdd");
 
   useEffect(() => {
@@ -26,15 +32,19 @@ function App() {
       CartData = CartDataSession.split(",").map(Number);
       setCartAmount(CartData.length);
     }
+
+    // get user account
+    setUserStatus(window.sessionStorage.getItem("user"));
   }, [CartDataSession]);
 
-  //
+  // when pressing log out
   const onLogout = () => {
     window.sessionStorage.removeItem("user");
-    window.location.reload();
+    toast.success("Logout Success");
+    setUserStatus(null);
   };
 
-  //
+  //  when pressing register in footer
   const onRegisterClick = () => {
     if (window.sessionStorage.getItem("user")) {
       toast.warn("You are logged in");
@@ -50,6 +60,14 @@ function App() {
     else nav.className = "home-nav-close";
   };
 
+  // scroll up
+  const scrollUp = () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div id="App">
       <header id="home-header">
@@ -61,7 +79,7 @@ function App() {
         </a>
         <div id="home-account-box">
           <div id="user-container">
-            {window.sessionStorage.getItem("user") ? (
+            {userStatus ? (
               <p id="home-account-p" onClick={onLogout}>
                 Logout
               </p>
@@ -88,10 +106,10 @@ function App() {
           <p className="text-hover-animate">TECHNOLOGY</p>
           <div className="hidden-option">
             <ul>
-              <a href="/">
+              <a href="/tech/mechanical">
                 <li>Mechanical</li>
               </a>
-              <a href="/">
+              <a href="/tech/quartz">
                 <li>Quartz</li>
               </a>
             </ul>
@@ -146,7 +164,17 @@ function App() {
             <p className="text-hover-animate">CONTACT US</p>
           </span>
         </a>
-        <div id="nav-hidden-btn" onClick={onHideBtnClick}></div>
+
+        <input
+          type="checkbox"
+          name="hide-nav-checkbox"
+          id="hide-nav-checkbox"
+        />
+        <label
+          htmlFor="hide-nav-checkbox"
+          id="nav-hidden-btn"
+          onClick={onHideBtnClick}
+        ></label>
       </nav>
       {/* child loader */}
       <Outlet></Outlet>
@@ -154,7 +182,7 @@ function App() {
       {/* message box */}
       <ToastContainer
         position="bottom-center"
-        autoClose={4000}
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -227,8 +255,12 @@ function App() {
           >
             REGISTER NOW
           </button>
+          <p id="access-box">The Number Of Accesses: {numberAccess}</p>
         </div>
       </footer>
+      <div id="scroll-box" onClick={scrollUp}>
+        <img src={upArrow} alt="up arrow" />
+      </div>
     </div>
   );
 }

@@ -1,100 +1,136 @@
 /* contact container */
 #contact-container {
-    width: 1440px;
+  max-width: 1440px;
+  width: 100%;
 
-    margin: 30px 0 30px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin: 30px 0 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #contact-title-h1 {
-    animation: contact-title-animate .4s linear;
-    margin: 40px 0 30px 0;
-    position: relative;
-    opacity: 0;
-    animation-fill-mode: forwards;
+  animation: contact-title-animate 0.4s linear;
+  margin: 40px 0 30px 0;
+  position: relative;
+  opacity: 0;
+  animation-fill-mode: forwards;
 }
 #contact-textarea {
-    height: 400px;
-    width: 600px;
-    margin: 0 0 30px 0;
-    padding: 10px 10px 10px 10px;
-    border-radius: 10px;
-    animation: contact-title-animate .4s .2s linear;
-    opacity: 0;
-    animation-fill-mode: forwards;
-    position: relative;
+  height: 400px;
+  width: 90%;
+  max-width: 600px;
+
+  margin: 0 0 30px 0;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  animation: contact-title-animate 0.4s 0.2s linear;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  position: relative;
 }
 
 #contact-email-input-container {
-    width: 600px;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 0 20px 0;
-    animation: contact-title-animate .4s .4s linear;
-    opacity: 0;
-    animation-fill-mode: forwards;
-    position: relative;
+  width: 90%;
+  max-width: 600px;
+
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 20px 0;
+  animation: contact-title-animate 0.4s 0.4s linear;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  position: relative;
 }
 
 #contact-input-email {
-    height: 35px;
-    width: 80%;
-    padding: 0 0 0 10px;
+  height: 35px;
+  width: 80%;
+  padding: 0 0 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #contact-send-btn {
-    height: 35px;
-    width: 18%;
+  height: 35px;
+  width: 18%;
 }
 
+/* --- */
 #contact-title-h2 {
-    margin: 40px 0 30px 0;
-    position: relative;
-    opacity: 0;
-    animation: contact-title-animate .4s .6s linear;
-    animation-fill-mode: forwards;
+  margin: 40px 0 30px 0;
+  position: relative;
+  opacity: 0;
+  animation: contact-title-animate 0.4s 0.6s linear;
+  animation-fill-mode: forwards;
 }
 
 #contact-container p {
-    position: relative;
-    opacity: 0;
-    animation-fill-mode: forwards;
+  position: relative;
+  opacity: 0;
+  animation-fill-mode: forwards;
 }
 
 #contact-p-01 {
-    animation: contact-title-animate .4s .8s linear;
+  animation: contact-title-animate 0.4s 0.8s linear;
+  text-align: center;
 }
 #contact-p-02 {
-    animation: contact-title-animate .4s 1s linear;
+  animation: contact-title-animate 0.4s 1s linear;
 }
 #contact-p-03 {
-    animation: contact-title-animate .4s 1.2s linear;
+  animation: contact-title-animate 0.4s 1.2s linear;
 }
 
 #contact-map {
-    border: 1px solid black;
-    position: relative;
-    opacity: 0;
-    animation: contact-title-animate .4s 1.4s linear;
-    animation-fill-mode: forwards;
+  width: 90%;
+  max-width: 600px;
+
+  border: 1px solid black;
+  position: relative;
+  opacity: 0;
+  animation: contact-title-animate 0.4s 1.4s linear;
+  animation-fill-mode: forwards;
 }
 
 @keyframes contact-title-animate {
-    0% {
-        opacity: 0;
-        top: -20px;
-    }
-    50% {
-        opacity: .5;
-        top: -10px;
-    }
-    100% {
-        opacity: 1;
-        top: 0px;
-    }
+  0% {
+    opacity: 0;
+    top: -20px;
+  }
+  50% {
+    opacity: 0.5;
+    top: -10px;
+  }
+  100% {
+    opacity: 1;
+    top: 0px;
+  }
 }
 
+/* ---------------------------------- */
+@media screen and (max-width: 660px) {
+  #contact-title-h1 {
+    font-size: 27px;
+  }
+  #contact-title-h2 {
+    font-size: 25px;
+  }
+}
 
-
+@media screen and (max-width: 500px) {
+  #contact-title-h1 {
+    font-size: 23px;
+  }
+  #contact-title-h2 {
+    font-size: 20px;
+  }
+  #contact-input-email {
+    font-size: 12px;
+  }
+  #contact-p-01,
+  #contact-p-02,
+  #contact-p-03 {
+    font-size: 12px;
+  }
+}

@@ -38,12 +38,17 @@ function ProductContainerLoader({ limit, page, random, sort, callback }) {
         // find sale
         sortData = productDB.filter((data) => (data.sale !== 0 ? data : false));
         break;
+      case "tech":
+        // find tech
+        sortData = productDB.filter((data) =>
+          data.tech === sort.value ? data : null
+        );
+        break;
 
       default:
         sortData = productDB;
         break;
     }
-
     // get random
     if (random) {
       let shuffled = sortData.sort(() => 0.5 - Math.random());
@@ -67,8 +72,20 @@ function ProductContainerLoader({ limit, page, random, sort, callback }) {
       {data.map((data, index) => (
         <Link to={`/product/${data.id}`} className="productLink" key={index}>
           <div className="items-box">
+            {data.sale ? (
+              <div className="items-label">
+                <span>-</span>
+                {data.sale}%
+              </div>
+            ) : null}
             <img src={data.imgUrl.no1} alt={data.name} className="items-img" />
+            <img
+              src={data.imgUrl.no2}
+              alt={data.name}
+              className="items-img-1"
+            />
             <p className="items-name">{data.name}</p>
+            <p id="product-load-rate-star">{"⭐".repeat(data.rate.star)}</p>
             <div className="items-price-container">
               <p className="items-price">
                 {data.price.toLocaleString("VN-vi", {
@@ -76,9 +93,17 @@ function ProductContainerLoader({ limit, page, random, sort, callback }) {
                   currency: "VND",
                 })}
               </p>
-              {data.sale ? (
-                <div className="items-label">{data.sale}% off</div>
-              ) : null}
+              <p className="items-price-discounted">
+                {data.sale
+                  ? ((data.price / (100 - data.sale)) * 100).toLocaleString(
+                      "VN-vi",
+                      {
+                        style: "currency",
+                        currency: "VND",
+                      }
+                    )
+                  : null}
+              </p>
             </div>
           </div>
         </Link>

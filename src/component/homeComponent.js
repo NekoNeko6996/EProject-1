@@ -34,7 +34,7 @@ function HomeComponent() {
 
   // limit item in one page
   const limitItems = 20;
-  
+
   // min, max, unit of price slider
   const min = 10,
     max = 500,
@@ -64,8 +64,18 @@ function HomeComponent() {
             behavior: "smooth",
           });
           setSortObject({
-            action: "sale",
-            value: "",
+            action: action,
+            value: "sales",
+          });
+          break;
+        case "tech":
+          window.scroll({
+            top: 800,
+            behavior: "smooth",
+          });
+          setSortObject({
+            action: action,
+            value: params.tech,
           });
           break;
 
@@ -73,13 +83,17 @@ function HomeComponent() {
           break;
       }
     },
-    [priceFrom, priceTo, searchText]
+    [priceFrom, priceTo, searchText, params]
   );
 
   // act based on params
   useEffect(() => {
     if (params.saleStatus) {
       onSort("sale");
+    }
+    console.log(params.tech);
+    if (params.tech) {
+      onSort("tech", params.technology);
     }
   }, [params, onSort]);
 
@@ -153,6 +167,9 @@ function HomeComponent() {
             onClick={() => onSort("search")}
           />
         </form>
+      </nav>
+      <nav id="section-title">
+        <h1>{sortObject.value ? sortObject.value.toUpperCase() : "PRODUCT"}</h1>
       </nav>
       <section id="home-section">
         <aside id="home-sort-option">

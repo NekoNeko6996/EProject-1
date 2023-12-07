@@ -140,11 +140,25 @@ function ProductComponent() {
                 onClick={() => setQuantity((prev) => (prev += 1))}
               ></button>
             </div>
-            <div id="price">
-              {(product.price * quantity).toLocaleString("VN-vi", {
-                style: "currency",
-                currency: "VND",
-              })}
+            <div id="price-container">
+              <p id="price-discounted">
+                {product.sale > 0
+                  ? (
+                      (product.price / (100 - product.sale)) *
+                      100 *
+                      quantity
+                    ).toLocaleString("VN-vi", {
+                      style: "currency",
+                      currency: "VND",
+                    })
+                  : null}
+              </p>
+              <p id="price">
+                {(product.price * quantity).toLocaleString("VN-vi", {
+                  style: "currency",
+                  currency: "VND",
+                })}
+              </p>
             </div>
           </div>
           <div id="buttons">

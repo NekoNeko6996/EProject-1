@@ -78,12 +78,13 @@
 }
 
 .home-nav-close {
-  height: 50px;
+  height: 55px;
 }
 .home-nav-open {
   height: 360px;
 }
 
+/* --- */
 #home-nav a {
   text-decoration: none;
   color: black;
@@ -119,7 +120,7 @@
   border-radius: 5px;
   background-color: #cccccc;
   position: absolute;
-  top: 5px;
+  top: 9px;
   right: 10px;
   opacity: 0;
   z-index: -2;
@@ -132,18 +133,39 @@
   position:absolute;
   height: 5px;
   width: 25px; 
-  background-color: black;
+  background-color: #555;
   top: 10px;
+  transition: top .2s ease-in-out, rotate .2s ease-in-out .2s;
 }
 #nav-hidden-btn::after {
   content: "";
   position:absolute;
   height: 5px;
   width: 25px; 
-  background-color: black;
+  background-color: #555;
   top: 20px;
+  transition: top .2s ease-in-out, rotate .2s ease-in-out .2s;
+}
+#hide-nav-checkbox:not(:checked) ~ #nav-hidden-btn::before {
+  transition: top .2s ease-in-out .2s, rotate .2s ease-in-out;
+}
+#hide-nav-checkbox:not(:checked) ~ #nav-hidden-btn::after {
+  transition: top .2s ease-in-out .2s, rotate .2s ease-in-out;
 }
 
+/* -hide nav check box- */
+#hide-nav-checkbox {
+  display: none;
+}
+#hide-nav-checkbox:checked ~ #nav-hidden-btn::before {
+  top: 16px;
+  rotate: 45deg;
+}
+
+#hide-nav-checkbox:checked ~ #nav-hidden-btn::after {
+  top: 16px;
+  rotate: -45deg;
+}
 /* - */
 .hidden-option {
   position: absolute;
@@ -262,6 +284,7 @@
 #footer-create-new-account {
   position: relative;
   margin-left: 20px;
+  padding-right: 20px;
 }
 #footer-create-new-account > * {
   margin-left: 0 !important;
@@ -299,6 +322,54 @@
   color: white;
 }
 
+/*  */
+#access-box {
+  min-height: 40px;
+  height: auto;
+  padding: 10px;  
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+/* scroll box */
+#scroll-box {
+  height: 50px;
+  width: 50px;
+
+  border-radius: 50%;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: white;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5px #444444;
+}
+#scroll-box img {
+  height: 60%;
+  width: 60%;
+  cursor: pointer;
+}
+#scroll-box {
+  cursor: pointer;
+}
+#scroll-box:hover {
+  animation: scroll-btn 1s linear infinite;
+}
+
+@keyframes scroll-btn {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 
 /* --------------- */
 @media screen and (min-width: 850px) {
