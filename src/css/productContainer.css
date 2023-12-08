@@ -132,6 +132,19 @@
   padding-bottom: 3px;
 }
 
+
+.sold-out-box {
+  position: absolute;
+  z-index: 3;
+  right: 10px;
+  top: 10px;
+  color: white;
+  font-weight: bold;
+  background-color: #AAA;
+  padding: 3px;
+  font-size: 12px;
+}
+
 /* react paginate */
 #paginate-container {
   display: flex;
@@ -175,5 +188,8 @@
   }
   .items-label span {
     padding: 0;
+  }
+  .sold-out-box {
+    font-size: 10px;
   }
 }

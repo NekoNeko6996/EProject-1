@@ -103,8 +103,8 @@ const productDB = [
     sale: 0,
     tech: "quartz",
     availability: {
-      status: true,
-      amount: 14,
+      status: false,
+      amount: 0,
     },
     properties: {
       collection:

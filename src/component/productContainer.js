@@ -15,6 +15,15 @@ function ProductContainerLoader({ limit, page, random, sort, callback }) {
   // create, update data to load item
   useEffect(() => {
     let sortData;
+    let inStock = [],
+      outStock = [];
+
+    productDB.map((data) => {
+      if (data.availability.status) inStock.push(data);
+      else outStock.push(data);
+
+      return null;
+    });
 
     //sort data
     switch (sort.action) {
@@ -44,6 +53,12 @@ function ProductContainerLoader({ limit, page, random, sort, callback }) {
           data.tech === sort.value ? data : null
         );
         break;
+      case "inStock":
+        sortData = inStock;
+        break;
+      case "outStock":
+        sortData = outStock;
+        break;
 
       default:
         sortData = productDB;
@@ -64,7 +79,7 @@ function ProductContainerLoader({ limit, page, random, sort, callback }) {
     setData(dataOnOnePage);
 
     // return data
-    callback(sort.action ? sortData : productDB);
+    callback(sort.action ? sortData : productDB, inStock, outStock);
   }, [page, limit, callback, sort, random]);
 
   return (
@@ -78,6 +93,9 @@ function ProductContainerLoader({ limit, page, random, sort, callback }) {
                 {data.sale}%
               </div>
             ) : null}
+            {data.availability.status ? null : (
+              <p className="sold-out-box">SOLD OUT</p>
+            )}
             <img src={data.imgUrl.no1} alt={data.name} className="items-img" />
             <img
               src={data.imgUrl.no2}

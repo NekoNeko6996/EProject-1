@@ -54,6 +54,18 @@
   color: black;
 }
 
+#cart-link-box {
+  display: flex;
+  flex-direction: row;
+}
+#cart-link-box img {
+  height: 25px;
+  aspect-ratio: 1/1;
+}
+#cart-link-box p {
+  color: #999;
+}
+
 /* navigation */
 #home-nav {
   width: 100%;
@@ -65,7 +77,7 @@
   position: sticky;
   top: 0;
   margin-top: 60px;
-  padding: 0 50px 0 50px;
+  padding: 0 35px 0 35px;
 
   display: flex;
   flex-direction: row;
@@ -75,13 +87,6 @@
   z-index: 10;
   overflow: hidden;
   transition: 0.3s;
-}
-
-.home-nav-close {
-  height: 55px;
-}
-.home-nav-open {
-  height: 360px;
 }
 
 /* --- */
@@ -112,59 +117,52 @@
 }
 
 /* -nav hidden btn- */
-#nav-hidden-btn {
+.nav-hidden-btn {
   height: 35px;
   width: 35px;
   cursor: pointer;
 
   border-radius: 5px;
-  background-color: #cccccc;
-  position: absolute;
-  top: 9px;
-  right: 10px;
+  position: absolute; 
+  left: 20px;
   opacity: 0;
   z-index: -2;
   display: flex;
   justify-content: center;
   transition: .3s;
 }
-#nav-hidden-btn::before {
+.nav-hidden-btn::before {
   content: "";
   position:absolute;
-  height: 5px;
+  height: 3px;
   width: 25px; 
   background-color: #555;
   top: 10px;
   transition: top .2s ease-in-out, rotate .2s ease-in-out .2s;
 }
-#nav-hidden-btn::after {
+.nav-hidden-btn::after {
   content: "";
   position:absolute;
-  height: 5px;
+  height: 3px;
   width: 25px; 
   background-color: #555;
   top: 20px;
   transition: top .2s ease-in-out, rotate .2s ease-in-out .2s;
 }
-#hide-nav-checkbox:not(:checked) ~ #nav-hidden-btn::before {
-  transition: top .2s ease-in-out .2s, rotate .2s ease-in-out;
-}
-#hide-nav-checkbox:not(:checked) ~ #nav-hidden-btn::after {
-  transition: top .2s ease-in-out .2s, rotate .2s ease-in-out;
-}
 
-/* -hide nav check box- */
-#hide-nav-checkbox {
-  display: none;
+#nav-hidden-btn-2 {
+  top: 10px;
+  left: 250px;
 }
-#hide-nav-checkbox:checked ~ #nav-hidden-btn::before {
+#nav-hidden-btn-2::before {
   top: 16px;
   rotate: 45deg;
+  background-color: white;
 }
-
-#hide-nav-checkbox:checked ~ #nav-hidden-btn::after {
+#nav-hidden-btn-2::after {
   top: 16px;
   rotate: -45deg;
+  background-color: white;
 }
 /* - */
 .hidden-option {
@@ -225,6 +223,7 @@
   height: 20px;
   cursor: default;
 }
+
 .span-nav-option:hover > .hidden-option {
   height: auto;
   opacity: 1;
@@ -232,10 +231,10 @@
   z-index: 5;
 }
 /* - */
-#span-product {
+#span-product .hidden-option {
   width: 110px;
-}
-#span-gifts {
+} 
+#span-gifts .hidden-option {
   width: 150px;
 }
 
@@ -350,13 +349,11 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 5px #444444;
+  cursor: pointer;
 }
 #scroll-box img {
   height: 60%;
   width: 60%;
-  cursor: pointer;
-}
-#scroll-box {
   cursor: pointer;
 }
 #scroll-box:hover {
@@ -382,12 +379,80 @@
 
 
 @media screen and (max-width: 850px) {
+  #home-header {
+    border-bottom: 1px solid #999;
+    margin-bottom: 10px;
+    padding: 0 0 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    background-color: white;
+  }
   #home-nav {
+    position: fixed;
+    height: 100%;
+    width: 300px;
     flex-direction: column;
     justify-content: start;
-    padding-top: 3px;
+    align-items: start;
+    padding-top: 30px;
+    border: none;
+    border-right: 1px solid #999;
+    left: 0;
+    top: 0;
+    margin: 0;
+    background-color: #333;
   }
-  #nav-hidden-btn {
+  #home-nav > * {
+    color: white !important;
+  }
+  .home-nav-close {
+    transform: translateX(-300px);
+  }
+  .home-nav-open {
+    transform: translate(0px);
+  }
+  .span-nav-option  {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .hidden-option {
+    position: relative;
+    top: 10px !important;
+    left: 40px;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: visible !important;
+    background-color: #333;
+    border-radius: 0;
+    border: 1px solid white;
+  }
+  .hidden-option * {
+    color: white !important;
+    font-size: 15px;
+  }
+  .hidden-option::after {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    background-color: aqua;
+    left: -10px;
+    z-index: 0;
+    rotate: 45deg;
+    background-color: #333;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+  }
+
+  .text-hover-animate::before {
+    background-color: white;
+  }
+
+  .nav-hidden-btn {
     opacity: 1;
     z-index: 3;
   }
@@ -408,6 +473,10 @@
   #home-footer {
     flex-direction: column;
   }
+  #logo {
+    height: 70px;
+    width: 70px;
+  } 
 }
 
 @media screen and (max-width: 400px) {

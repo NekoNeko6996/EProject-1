@@ -13,6 +13,7 @@ import iconFacebook from "../resource/icon/icons8-facebook-50.png";
 import iconInstagram from "../resource/icon/icons8-instagram-50.png";
 import iconTwitter from "../resource/icon/icons8-twitter-50.png";
 import upArrow from "../resource/icon/icons8-double-up-50.png";
+import iconCart from "../resource/icon/icons8-cart-64.png";
 
 //
 function App() {
@@ -89,10 +90,16 @@ function App() {
               </a>
             )}
           </div>
-          <a href="/cart">
-            <p id="home-cart-p">Cart ({cartAmount})</p>
+          <a href="/cart" id="cart-link-box">
+            <img src={iconCart} alt="cart-icon" />
+            <p id="home-cart-p">({cartAmount})</p>
           </a>
         </div>
+        <label
+          htmlFor="hide-nav-checkbox"
+          className="nav-hidden-btn"
+          onClick={onHideBtnClick}
+        ></label>
       </header>
 
       <nav className="home-nav-close" id="home-nav">
@@ -165,14 +172,10 @@ function App() {
           </span>
         </a>
 
-        <input
-          type="checkbox"
-          name="hide-nav-checkbox"
-          id="hide-nav-checkbox"
-        />
         <label
           htmlFor="hide-nav-checkbox"
-          id="nav-hidden-btn"
+          className="nav-hidden-btn"
+          id="nav-hidden-btn-2"
           onClick={onHideBtnClick}
         ></label>
       </nav>

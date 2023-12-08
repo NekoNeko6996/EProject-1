@@ -33,14 +33,19 @@ function ProductComponent() {
   };
 
   const onAddToCartClick = (btn) => {
-    btn.disabled = true;
     const sessionS = window.sessionStorage;
     let prevData;
+
+    if (!product.availability.status) {
+      toast.error("The item is out of stock!");
+      return;
+    }
 
     if (!sessionS.getItem("user")) {
       window.location.href = "/login";
       return;
     }
+
     if (sessionS.getItem("productAdd"))
       prevData = sessionS.getItem("productAdd");
 
@@ -49,7 +54,6 @@ function ProductComponent() {
       `${prevData ? prevData + "," + productId : productId}`
     );
     toast.success("Add to cart successfully!");
-    btn.disabled = false;
   };
 
   // scroll when load new product
@@ -88,6 +92,9 @@ function ProductComponent() {
           </div>
         </div>
         <div id="info-product-buy-container">
+          {product.availability.status ? null : (
+            <p id="sold-out-box">SOLD OUT</p>
+          )}
           <p id="swatch">SWATCH</p>
           <p id="sku">SKU: {product.SKU}</p>
           <p id="name">{product.name}</p>

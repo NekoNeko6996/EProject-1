@@ -15,9 +15,16 @@
 
 ## `npm start` TO RUN THIS PROJECT
 
+## V0.0.55 
+- Quickly fix many errors.
+- Optimize user experience on UI.
+- Fix compatibility for devices with small screens.
+- Add inStock and outStock sort, add out stock tag.
+- Update icon Cart, paginate.
+
 ## V0.0.5
-- Quickly fix many errors
-- Separate components using lazy loading
+- Quickly fix many errors.
+- Separate components using lazy loading.
 
 ## V0.0.41
 - Completed compatibility for devices with small screens such as phones for Contact Us page.

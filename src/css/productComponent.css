@@ -47,13 +47,19 @@
   padding: 30px;
   border: 1px solid #bbbbbb;
   margin-left: 30px;
+  position: relative;
 }
 
-/* #describe {
-  margin: 0 0 15px 0;
-  border-bottom: 1px solid #bbbbbb;
-  width: 90%;
-} */
+#sold-out-box {
+  padding: 5px;
+  font-size: 23px;
+  position: absolute;
+  right: 30px;
+  top: 25px;
+  border: 1px solid #555;
+  font-weight: bold;
+  color: tomato;
+}
 
 #swatch {
   font-size: 40px;
@@ -251,7 +257,9 @@
   #info-product-buy-container {
     margin: 10px 0 0 0;
   }
-
+  #sold-out-box {
+    font-size: 16px;
+  }
   #name {
     font-size: 18px;
     margin: 0;

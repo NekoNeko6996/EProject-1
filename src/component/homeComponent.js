@@ -78,8 +78,13 @@ function HomeComponent() {
             value: params.tech,
           });
           break;
-
         default:
+          if (action) {
+            setSortObject({
+              action: action,
+              value: "",
+            });
+          }
           break;
       }
     },
@@ -106,9 +111,9 @@ function HomeComponent() {
   };
 
   // set maximum number of pages, in stock and out stock
-  const productCallBackFunc = (data) => {
-    setInStock(data.length);
-    setOutStock(1);
+  const productCallBackFunc = (data, inStock, outStock) => {
+    setInStock(inStock.length);
+    setOutStock(outStock.length);
     setMaxPage(Math.ceil(data.length / 20));
   };
 
@@ -181,10 +186,10 @@ function HomeComponent() {
         <aside id="home-sort-option">
           <div>
             <h5 id="home-availability">Availability</h5>
-            <p id="in-stock-p"> 
+            <p id="in-stock-p" onClick={() => onSort("inStock")}>
               In stock (<span>{inStock}</span>)
             </p>
-            <p id="out-stock-p">
+            <p id="out-stock-p" onClick={() => onSort("outStock")}>
               Out stock (<span>{outStock}</span>)
             </p>
             <h5 id="home-aside-price">Price</h5>
@@ -211,19 +216,21 @@ function HomeComponent() {
         <div id="paginate-container">
           <section id="home-product-section">
             <ProductContainerLoader
-              callback={(data) => productCallBackFunc(data)}
+              callback={(data, inStock, outStock) =>
+                productCallBackFunc(data, inStock, outStock)
+              }
               limit={limitItems}
               page={page}
               sort={sortObject}
             />
           </section>
           <ReactPaginate
-            nextLabel="next >"
+            nextLabel=">"
             onPageChange={handlePageClick}
             pageRangeDisplayed={3}
             marginPagesDisplayed={2}
             pageCount={maxPage}
-            previousLabel="< previous"
+            previousLabel="<"
             pageClassName="page-item"
             pageLinkClassName="page-link"
             previousClassName="page-item"
