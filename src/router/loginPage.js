@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 // css
 import "../css/login.css";
+import "react-toastify/dist/ReactToastify.css";
 
 //
 function LoginComponent() {
@@ -159,21 +160,20 @@ function LoginComponent() {
             </button>
           </form>
         </div>
-
-        {/* message box */}
-        <ToastContainer
-          position="bottom-center"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
       </div>
+      {/* message box */}
+      <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }

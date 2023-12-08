@@ -15,6 +15,10 @@
 
 ## `npm start` TO RUN THIS PROJECT
 
+## V0.0.5
+- Quickly fix many errors
+- Separate components using lazy loading
+
 ## V0.0.41
 - Complete the sorting operation according to technology.
 - Optimize user experience on UI.

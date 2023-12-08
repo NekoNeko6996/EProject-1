@@ -1,4 +1,5 @@
 import { toast } from "react-toastify";
+import React from "react";
 
 // css
 import "../css/contact.css";
@@ -84,4 +85,4 @@ function ContactComponent() {
   );
 }
 
-export default ContactComponent;
+export default React.memo(ContactComponent);

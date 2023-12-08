@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -188,4 +188,4 @@ function ProductComponent() {
   );
 }
 
-export default ProductComponent;
+export default React.memo(ProductComponent);

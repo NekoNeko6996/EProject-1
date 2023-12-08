@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -7,15 +7,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./css/index.css";
 
 // component
-import App from "./App";
-import ErrorPage from "./component/errorPage";
-import HomeComponent from "./component/homeComponent";
-import ProductComponent from "./component/productComponent";
-import ContactComponent from "./component/contactComponent";
-import LoginComponent from "./component/loginComponent";
-import CartComponent from "./component/CartComponent";
+const App = lazy(() => import("./router/App"));
+const ErrorPage = lazy(() => import("./component/errorPage"));
+const HomeComponent = lazy(() => import("./component/homeComponent"));
+const ProductComponent = lazy(() => import("./component/productComponent"));
+const ContactComponent = lazy(() => import("./component/contactComponent"));
+const LoginComponent = lazy(() => import("./router/loginPage"));
+const CartComponent = lazy(() => import("./component/CartComponent"));
+const ServiceComponent = lazy(() => import("./component/service"));
 
-// router 
+// router
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,11 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:productId",
-        element: <ProductComponent />
+        element: <ProductComponent />,
       },
       {
         path: "/contact",
-        element: <ContactComponent />
+        element: <ContactComponent />,
       },
       {
         path: "/sale/:saleStatus",
@@ -44,24 +45,30 @@ const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <CartComponent />
-      }
+        element: <CartComponent />,
+      },
+      {
+        path: "service",
+        element: <ServiceComponent />,
+      },
     ],
   },
   {
     path: "/login",
-    element: <LoginComponent />
+    element: <LoginComponent />,
   },
   {
     path: "/signup",
-    element: <LoginComponent />
-  }
+    element: <LoginComponent />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Suspense fallback={<div>Loading...</div>}>
+      <RouterProvider router={router} />
+    </Suspense>
   </React.StrictMode>
 );
 

@@ -3,16 +3,16 @@ import { ToastContainer, toast } from "react-toastify";
 import { useEffect, useState } from "react";
 
 // css
-import "./css/app.css";
+import "../css/app.css";
 import "react-toastify/dist/ReactToastify.css";
 //
 
 // Resource
-import logo from "./resource/logo/Logo.png";
-import iconFacebook from "./resource/icon/icons8-facebook-50.png";
-import iconInstagram from "./resource/icon/icons8-instagram-50.png";
-import iconTwitter from "./resource/icon/icons8-twitter-50.png";
-import upArrow from "./resource/icon/icons8-double-up-50.png";
+import logo from "../resource/logo/Logo.png";
+import iconFacebook from "../resource/icon/icons8-facebook-50.png";
+import iconInstagram from "../resource/icon/icons8-instagram-50.png";
+import iconTwitter from "../resource/icon/icons8-twitter-50.png";
+import upArrow from "../resource/icon/icons8-double-up-50.png";
 
 //
 function App() {
@@ -153,7 +153,7 @@ function App() {
           </span>
         </a>
 
-        <a href="/">
+        <a href="/service">
           <span className="span-nav-option">
             <p className="text-hover-animate">SERVICE</p>
           </span>

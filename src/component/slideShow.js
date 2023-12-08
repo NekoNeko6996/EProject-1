@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import "../css/slideShow.css";
-import { useCallback, useEffect, useRef } from "react";
-import React from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 //
 
 const SlideShow = React.memo(function SlideShow({ data, scrollStep }) {
@@ -91,4 +90,4 @@ SlideShow.propTypes = {
   scrollStep: PropTypes.number.isRequired,
 };
 //
-export default SlideShow;
+export default React.memo(SlideShow);

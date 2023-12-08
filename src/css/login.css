@@ -1,7 +1,7 @@
 #login-page-nav {
   height: 60px;
   width: 100%;
-  position: absolute;
+  position: fixed;
   background-color: white;
   top: 0;
   display: flex;
@@ -19,6 +19,18 @@
   cursor: pointer;
 }
 
+.span-nav-option {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.span-nav-option .text-hover-animate {
+  position: relative;
+  top: 15px;
+  height: 20px;
+  cursor: default;
+}
 .text-hover-animate::before {
   content: "";
   position: absolute;
@@ -27,6 +39,9 @@
   background-color: black;
   top: 20px;
   transition: 0.3s;
+}
+.span-nav-option:hover > .text-hover-animate::before {
+  width: 100%;
 }
 
 /* ----- */
@@ -72,6 +87,7 @@ label {
   font-weight: bold;
   cursor: pointer;
   transition: 0.5s ease-in-out;
+  padding-top: 10px;
 }
 .login-input {
   width: 70%;
@@ -113,6 +129,7 @@ label {
   margin: 30px auto;
   background-color: #fa887e;
   color: white;
+  cursor: pointer;
 }
 
 .bot {

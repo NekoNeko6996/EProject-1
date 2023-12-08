@@ -91,7 +91,6 @@ function HomeComponent() {
     if (params.saleStatus) {
       onSort("sale");
     }
-    console.log(params.tech);
     if (params.tech) {
       onSort("tech", params.technology);
     }
@@ -169,13 +168,20 @@ function HomeComponent() {
         </form>
       </nav>
       <nav id="section-title">
-        <h1>{sortObject.value ? sortObject.value.toUpperCase() : "PRODUCT"}</h1>
+        <h1>
+          {sortObject.value
+            ? (typeof sortObject.value === "object"
+                ? "PRODUCT"
+                : sortObject.value
+              ).toUpperCase()
+            : "PRODUCT"}
+        </h1>
       </nav>
       <section id="home-section">
         <aside id="home-sort-option">
           <div>
             <h5 id="home-availability">Availability</h5>
-            <p id="in-stock-p">
+            <p id="in-stock-p"> 
               In stock (<span>{inStock}</span>)
             </p>
             <p id="out-stock-p">

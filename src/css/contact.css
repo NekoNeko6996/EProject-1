@@ -69,6 +69,7 @@
   position: relative;
   opacity: 0;
   animation-fill-mode: forwards;
+  margin: 10px 0 10px;
 }
 
 #contact-p-01 {
@@ -85,6 +86,8 @@
 #contact-map {
   width: 90%;
   max-width: 600px;
+
+  margin: 15px 0 0 0;
 
   border: 1px solid black;
   position: relative;

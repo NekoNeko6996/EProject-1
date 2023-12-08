@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -120,4 +120,4 @@ ProductContainerLoader.propTypes = {
   callback: PropTypes.func.isRequired,
 };
 
-export default ProductContainerLoader;
+export default React.memo(ProductContainerLoader);

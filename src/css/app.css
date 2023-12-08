@@ -251,6 +251,7 @@
   justify-content: space-around;
 }
 #home-footer h4 {
+  font-size: 22px;
   margin: 35px 0 0 20px;
 }
 #home-footer p {
@@ -384,6 +385,7 @@
   #home-nav {
     flex-direction: column;
     justify-content: start;
+    padding-top: 3px;
   }
   #nav-hidden-btn {
     opacity: 1;

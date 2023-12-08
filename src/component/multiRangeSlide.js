@@ -104,4 +104,4 @@ MultiRangeSlider.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-export default MultiRangeSlider;
+export default React.memo(MultiRangeSlider);
