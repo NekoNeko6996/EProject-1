@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { useParams } from "react-router-dom";
 
@@ -15,19 +15,19 @@ import MultiRangeSlider from "./multiRangeSlide";
 import iconFreeShip from "../resource/icon/free_ship_icon_small.png";
 import iconContact from "../resource/icon/contact_icon_small.png";
 import iconPayment from "../resource/icon/payment_icon_small.png";
-import searchIcon from "../resource/icon/search.png";
 
 import { dataBanner } from "../database/data";
 
 function HomeComponent() {
   const [maxPage, setMaxPage] = useState(0);
   const [page, setPage] = useState(1);
+  const [stock, setStock] = useState({ inStock: true, outStock: true });
   const [inStock, setInStock] = useState(0);
   const [outStock, setOutStock] = useState(0);
-  const [sortObject, setSortObject] = useState({});
   const [searchText, setSearchText] = useState("");
   const [priceFrom, setPriceFrom] = useState(0);
   const [priceTo, setPriceTo] = useState(0);
+  const [pageFilter, setPageFilter] = useState("");
 
   // url params
   const params = useParams();
@@ -40,66 +40,23 @@ function HomeComponent() {
     max = 500,
     unit = "00000"; // unit is 100.000 VND 100.000 * 500 = 50.000.000 (max)
 
-  // search
-  const onSort = useCallback(
-    (action, event) => {
-      if (event) event.preventDefault();
-
-      switch (action) {
-        case "search":
-          setSortObject({
-            action: action,
-            value: searchText,
-          });
-          break;
-        case "price":
-          setSortObject({
-            action: action,
-            value: { priceFrom, priceTo },
-          });
-          break;
-        case "sale":
-          window.scroll({
-            top: 800,
-            behavior: "smooth",
-          });
-          setSortObject({
-            action: action,
-            value: "sales",
-          });
-          break;
-        case "tech":
-          window.scroll({
-            top: 800,
-            behavior: "smooth",
-          });
-          setSortObject({
-            action: action,
-            value: params.tech,
-          });
-          break;
-        default:
-          if (action) {
-            setSortObject({
-              action: action,
-              value: "",
-            });
-          }
-          break;
-      }
-    },
-    [priceFrom, priceTo, searchText, params]
-  );
+  // scroll
+  const scrollFunction = (step, delay) => {
+    setTimeout(() => {
+      window.scroll({
+        top: step,
+        behavior: "smooth",
+      });
+    }, delay);
+  };
 
   // act based on params
   useEffect(() => {
-    if (params.saleStatus) {
-      onSort("sale");
+    if (params.status) {
+      scrollFunction(800, 300);
+      setPageFilter(params.status);
     }
-    if (params.tech) {
-      onSort("tech", params.technology);
-    }
-  }, [params, onSort]);
+  }, [params]);
 
   // on page change
   const handlePageClick = (page) => {
@@ -152,45 +109,42 @@ function HomeComponent() {
         </div>
       </div>
       <nav id="home-2-nav">
-        <form
-          action="/"
-          id="search-box"
-          onSubmit={(event) => onSort("search", event)}
-        >
+        <form action="/" id="search-box">
           <input
             type="text"
             name="search"
             id="search-input"
             placeholder="Search Watch..."
-            onChange={(event) => setSearchText(event.target.value)}
-          />
-          <img
-            src={searchIcon}
-            alt="searchIcon"
-            id="search-btn"
-            onClick={() => onSort("search")}
+            onInput={(event) => setSearchText(event.target.value)}
           />
         </form>
       </nav>
       <nav id="section-title">
-        <h1>
-          {sortObject.value
-            ? (typeof sortObject.value === "object"
-                ? "PRODUCT"
-                : sortObject.value
-              ).toUpperCase()
-            : "PRODUCT"}
-        </h1>
+        <h1>{pageFilter ? pageFilter.toUpperCase() : "PRODUCT"}</h1>
       </nav>
       <section id="home-section">
         <aside id="home-sort-option">
           <div>
             <h5 id="home-availability">Availability</h5>
-            <p id="in-stock-p" onClick={() => onSort("inStock")}>
-              In stock (<span>{inStock}</span>)
+            <p
+              id="in-stock-p"
+              onClick={() =>
+                setStock((prev) => {
+                  return { ...prev, inStock: !prev.inStock };
+                })
+              }
+            >
+              {stock.inStock ? "• " : null}In stock ({inStock})
             </p>
-            <p id="out-stock-p" onClick={() => onSort("outStock")}>
-              Out stock (<span>{outStock}</span>)
+            <p
+              id="out-stock-p"
+              onClick={() =>
+                setStock((prev) => {
+                  return { ...prev, outStock: !prev.outStock };
+                })
+              }
+            >
+              {stock.outStock ? "• " : null}Out stock ({outStock})
             </p>
             <h5 id="home-aside-price">Price</h5>
             <div id="price-input-box">
@@ -207,9 +161,9 @@ function HomeComponent() {
             <button
               id="price-sort-btn"
               className="black-hover-btn"
-              onClick={() => onSort("price")}
+              onClick={null}
             >
-              Sort
+              RESET FILTER
             </button>
           </div>
         </aside>
@@ -221,7 +175,10 @@ function HomeComponent() {
               }
               limit={limitItems}
               page={page}
-              sort={sortObject}
+              price={{priceFrom, priceTo}}
+              pageFilter={pageFilter}
+              searchText={searchText}
+              stock={stock}
             />
           </section>
           <ReactPaginate

@@ -15,6 +15,13 @@
 
 ## `npm start` TO RUN THIS PROJECT
 
+## V0.0.6
+- Quickly fix many errors.
+- Optimize and add filtering and search algorithms.
+- Optimize user experience on UI.
+- Optimize lines of code.
+
+
 ## V0.0.55 
 - Quickly fix many errors.
 - Optimize user experience on UI.

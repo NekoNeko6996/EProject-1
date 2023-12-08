@@ -7,14 +7,17 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./css/index.css";
 
 // component
-const App = lazy(() => import("./router/App"));
+import App from "./router/App";
+import LoginComponent from "./router/loginPage";
+
+// const App = lazy(() => import("./router/App"));
 const ErrorPage = lazy(() => import("./component/errorPage"));
 const HomeComponent = lazy(() => import("./component/homeComponent"));
 const ProductComponent = lazy(() => import("./component/productComponent"));
 const ContactComponent = lazy(() => import("./component/contactComponent"));
-const LoginComponent = lazy(() => import("./router/loginPage"));
 const CartComponent = lazy(() => import("./component/CartComponent"));
 const ServiceComponent = lazy(() => import("./component/service"));
+// const LoginComponent = lazy(() => import("./router/loginPage"))
 
 // router
 const router = createBrowserRouter([
@@ -36,11 +39,11 @@ const router = createBrowserRouter([
         element: <ContactComponent />,
       },
       {
-        path: "/sale/:saleStatus",
+        path: "/sale/:status",
         element: <HomeComponent />,
       },
       {
-        path: "/tech/:tech",
+        path: "/tech/:status",
         element: <HomeComponent />,
       },
       {
@@ -50,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "service",
         element: <ServiceComponent />,
+      },
+      {
+        path: "/gift/:status",
+        element: <HomeComponent />,
       },
     ],
   },

@@ -44,7 +44,12 @@ const MultiRangeSlider = ({ min, max, unit, onChange }) => {
   // Get min and max values when their state changes
   useEffect(() => {
     onChange({ min: +(minVal + unit), max: +(maxVal + unit) });
-  }, [minVal, maxVal, onChange, unit]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleMouseUp = () => {
+    onChange({ min: +(minVal + unit), max: +(maxVal + unit) });
+  };
 
   return (
     <div className="container">
@@ -62,6 +67,7 @@ const MultiRangeSlider = ({ min, max, unit, onChange }) => {
         className={classnames("thumb thumb--zIndex-3", {
           "thumb--zIndex-5": minVal > max - 100,
         })}
+        onMouseUp={handleMouseUp}
       />
       <input
         type="range"
@@ -75,6 +81,7 @@ const MultiRangeSlider = ({ min, max, unit, onChange }) => {
           event.target.value = value.toString();
         }}
         className="thumb thumb--zIndex-4"
+        onMouseUp={handleMouseUp}
       />
 
       <div className="slider">

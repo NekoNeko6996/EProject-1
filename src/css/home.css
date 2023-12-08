@@ -140,6 +140,7 @@
 #in-stock-p {
   margin: 5px 0px 0px 45px;
   cursor: pointer;
+  transition: .3s;
 }
 #out-stock-p {
   margin: 5px 0px 0px 45px;

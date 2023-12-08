@@ -128,10 +128,13 @@ function App() {
           <div className="hidden-option">
             <ul>
               <a href="/">
-                <li>New Watch</li>
+                <li>Vintage</li>
               </a>
               <a href="/">
-                <li>Hot Watch</li>
+                <li>Luxury</li>
+              </a>
+              <a href="/">
+                <li>Smart Watches</li>
               </a>
             </ul>
           </div>
@@ -141,20 +144,20 @@ function App() {
           <p className="text-hover-animate">GIFTS</p>
           <div className="hidden-option">
             <ul>
-              <a href="/">
+              <a href="/gift/her">
                 <li>For Her</li>
               </a>
-              <a href="/">
+              <a href="/gift/him">
                 <li>For Him</li>
               </a>
-              <a href="/">
+              <a href="/gift/personalized">
                 <li>Personalized Gifts</li>
               </a>
             </ul>
           </div>
         </span>
 
-        <a href="/sale/0">
+        <a href="/sale/sales">
           <span className="span-nav-option">
             <p className="text-hover-animate">SALES</p>
           </span>
