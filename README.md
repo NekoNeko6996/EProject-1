@@ -20,6 +20,7 @@
 - Separate components using lazy loading
 
 ## V0.0.41
+- Completed compatibility for devices with small screens such as phones for Contact Us page.
 - Complete the sorting operation according to technology.
 - Optimize user experience on UI.
 - Fix bug...
