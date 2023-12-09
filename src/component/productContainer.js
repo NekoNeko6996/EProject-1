@@ -18,6 +18,7 @@ function ProductContainerLoader({
   pageFilter,
   searchText,
   stock,
+  manufacturer,
 }) {
   const [dataNavFilter, setDataNavFilter] = useState([]);
   const [finalData, setFinalData] = useState([]);
@@ -59,11 +60,11 @@ function ProductContainerLoader({
       outStock = [];
 
     // in stock and out stock filter
-    dataNavFilter.filter((data) => {
+    dataNavFilter.forEach((data) => {
       if (data.availability.status) inStock.push(data);
       else outStock.push(data);
-      return null;
     });
+
     sortData = dataNavFilter;
 
     // search
@@ -89,12 +90,30 @@ function ProductContainerLoader({
       }
     }
 
+    // price filter
     if (price) {
       sortData = sortData.filter((data) =>
         data.price >= price.priceFrom && data.price <= price.priceTo
           ? data
           : null
       );
+    }
+    
+    if (manufacturer) {
+      let temp = sortData;
+      sortData = [];
+      //
+      manufacturer.manufacturerFilterList.forEach((filterStatus, index) => {
+        if (filterStatus) {
+          let arrayTemp = temp.filter((data) =>
+            data.manufacturer === manufacturer.manufacturerList[index]
+              ? data
+              : null
+          );
+          sortData = [...sortData, ...arrayTemp];
+        }
+      });
+      if (!sortData.length) sortData = temp;
     }
 
     // pagination
@@ -105,8 +124,18 @@ function ProductContainerLoader({
     // set data to load items
     setFinalData(dataOnOnePage);
     // return data
-    callback(sortData, inStock, outStock, 1);
-  }, [page, limit, callback, price, random, searchText, stock, dataNavFilter]);
+    callback(sortData, inStock, outStock);
+  }, [
+    page,
+    limit,
+    callback,
+    price,
+    random,
+    searchText,
+    stock,
+    manufacturer,
+    dataNavFilter,
+  ]);
 
   return (
     <>
@@ -165,6 +194,7 @@ ProductContainerLoader.propTypes = {
   pageFilter: PropTypes.string,
   searchText: PropTypes.string,
   stock: PropTypes.object,
+  manufacturer: PropTypes.object,
 };
 
 export default React.memo(ProductContainerLoader);

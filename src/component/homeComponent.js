@@ -28,6 +28,16 @@ function HomeComponent() {
   const [priceFrom, setPriceFrom] = useState(0);
   const [priceTo, setPriceTo] = useState(0);
   const [pageFilter, setPageFilter] = useState("");
+  const [manufacturer, setManufacturer] = useState({
+    manufacturerFilterList: [false, false, false, false, false],
+    manufacturerList: [
+      "citizen",
+      "michael-kors",
+      "movado",
+      "nautica",
+      "swatch",
+    ],
+  });
 
   // url params
   const params = useParams();
@@ -53,16 +63,22 @@ function HomeComponent() {
   // act based on params
   useEffect(() => {
     if (params.status) {
-      scrollFunction(800, 300);
+      let step = 800;
+      if (window.innerWidth < 850) step = 500;
+      scrollFunction(step, 300);
       setPageFilter(params.status);
     }
   }, [params]);
 
   // on page change
   const handlePageClick = (page) => {
+    let step = 750;
     setPage(page.selected + 1);
+
+    if (window.innerWidth < 850) step = 500;
+
     window.scroll({
-      top: 750,
+      top: step,
       behavior: "smooth",
     });
   };
@@ -72,10 +88,69 @@ function HomeComponent() {
     setInStock(inStock.length);
     setOutStock(outStock.length);
     setMaxPage(Math.ceil(data.length / 20));
+
+    manufacturer.manufacturerList.forEach((value, index) => {
+      let count = 0;
+      data.forEach((data) => {
+        if (data.manufacturer === manufacturer.manufacturerList[index])
+          count += 1;
+      });
+      document.getElementById(
+        `manufacturer-${value}-span-amount`
+      ).textContent = `${count}`;
+    });
+  };
+
+  // sort hide
+  const onHideBtnClick = () => {
+    const sortBox = document.getElementById("home-sort-option");
+    const hiddenLayer = document.getElementById("hidden-layer");
+
+    if (sortBox.className === "sort-option-close") {
+      sortBox.className = "sort-option-open";
+      hiddenLayer.className = "hidden-layer-on";
+    } else {
+      sortBox.className = "sort-option-close";
+      hiddenLayer.className = "hidden-layer-off";
+    }
+  };
+
+  // when clicking on the manufacturer name to filter
+  const onManufacturerFilterClick = (index) => {
+    setManufacturer((prev) => {
+      const updatedManufacturerFilterList = prev.manufacturerFilterList.map(
+        (value, idx) => {
+          if (idx === index) {
+            return !value;
+          }
+          return value;
+        }
+      );
+      return {
+        ...prev,
+        manufacturerFilterList: updatedManufacturerFilterList,
+      };
+    });
+  };
+
+  const onResetFilterClick = () => {
+    setManufacturer((prev) => {
+      return {
+        ...prev,
+        manufacturerFilterList: [false, false, false, false, false],
+      };
+    });
+    setStock({ inStock: true, outStock: true });
+    setSearchText("");
   };
 
   return (
     <>
+      <div
+        id="hidden-layer"
+        className="hidden-layer-off"
+        onClick={onHideBtnClick}
+      ></div>
       <div id="home-banner">
         <SlideShow data={dataBanner} scrollStep={1440} />
       </div>
@@ -116,38 +191,45 @@ function HomeComponent() {
             id="search-input"
             placeholder="Search Watch..."
             onInput={(event) => setSearchText(event.target.value)}
+            value={searchText}
           />
         </form>
+        <button id="sort-option-open-btn" onClick={onHideBtnClick}>
+          FILTER
+        </button>
       </nav>
       <nav id="section-title">
         <h1>{pageFilter ? pageFilter.toUpperCase() : "PRODUCT"}</h1>
       </nav>
       <section id="home-section">
-        <aside id="home-sort-option">
+        <aside id="home-sort-option" className="sort-option-close">
+          <button id="sort-option-close-btn" onClick={onHideBtnClick}></button>
           <div>
-            <h5 id="home-availability">Availability</h5>
-            <p
-              id="in-stock-p"
-              onClick={() =>
-                setStock((prev) => {
-                  return { ...prev, inStock: !prev.inStock };
-                })
-              }
-            >
-              {stock.inStock ? "• " : null}In stock ({inStock})
-            </p>
-            <p
-              id="out-stock-p"
-              onClick={() =>
-                setStock((prev) => {
-                  return { ...prev, outStock: !prev.outStock };
-                })
-              }
-            >
-              {stock.outStock ? "• " : null}Out stock ({outStock})
-            </p>
-            <h5 id="home-aside-price">Price</h5>
+            <div>
+              <h5 id="home-availability">Availability</h5>
+              <p
+                id="in-stock-p"
+                onClick={() =>
+                  setStock((prev) => {
+                    return { ...prev, inStock: !prev.inStock };
+                  })
+                }
+              >
+                {stock.inStock ? "• " : null}In stock ({inStock})
+              </p>
+              <p
+                id="out-stock-p"
+                onClick={() =>
+                  setStock((prev) => {
+                    return { ...prev, outStock: !prev.outStock };
+                  })
+                }
+              >
+                {stock.outStock ? "• " : null}Out stock ({outStock})
+              </p>
+            </div>
             <div id="price-input-box">
+              <h5 id="home-aside-price">Price</h5>
               <MultiRangeSlider
                 min={min}
                 max={max}
@@ -158,10 +240,27 @@ function HomeComponent() {
                 }}
               />
             </div>
+
+            <div id="manufacturer-filter">
+              {manufacturer.manufacturerList.map((value, index) => {
+                return (
+                  <span key={index} className="manufacturer-span-list">
+                    <label htmlFor={`${value}-filter-p`}></label>
+                    <p
+                      id={`${value}-filter-p`}
+                      onClick={() => onManufacturerFilterClick(index)}
+                    >
+                      {value.replace(/-/g, " ").toUpperCase()} (
+                      <span id={`manufacturer-${value}-span-amount`}>0</span>)
+                    </p>
+                  </span>
+                );
+              })}
+            </div>
             <button
-              id="price-sort-btn"
+              id="reset-filter-btn"
               className="black-hover-btn"
-              onClick={null}
+              onClick={onResetFilterClick}
             >
               RESET FILTER
             </button>
@@ -175,10 +274,11 @@ function HomeComponent() {
               }
               limit={limitItems}
               page={page}
-              price={{priceFrom, priceTo}}
+              price={{ priceFrom, priceTo }}
               pageFilter={pageFilter}
               searchText={searchText}
               stock={stock}
+              manufacturer={manufacturer}
             />
           </section>
           <ReactPaginate

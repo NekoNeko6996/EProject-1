@@ -55,10 +55,16 @@ function App() {
   };
 
   // nav
-  const onHideBtnClick = () => {
+  const onHideNavBtnClick = () => {
     const nav = document.getElementById("home-nav");
-    if (nav.className === "home-nav-close") nav.className = "home-nav-open";
-    else nav.className = "home-nav-close";
+    const hiddenLayer = document.getElementById("hidden-layer-nav");
+    if (nav.className === "home-nav-close") {
+      nav.className = "home-nav-open";
+      hiddenLayer.className = "hidden-layer-nav-on";
+    } else {
+      nav.className = "home-nav-close";
+      hiddenLayer.className = "hidden-layer-nav-off";
+    }
   };
 
   // scroll up
@@ -71,6 +77,11 @@ function App() {
 
   return (
     <div id="App">
+      <div
+        id="hidden-layer-nav"
+        className="hidden-layer-nav-off"
+        onClick={onHideNavBtnClick}
+      ></div>
       <header id="home-header">
         <a href="/">
           <img src={logo} alt="Logo" id="logo" />
@@ -95,11 +106,7 @@ function App() {
             <p id="home-cart-p">({cartAmount})</p>
           </a>
         </div>
-        <label
-          htmlFor="hide-nav-checkbox"
-          className="nav-hidden-btn"
-          onClick={onHideBtnClick}
-        ></label>
+        <label className="nav-hidden-btn" onClick={onHideNavBtnClick}></label>
       </header>
 
       <nav className="home-nav-close" id="home-nav">
@@ -176,10 +183,9 @@ function App() {
         </a>
 
         <label
-          htmlFor="hide-nav-checkbox"
           className="nav-hidden-btn"
           id="nav-hidden-btn-2"
-          onClick={onHideBtnClick}
+          onClick={onHideNavBtnClick}
         ></label>
       </nav>
       {/* child loader */}

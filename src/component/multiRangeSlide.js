@@ -68,6 +68,7 @@ const MultiRangeSlider = ({ min, max, unit, onChange }) => {
           "thumb--zIndex-5": minVal > max - 100,
         })}
         onMouseUp={handleMouseUp}
+        onTouchEnd={handleMouseUp}
       />
       <input
         type="range"
@@ -82,6 +83,7 @@ const MultiRangeSlider = ({ min, max, unit, onChange }) => {
         }}
         className="thumb thumb--zIndex-4"
         onMouseUp={handleMouseUp}
+        onTouchEnd={handleMouseUp}
       />
 
       <div className="slider">

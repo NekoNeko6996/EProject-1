@@ -15,6 +15,14 @@
 
 ## `npm start` TO RUN THIS PROJECT
 
+## V0.0.7
+- Quickly fix many errors.
+- Optimize and add filtering algorithms.
+- Add manufacturer filter.
+- Optimize user experience on UI.
+- Additional compatibility with devices with small screens for side filters.
+- Edit database.
+
 ## V0.0.6
 - Quickly fix many errors.
 - Optimize and add filtering and search algorithms.

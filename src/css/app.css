@@ -360,6 +360,24 @@
   animation: scroll-btn 1s linear infinite;
 }
 
+
+#hidden-layer-nav {
+  position: fixed;
+  background-color: #333;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  z-index: 11;
+}
+
+.hidden-layer-nav-off {
+  z-index: 0;
+  height: 0;
+  width: 0;
+}
+
+/* -------------------------------------- */
+
 @keyframes scroll-btn {
   0% {
     transform: translateY(0);
@@ -402,6 +420,7 @@
     top: 0;
     margin: 0;
     background-color: #333;
+    z-index: 12;
   }
   #home-nav > * {
     color: white !important;
@@ -466,6 +485,12 @@
   }
   #home-account-p {
     margin-right: 20px;
+  }
+
+  .hidden-layer-nav-on {
+    z-index: 11;
+    height: 100%;
+    width: 100%;
   }
 }
 

@@ -23,6 +23,7 @@ const dataBanner = [
 const productDB = [
   {
     id: 0,
+    manufacturer: "citizen",
     name: "PCAT WATCH",
     SKU: " CB5916-59L",
     imgUrl: {
@@ -31,6 +32,7 @@ const productDB = [
       no3: "",
       no4: "",
     },
+
     gift: "her",
     price: 1200000,
     sale: 0,
@@ -56,6 +58,7 @@ const productDB = [
   },
   {
     id: 1,
+    manufacturer: "citizen",
     name: "GEN 4 RUNWAY SMARTWATCH",
     SKU: "MKT5045",
     imgUrl: {
@@ -90,6 +93,7 @@ const productDB = [
   },
   {
     id: 2,
+    manufacturer: "citizen",
     name: "GEN 4 LEXINGTON SMARTWATCH",
     SKU: "MKT5077",
     imgUrl: {
@@ -103,8 +107,8 @@ const productDB = [
     sale: 0,
     tech: "quartz",
     availability: {
-      status: false,
-      amount: 0,
+      status: true,
+      amount: 14,
     },
     properties: {
       collection:
@@ -124,6 +128,7 @@ const productDB = [
   },
   {
     id: 3,
+    manufacturer: "citizen",
     name: "GEN4 SOFIE SMART WATCH",
     SKU: "MKT5020",
     imgUrl: {
@@ -159,6 +164,7 @@ const productDB = [
   },
   {
     id: 4,
+    manufacturer: "citizen",
     gift: "her",
     name: "RUNWAY",
     SKU: "MK8086",
@@ -192,6 +198,7 @@ const productDB = [
   },
   {
     id: 5,
+    manufacturer: "citizen",
     gift: "her",
     name: "PARKER",
     SKU: "MK6414",
@@ -225,6 +232,7 @@ const productDB = [
   },
   {
     id: 6,
+    manufacturer: "citizen",
     gift: "her",
     name: "JARYN",
     SKU: "MK4438",
@@ -258,6 +266,7 @@ const productDB = [
   },
   {
     id: 7,
+    manufacturer: "michael-kors",
     gift: "her",
     name: "PYPER",
     SKU: "MK3901",
@@ -291,6 +300,7 @@ const productDB = [
   },
   {
     id: 8,
+    manufacturer: "michael-kors",
     gift: "her",
     name: "CINTHIA",
     SKU: "MK3641",
@@ -324,6 +334,7 @@ const productDB = [
   },
   {
     id: 9,
+    manufacturer: "michael-kors",
     gift: "her",
     name: "PORTIA",
     SKU: "MK3639",
@@ -357,6 +368,7 @@ const productDB = [
   },
   {
     id: 10,
+    manufacturer: "michael-kors",
     gift: "her",
     name: "LAURYN",
     SKU: "MK2757",
@@ -389,6 +401,7 @@ const productDB = [
   },
   {
     id: 11,
+    manufacturer: "michael-kors",
     gift: "her",
     name: "MOVADO BOLD MID-SIZE TWO-TONE ROSE GOLD WATCH",
     SKU: "3600504",
@@ -422,6 +435,7 @@ const productDB = [
   },
   {
     id: 12,
+    manufacturer: "michael-kors",
     gift: "her",
     name: "MUSEUM CLASSIC WATCH",
     SKU: "0606876",
@@ -454,6 +468,7 @@ const productDB = [
   },
   {
     id: 13,
+    manufacturer: "michael-kors",
     gift: "her",
     name: "LUNO SPORT WATCH",
     SKU: "0606380",
@@ -486,6 +501,7 @@ const productDB = [
   },
   {
     id: 14,
+    manufacturer: "michael-kors",
     gift: "her",
     name: "PORTRAIT GENT WATCH",
     SKU: "SFDR00519",
@@ -519,6 +535,7 @@ const productDB = [
   },
   {
     id: 15,
+    manufacturer: "movado",
     gift: "her",
     name: "MINUETTO WATCH",
     SKU: "SF8200519",
@@ -552,6 +569,7 @@ const productDB = [
   },
   {
     id: 16,
+    manufacturer: "movado",
     gift: "her",
     name: "SAWYER",
     SKU: "MK2580",
@@ -585,6 +603,7 @@ const productDB = [
   },
   {
     id: 17,
+    manufacturer: "movado",
     gift: "her",
     name: "MUSEUM SPORT BLACK PVD WATCH",
     SKU: "0606615",
@@ -620,6 +639,7 @@ const productDB = [
   },
   {
     id: 18,
+    manufacturer: "movado",
     gift: "her",
     name: "SPORT EDGE WATCH",
     SKU: "0606927",
@@ -653,6 +673,7 @@ const productDB = [
   },
   {
     id: 19,
+    manufacturer: "movado",
     gift: "her",
     name: "MUSEUM CLASSIC WATCH",
     SKU: "0606610",
@@ -687,6 +708,7 @@ const productDB = [
   },
   {
     id: 20,
+    manufacturer: "movado",
     gift: "her",
     name: "MOVADO BOLD BLACK TITANIUM WATCH",
     SKU: "3600190",
@@ -720,6 +742,7 @@ const productDB = [
   },
   {
     id: 21,
+    manufacturer: "movado",
     gift: "him",
     name: "MOVADO BOLD MEDIUM TWO-TONE WATCH",
     SKU: "3600129",
@@ -754,6 +777,7 @@ const productDB = [
   },
   {
     id: 22,
+    manufacturer: "movado",
     gift: "him",
     name: "MOVADO BOLD MEDIUM YELLOW GOLD WATCH",
     SKU: " 3600104",
@@ -787,6 +811,7 @@ const productDB = [
   },
   {
     id: 23,
+    manufacturer: "movado",
     gift: "him",
     name: "HERITAGE SERIES CALENDOPLAN S CHRONOGRAPH WATCH",
     SKU: " 3650062",
@@ -823,6 +848,7 @@ const productDB = [
   },
   {
     id: 24,
+    manufacturer: "nautica",
     gift: "him",
     name: "MOVADO BOLD LARGE EVOLUTION WATCH",
     SKU: "3600510",
@@ -856,6 +882,7 @@ const productDB = [
   },
   {
     id: 25,
+    manufacturer: "nautica",
     gift: "him",
     name: "IT'S TIME",
     SKU: "REL0102BLNMAR0U",
@@ -889,6 +916,7 @@ const productDB = [
   },
   {
     id: 26,
+    manufacturer: "nautica",
     gift: "him",
     name: "PRT WATCH",
     SKU: "AW7023-52A",
@@ -922,6 +950,7 @@ const productDB = [
   },
   {
     id: 27,
+    manufacturer: "nautica",
     gift: "him",
     name: "BRYCEN WATCH",
     SKU: "BL5568-54L",
@@ -955,6 +984,7 @@ const productDB = [
   },
   {
     id: 28,
+    manufacturer: "nautica",
     gift: "him",
     name: "PROMASTER DIVER WATCH",
     SKU: "BN0191-55L",
@@ -988,13 +1018,14 @@ const productDB = [
   },
   {
     id: 29,
+    manufacturer: "nautica",
     gift: "him",
     name: "Piccadilly Steel 40",
     SKU: "PC40MAD2R",
     imgUrl: {
-      no1: "https://shopalbertopr.com/cdn/shop/products/0731516000016_NAPCNF106_999_A_1800x1800.jpg?v=1645586157",
-      no2: "https://shopalbertopr.com/cdn/shop/products/0731516000085_NAPCNF106_999_E_800x.jpg?v=1645586158",
-      no3: "https://shopalbertopr.com/cdn/shop/products/0731516000054_NAPCNF106_999_H_1800x1800.jpg?v=1645586159",
+      no1: "https://cdn.thewatchpages.com/app/uploads/2020/02/13214535/backes-strauss-piccadilly-steel-40-pc40mad2rstwrrbic-800x1431.jpg",
+      no2: "https://cdn.thewatchpages.com/app/uploads/2020/09/13210923/backes-strauss-piccadilly-steel-40-pc40mad2rstwrrbic-1-800x533.jpg",
+      no3: "",
       no4: "",
     },
     price: 98000000,
@@ -1021,6 +1052,7 @@ const productDB = [
   },
   {
     id: 30,
+    manufacturer: "nautica",
     gift: "him",
     name: "Datejust 41",
     SKU: "126334",
@@ -1054,6 +1086,7 @@ const productDB = [
   },
   {
     id: 31,
+    manufacturer: "nautica",
     gift: "him",
     name: "Yacht-Master",
     SKU: "16622",
@@ -1087,6 +1120,7 @@ const productDB = [
   },
   {
     id: 32,
+    manufacturer: "swatch",
     gift: "him",
     name: "Submariner ",
     SKU: "14060M ",
@@ -1120,6 +1154,7 @@ const productDB = [
   },
   {
     id: 33,
+    manufacturer: "swatch",
     gift: "him",
     name: "Daytona",
     SKU: "116508",
@@ -1153,6 +1188,7 @@ const productDB = [
   },
   {
     id: 34,
+    manufacturer: "swatch",
     gift: "him",
     name: "Datejust 36",
     SKU: "126233",
@@ -1186,6 +1222,7 @@ const productDB = [
   },
   {
     id: 35,
+    manufacturer: "swatch",
     gift: "him",
     name: "Oyster Date",
     SKU: "6919",
@@ -1219,6 +1256,7 @@ const productDB = [
   },
   {
     id: 36,
+    manufacturer: "swatch",
     gift: "him",
     name: "Daytona Two-Tone",
     SKU: "116503",
@@ -1252,6 +1290,7 @@ const productDB = [
   },
   {
     id: 37,
+    manufacturer: "swatch",
     gift: "him",
     name: "Sky-Dweller",
     SKU: "336934",
@@ -1285,6 +1324,7 @@ const productDB = [
   },
   {
     id: 38,
+    manufacturer: "swatch",
     gift: "him",
     name: "Explorer II ",
     SKU: "16550",
@@ -1318,6 +1358,7 @@ const productDB = [
   },
   {
     id: 39,
+    manufacturer: "swatch",
     gift: "him",
     name: "Day Date",
     SKU: "118138",

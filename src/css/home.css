@@ -50,7 +50,7 @@
 #home-2-nav {
   width: 100%;
   max-width: 1440px;
-  height: 60px;
+  height: 55px;
 
   background-color: var(--theme-color);
   margin-top: 20px;
@@ -58,11 +58,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
 }
 /* search box */
 #search-box {
-  height: 45px;
-  width: 80%;
+  height: 40px;
+
+  width: 60%;
   max-width: 600px;
   background-color: white;
   border-radius: 10px;
@@ -76,25 +79,12 @@
 }
 #search-input {
   height: 100%;
-  width: 92%;
+  width: 100%;
   padding-left: 10px;
   font-size: 18px;
   border: none;
   outline: none;
   position: relative;
-}
-#search-btn {
-  height: 30px;
-  width: 30px;
-  font-size: 16px;
-  margin-right: 10px;
-  border-radius: 13px;
-  cursor: pointer;
-  border: none;
-  position: relative;
-}
-#search-btn:hover {
-  scale: 1.07;
 }
 
 /* section-title */
@@ -106,7 +96,7 @@
   justify-content: center;
   align-items: center;
   margin: 20px 0 0 0;
-  color: #AAA;
+  color: #aaa;
 }
 
 /* home section */
@@ -117,51 +107,118 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
   margin-bottom: 40px;
   position: relative;
 }
 
 /* aside */
 #home-sort-option {
-  height: 300px;
   min-width: 230px;
-
   display: flex;
-  
+
   background-color: var(--theme-color);
   position: relative;
   margin: 0 0 10px 0;
 }
 #home-sort-option > div {
-  height: 300px;
   width: 230px;
 }
 
 #in-stock-p {
   margin: 5px 0px 0px 45px;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 }
 #out-stock-p {
   margin: 5px 0px 0px 45px;
-  color: #AAA;
+  color: #aaa;
   cursor: pointer;
 }
 
-
-#price-sort-btn {
-  height: 30px;
-  width: 81%;
-  margin: 10px 0 0 23px;
-  font-size: 17px;
-}
 #home-availability {
   color: rgb(51, 51, 51);
   margin: 30px 0 5px 25px;
 }
+
+#manufacturer-filter {
+  border-top: 1px solid #aaa;
+  margin: 70px 20px 20px 20px;
+  padding: 10px 0 0 0;
+
+}
+#manufacturer-filter span p {
+  margin: 0;
+  cursor: pointer;
+}
+
 #home-aside-price {
   margin: 30px 0 10px 25px;
   color: rgb(51, 51, 51);
+}
+
+#reset-filter-btn {
+  height: 30px;
+  width: 82%;
+  margin: 10px 0 25px 20px;
+  font-size: 17px;
+}
+
+#sort-option-open-btn {
+  height: 100%;
+  width: 90px;
+  position: absolute;
+  background-color: white;
+  border-top: none;
+  border-bottom: none;
+  right: 0;
+  opacity: 0;
+  z-index: -2;
+}
+
+#sort-option-close-btn {
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  border: none;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: -2;
+}
+#sort-option-close-btn::before {
+  content: "";
+  position: absolute;
+  background-color: black;
+  height: 3px;
+  width: 20px;
+  rotate: 45deg;
+}
+#sort-option-close-btn::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  height: 3px;
+  width: 20px;
+  rotate: -45deg;
+}
+
+#hidden-layer {
+  position: fixed;
+  background-color: #777;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  z-index: 11;
+}
+
+.hidden-layer-off {
+  z-index: 0;
+  height: 0;
+  width: 0;
 }
 
 /* -product item container */
@@ -180,10 +237,7 @@
   padding-bottom: 20px;
 }
 
-
-
 /* ---------------------- */
-
 
 @media screen and (max-width: 850px) {
   #home-2-banner-box {
@@ -191,13 +245,58 @@
   }
 }
 
+@media screen and (max-width: 800px) {
+  #home-sort-option {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 12;
+    height: 100%;
+    width: 240px;
+    transition: 0.3s;
+  }
+
+  #sort-option-open-btn {
+    opacity: 1;
+    z-index: 3;
+    transition: 0.3s;
+  }
+  #sort-option-close-btn {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .sort-option-open {
+    transform: translateX(0);
+  }
+  .sort-option-close {
+    transform: translateX(300px);
+  }
+
+  .hidden-layer-on {
+    z-index: 11;
+    height: 100%;
+    width: 100%;
+  }
+}
 
 @media screen and (max-width: 630px) {
   #home-section {
     flex-direction: column;
     align-items: center;
   }
-  #home-sort-option {
-    width: 100%;
+  #sort-option-open-btn {
+    position: relative;
+    width: 25%;
+  }
+
+  #home-2-nav {
+    justify-content: space-around;
+  }
+  #search-box {
+    width: 75%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
   }
 }
