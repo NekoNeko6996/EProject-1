@@ -1,0 +1,52 @@
+#loading-div-box {
+  display: flex;
+  flex-direction: column;
+}
+#loading-div-box p {
+  font-size: 19px;
+}
+
+#clock-animation {
+  height: 70px;
+  width: 70px;
+
+  border: 2px solid black;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+#clock-animation::after {
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 2px;
+  background-color: black;
+  transform-origin: bottom center;
+  top: 3px;
+  margin-right: 1px;
+
+  animation: minutes 3s steps(20) infinite;
+}
+#clock-animation::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 2px;
+  background-color: red;
+  transform-origin: bottom center;
+  margin-right: 1px;
+  top: 13px;
+  rotate: 45deg;
+  animation: minutes 10s steps(20) infinite;
+}
+
+@keyframes minutes {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}

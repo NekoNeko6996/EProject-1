@@ -5,6 +5,9 @@ import PropTypes from "prop-types";
 // css
 import "../css/productContainer.css";
 
+// resource
+import notFoundIcon from "../resource/icon/Icon-Notfound-Black.png";
+
 // product data
 import { productDB } from "../database/data";
 
@@ -19,129 +22,167 @@ function ProductContainerLoader({
   searchText,
   stock,
   manufacturer,
+  currency,
+  locale,
 }) {
+  // useState
   const [dataNavFilter, setDataNavFilter] = useState([]);
   const [finalData, setFinalData] = useState([]);
+  const [showItems, setShowItems] = useState([]);
 
-  // navigation tag filter
+  const finalCurrency = currency || "VND";
+  const finalLocale = locale || "VN-vi";
+
+  // filter by tags
   useEffect(() => {
-    let data = [];
-    switch (pageFilter) {
-      case "mechanical":
-        data = productDB.filter((data) =>
-          data.tech === "mechanical" ? data : null
-        );
-        break;
-      case "quartz":
-        data = productDB.filter((data) =>
-          data.tech === "quartz" ? data : null
-        );
-        break;
-      case "sales":
-        data = productDB.filter((data) => (data.sale > 0 ? data : null));
-        break;
-      case "her":
-        data = productDB.filter((data) => (data.gift === "her" ? data : null));
-        break;
-      case "him":
-        data = productDB.filter((data) => (data.gift === "him" ? data : null));
-        break;
-      default:
-        data = productDB;
-        break;
-    }
-    setDataNavFilter(data);
+    let filteredData = productDB.filter((item) => {
+      switch (pageFilter) {
+        case "mechanical":
+          return item.tech === "mechanical";
+        case "quartz":
+          return item.tech === "quartz";
+        case "sales":
+          return item.sale > 0;
+        case "her":
+          return item.gift === "her";
+        case "him":
+          return item.gift === "him";
+        default:
+          return true;
+      }
+    });
+    setDataNavFilter(filteredData);
   }, [pageFilter]);
 
   // filter and pagination
   useEffect(() => {
-    let sortData;
-    let inStock = [],
-      outStock = [];
+    const filterData = () => {
+      let inStock = 0,
+        outStock = 0;
 
-    // in stock and out stock filter
-    dataNavFilter.forEach((data) => {
-      if (data.availability.status) inStock.push(data);
-      else outStock.push(data);
-    });
+      // search filter
+      const searchTextFilter = (data) => {
+        if (searchText)
+          return data.name.toUpperCase().includes(searchText.toUpperCase());
+        else return true;
+      };
 
-    sortData = dataNavFilter;
-
-    // search
-    if (searchText) {
-      sortData = dataNavFilter.filter((data) =>
-        data.name.includes(searchText.toUpperCase()) ? data : null
-      );
-    }
-
-    if (stock) {
-      // in stock filter
-      if (!stock.inStock) {
-        sortData = sortData.filter((data) =>
-          data.availability.status ? null : data
-        );
-      }
-
-      // out stock filter
-      if (!stock.outStock) {
-        sortData = sortData.filter((data) =>
-          !data.availability.status ? null : data
-        );
-      }
-    }
-
-    // price filter
-    if (price) {
-      sortData = sortData.filter((data) =>
-        data.price >= price.priceFrom && data.price <= price.priceTo
-          ? data
-          : null
-      );
-    }
-    
-    if (manufacturer) {
-      let temp = sortData;
-      sortData = [];
-      //
-      manufacturer.manufacturerFilterList.forEach((filterStatus, index) => {
-        if (filterStatus) {
-          let arrayTemp = temp.filter((data) =>
-            data.manufacturer === manufacturer.manufacturerList[index]
-              ? data
-              : null
+      // stock filter
+      const stockFilter = (data) => {
+        if (stock) {
+          if (data.availability.status) inStock++;
+          else outStock++;
+          return (
+            (stock.inStock && data.availability.status) ||
+            (stock.outStock && !data.availability.status)
           );
-          sortData = [...sortData, ...arrayTemp];
         }
-      });
-      if (!sortData.length) sortData = temp;
-    }
+        return true;
+      };
 
-    // pagination
-    let dataOnOnePage = sortData.filter((data, index) =>
-      index >= (page - 1) * limit && index < page * limit ? data : false
-    );
+      // price filter
+      const priceFilter = (data) => {
+        if (price)
+          return data.price >= price.priceFrom && data.price <= price.priceTo;
+        else return true;
+      };
 
-    // set data to load items
-    setFinalData(dataOnOnePage);
-    // return data
-    callback(sortData, inStock, outStock);
+      // manufacturer filter
+      let manufacturerStatus = false;
+      if (manufacturer) {
+        manufacturer.manufacturerFilterList.forEach((value) =>
+          value ? (manufacturerStatus = true) : null
+        );
+      }
+      const manufacturerFilter = (data) => {
+        if (manufacturerStatus) {
+          return manufacturer.manufacturerFilterList[
+            manufacturer.manufacturerList.indexOf(data.manufacturer)
+          ];
+        }
+        return true;
+      };
+
+      const randomFilter = (data, count) => {
+        let copyData = [...data];
+        let result = [];
+
+        if (count > copyData.length || copyData.length === 0) {
+          return copyData;
+        }
+
+        for (let i = 0; i < copyData.length; i++) {
+          let randomIndex = Math.floor(Math.random() * copyData.length);
+          let randomElement = copyData[randomIndex];
+
+          result.push(randomElement);
+          copyData.splice(randomIndex, 1);
+        }
+        return result;
+      };
+
+      /// main ///
+      let filteredData = [];
+      if (!random) {
+        filteredData = dataNavFilter.filter(
+          (data) =>
+            searchTextFilter(data) &&
+            stockFilter(data) &&
+            priceFilter(data) &&
+            manufacturerFilter(data)
+        );
+      } else {
+        filteredData = randomFilter(dataNavFilter, limit);
+      }
+
+      // pagination
+      const startIndex = (page - 1) * limit;
+      const endIndex = startIndex + limit;
+      const dataOnOnePage = filteredData.slice(startIndex, endIndex).length
+        ? filteredData.slice(startIndex, endIndex)
+        : filteredData.slice(0, limit);
+
+      setFinalData(dataOnOnePage);
+      callback(filteredData, inStock, outStock);
+    };
+
+    filterData();
   }, [
     page,
     limit,
     callback,
     price,
-    random,
     searchText,
     stock,
     manufacturer,
+    random,
     dataNavFilter,
   ]);
+
+  // load items animation
+  useEffect(() => {
+    const setShowItemsWithDelay = () => {
+      const delayInterval = 40; // Delay interval between each box in milliseconds
+      const updatedShowItems = [];
+      finalData.forEach((_, index) => {
+        setTimeout(() => {
+          updatedShowItems[index] = true;
+          setShowItems([...updatedShowItems]);
+        }, index * delayInterval);
+      });
+    };
+    setShowItemsWithDelay();
+  }, [finalData]);
 
   return (
     <>
       {finalData.map((data, index) => (
-        <Link to={`/product/${data.id}`} className="productLink" key={index}>
-          <div className="items-box">
+        <Link
+          to={`/product/${data.id}`}
+          className={`productLink ${showItems[index] ? "show" : ""}`}
+          key={index}
+        >
+          <div className={`items-box ${showItems[index] ? "show" : ""}`}>
             {data.sale ? (
               <div className="items-label">
                 <span>-</span>
@@ -161,18 +202,18 @@ function ProductContainerLoader({
             <p id="product-load-rate-star">{"⭐".repeat(data.rate.star)}</p>
             <div className="items-price-container">
               <p className="items-price">
-                {data.price.toLocaleString("VN-vi", {
+                {data.price.toLocaleString(finalLocale, {
                   style: "currency",
-                  currency: "VND",
+                  currency: finalCurrency,
                 })}
               </p>
               <p className="items-price-discounted">
                 {data.sale
                   ? ((data.price / (100 - data.sale)) * 100).toLocaleString(
-                      "VN-vi",
+                      finalLocale,
                       {
                         style: "currency",
-                        currency: "VND",
+                        currency: finalCurrency,
                       }
                     )
                   : null}
@@ -181,6 +222,14 @@ function ProductContainerLoader({
           </div>
         </Link>
       ))}
+
+      {/* no product found */}
+      {!finalData.length ? (
+        <div id="not-found-box">
+          <img src={notFoundIcon} alt="not found icon" />
+          <h3>No products found that match the filter</h3>
+        </div>
+      ) : null}
     </>
   );
 }
@@ -195,6 +244,8 @@ ProductContainerLoader.propTypes = {
   searchText: PropTypes.string,
   stock: PropTypes.object,
   manufacturer: PropTypes.object,
+  currency: PropTypes.string,
+  locale: PropTypes.string,
 };
 
 export default React.memo(ProductContainerLoader);

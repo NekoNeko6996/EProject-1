@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { useParams } from "react-router-dom";
 
@@ -16,9 +16,12 @@ import iconFreeShip from "../resource/icon/free_ship_icon_small.png";
 import iconContact from "../resource/icon/contact_icon_small.png";
 import iconPayment from "../resource/icon/payment_icon_small.png";
 
+// database
 import { dataBanner } from "../database/data";
 
+// 
 function HomeComponent() {
+  // useState
   const [maxPage, setMaxPage] = useState(0);
   const [page, setPage] = useState(1);
   const [stock, setStock] = useState({ inStock: true, outStock: true });
@@ -28,6 +31,7 @@ function HomeComponent() {
   const [priceFrom, setPriceFrom] = useState(0);
   const [priceTo, setPriceTo] = useState(0);
   const [pageFilter, setPageFilter] = useState("");
+  const [reset, setReset] = useState(false);
   const [manufacturer, setManufacturer] = useState({
     manufacturerFilterList: [false, false, false, false, false],
     manufacturerList: [
@@ -39,6 +43,11 @@ function HomeComponent() {
     ],
   });
 
+  // useRef
+  const filterCheckBoxRef = useRef([]);
+  const sortBox = useRef(null);
+  const hiddenLayer = useRef(null);
+
   // url params
   const params = useParams();
 
@@ -48,7 +57,10 @@ function HomeComponent() {
   // min, max, unit of price slider
   const min = 10,
     max = 500,
-    unit = "00000"; // unit is 100.000 VND 100.000 * 500 = 50.000.000 (max)
+    unit = "00000", // unit is 100.000 VND 100.000 * 500 = 50.000.000 (max)
+    currency = "VND", // or USD 
+    locale = "VN-vi"; // or en-US
+
 
   // scroll
   const scrollFunction = (step, delay) => {
@@ -85,9 +97,10 @@ function HomeComponent() {
 
   // set maximum number of pages, in stock and out stock
   const productCallBackFunc = (data, inStock, outStock) => {
-    setInStock(inStock.length);
-    setOutStock(outStock.length);
-    setMaxPage(Math.ceil(data.length / 20));
+    setInStock(inStock);
+    setOutStock(outStock);
+    setMaxPage(Math.ceil(data.length / limitItems));
+    if(data.length < limitItems) setPage(1);
 
     manufacturer.manufacturerList.forEach((value, index) => {
       let count = 0;
@@ -103,15 +116,12 @@ function HomeComponent() {
 
   // sort hide
   const onHideBtnClick = () => {
-    const sortBox = document.getElementById("home-sort-option");
-    const hiddenLayer = document.getElementById("hidden-layer");
-
-    if (sortBox.className === "sort-option-close") {
-      sortBox.className = "sort-option-open";
-      hiddenLayer.className = "hidden-layer-on";
+    if (sortBox.current.className === "sort-option-close") {
+      sortBox.current.className = "sort-option-open";
+      hiddenLayer.current.className = "hidden-layer-on";
     } else {
-      sortBox.className = "sort-option-close";
-      hiddenLayer.className = "hidden-layer-off";
+      sortBox.current.className = "sort-option-close";
+      hiddenLayer.current.className = "hidden-layer-off";
     }
   };
 
@@ -138,10 +148,13 @@ function HomeComponent() {
       return {
         ...prev,
         manufacturerFilterList: [false, false, false, false, false],
+        manufacturerFilterStatus: false,
       };
     });
     setStock({ inStock: true, outStock: true });
     setSearchText("");
+    setReset((prev) => !prev);
+    filterCheckBoxRef.current.forEach((checkbox) => (checkbox.checked = false));
   };
 
   return (
@@ -150,6 +163,7 @@ function HomeComponent() {
         id="hidden-layer"
         className="hidden-layer-off"
         onClick={onHideBtnClick}
+        ref={hiddenLayer}
       ></div>
       <div id="home-banner">
         <SlideShow data={dataBanner} scrollStep={1440} />
@@ -202,7 +216,7 @@ function HomeComponent() {
         <h1>{pageFilter ? pageFilter.toUpperCase() : "PRODUCT"}</h1>
       </nav>
       <section id="home-section">
-        <aside id="home-sort-option" className="sort-option-close">
+        <aside id="home-sort-option" className="sort-option-close" ref={sortBox}>
           <button id="sort-option-close-btn" onClick={onHideBtnClick}></button>
           <div>
             <div>
@@ -238,25 +252,36 @@ function HomeComponent() {
                   setPriceFrom(min);
                   setPriceTo(max);
                 }}
+                reset={reset}
+                currency={currency}
+                locale={locale}
               />
             </div>
 
             <div id="manufacturer-filter">
               {manufacturer.manufacturerList.map((value, index) => {
                 return (
-                  <span key={index} className="manufacturer-span-list">
-                    <label htmlFor={`${value}-filter-p`}></label>
-                    <p
+                  <span key={index}>
+                    <input
+                      type="checkbox"
+                      className="manufacturer-checkbox"
                       id={`${value}-filter-p`}
+                      ref={(element) =>
+                        (filterCheckBoxRef.current[index] = element)
+                      }
+                    />
+                    <label
+                      htmlFor={`${value}-filter-p`}
                       onClick={() => onManufacturerFilterClick(index)}
                     >
                       {value.replace(/-/g, " ").toUpperCase()} (
                       <span id={`manufacturer-${value}-span-amount`}>0</span>)
-                    </p>
+                    </label>
                   </span>
                 );
               })}
             </div>
+
             <button
               id="reset-filter-btn"
               className="black-hover-btn"
@@ -279,6 +304,8 @@ function HomeComponent() {
               searchText={searchText}
               stock={stock}
               manufacturer={manufacturer}
+              currency={currency}
+              locale={locale}
             />
           </section>
           <ReactPaginate
@@ -301,6 +328,7 @@ function HomeComponent() {
             activeClassName="active"
             renderOnZeroPageCount={null}
             linkClass="page-link"
+            forcePage={page - 1} 
           />
         </div>
       </section>

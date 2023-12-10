@@ -1028,7 +1028,7 @@ const productDB = [
       no3: "",
       no4: "",
     },
-    price: 98000000,
+    price: 9000000,
     sale: 20,
     tech: "mechanical",
     availability: {
@@ -1062,7 +1062,7 @@ const productDB = [
       no3: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2932-416x416.jpg",
       no4: "",
     },
-    price: 98000000,
+    price: 8000000,
     sale: 20,
     tech: "mechanical",
     availability: {

@@ -3,18 +3,36 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 import "../css/multiRangeSlide.css";
 
-const MultiRangeSlider = ({ min, max, unit, onChange }) => {
+const MultiRangeSlider = ({
+  min,
+  max,
+  unit,
+  onChange,
+  reset,
+  currency,
+  locale,
+}) => {
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);
   const minValRef = useRef(null);
   const maxValRef = useRef(null);
   const range = useRef(null);
 
+  // variable 
+  const finalCurrency = currency || "VND";
+  const finalLocale = locale || "VN-vi"; 
+
+
   // Convert to percentage
   const getPercent = useCallback(
     (value) => Math.round(((value - min) / (max - min)) * 100),
     [min, max]
   );
+
+  useEffect(() => {
+    setMaxVal(max);
+    setMinVal(min);
+  }, [reset, min, max]);
 
   // Set width of the range to decrease from the left side
   useEffect(() => {
@@ -45,7 +63,7 @@ const MultiRangeSlider = ({ min, max, unit, onChange }) => {
   useEffect(() => {
     onChange({ min: +(minVal + unit), max: +(maxVal + unit) });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [reset]);
 
   const handleMouseUp = () => {
     onChange({ min: +(minVal + unit), max: +(maxVal + unit) });
@@ -90,15 +108,15 @@ const MultiRangeSlider = ({ min, max, unit, onChange }) => {
         <div className="slider__track" />
         <div ref={range} className="slider__range" />
         <div className="slider__left-value">
-          {(+(minVal + unit)).toLocaleString("VN-vi", {
+          {(+(minVal + unit)).toLocaleString(finalLocale, {
             style: "currency",
-            currency: "VND",
+            currency: finalCurrency,
           })}
         </div>
         <div className="slider__right-value">
-          {(+(maxVal + unit)).toLocaleString("VN-vi", {
+          {(+(maxVal + unit)).toLocaleString(finalLocale, {
             style: "currency",
-            currency: "VND",
+            currency: finalCurrency,
           })}
         </div>
       </div>
@@ -111,6 +129,9 @@ MultiRangeSlider.propTypes = {
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
+  reset: PropTypes.bool,
+  currency: PropTypes.string,
+  locale: PropTypes.string,
 };
 
 export default React.memo(MultiRangeSlider);

@@ -15,6 +15,15 @@
 
 ## `npm start` TO RUN THIS PROJECT
 
+## V0.0.8 
+- Quickly fix many errors.
+- Optimize the algorithm and add a random algorithm.
+- Optimize user experience on UI.
+- Add dynamic effects when filtering products, turning pages and searching.
+- Add an animated screen when the website loads slowly.
+- Add notification when product is not found using filter.
+
+
 ## V0.0.7
 - Quickly fix many errors.
 - Optimize and add filtering algorithms.

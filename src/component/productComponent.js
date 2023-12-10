@@ -189,6 +189,7 @@ function ProductComponent() {
           page={defaultPage}
           sort={{ action: "", value: "" }}
           callback={productCallback}
+          random={true}
         />
       </div>
     </>
