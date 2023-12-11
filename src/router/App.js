@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useEffect, useState } from "react";
+import swal from "sweetalert";
 
 // css
 import "../css/app.css";
@@ -40,9 +41,19 @@ function App() {
 
   // when pressing log out
   const onLogout = () => {
-    window.sessionStorage.removeItem("user");
-    toast.success("Logout Success");
-    setUserStatus(null);
+    swal({
+      title: "Are you sure?",
+      text: "Are you sure you want to sign out?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((logout) => {
+      if (logout) {
+        window.sessionStorage.removeItem("user");
+        toast.success("Logout Success");
+        setUserStatus(null);
+      }
+    });
   };
 
   //  when pressing register in footer

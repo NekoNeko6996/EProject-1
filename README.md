@@ -12,8 +12,14 @@
 `react-toastify`
 `web-vitals`
 `classnames`
+`sweetalert`
 
 ## `npm start` TO RUN THIS PROJECT
+
+## V0.0.9
+- Add product page.
+- Add notification when logging out or when removing items from cart.
+- Fix bug.
 
 ## V0.0.8 
 - Quickly fix many errors.

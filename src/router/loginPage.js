@@ -82,7 +82,7 @@ function LoginComponent() {
             <p className="text-hover-animate">SERVICE</p>
           </span>
         </a>
-        <a href="/sale/0">
+        <a href="/sale/sales">
           <span className="span-nav-option">
             <p className="text-hover-animate">SALES</p>
           </span>

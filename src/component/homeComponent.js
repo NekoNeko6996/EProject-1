@@ -22,7 +22,7 @@ import { dataBanner } from "../database/data";
 // 
 function HomeComponent() {
   // useState
-  const [maxPage, setMaxPage] = useState(0);
+  const [maxPage, setMaxPage] = useState(1);
   const [page, setPage] = useState(1);
   const [stock, setStock] = useState({ inStock: true, outStock: true });
   const [inStock, setInStock] = useState(0);
@@ -328,7 +328,7 @@ function HomeComponent() {
             activeClassName="active"
             renderOnZeroPageCount={null}
             linkClass="page-link"
-            forcePage={page - 1} 
+            forcePage={page - 1}
           />
         </div>
       </section>
