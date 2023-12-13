@@ -22,7 +22,7 @@
 - Fix bug.
 
 ## V0.0.9
-- Add product page.
+- Add cart page.
 - Add notification when logging out or when removing items from cart.
 - Fix bug.
 
