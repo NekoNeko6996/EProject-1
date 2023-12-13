@@ -1,0 +1,276 @@
+#service-page > * {
+  --top-position: -150px;
+}
+
+#service-page {
+  width: 100%;
+  padding-bottom: 5vw;
+  max-width: 1440px;
+  margin-top: 5vw;
+}
+
+#service-card-container {
+  aspect-ratio: 2.6/1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  padding-top: 50px;
+  top: 10vw;
+}
+
+/* --- */
+.service-info-container {
+  position: absolute;
+  width: 80%;
+  height: 100%;
+}
+.service-title-box {
+  aspect-ratio: 1.55/1;
+  width: 30%;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid #444;
+  position: relative;
+  left: 3%;
+  top: -25%;
+  z-index: 1;
+  font-size: 1rem;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.service-title-box img {
+  aspect-ratio: 1/1;
+  height: 40%;
+  position: absolute;
+  top: 10%;
+}
+.service-title-box p {
+  font-size: 23px;
+  position: absolute;
+  top: 65%;
+}
+
+.service-info-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 10px;
+  top: 0;
+  animation-fill-mode: forwards;
+  background-color: white;
+  box-shadow: 0 0 10px #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.service-info-box > * {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.content-title {
+  font-weight: bold;
+  font-size: 30px;
+  color: #555;
+  margin: 10px;
+}
+.content {
+  font-size: 23px;
+}
+/* --- */
+#center-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#center-box .service-title-box {
+  left: 0;
+}
+
+#right-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+#right-box .service-title-box {
+  left: -3%;
+}
+
+/*  */
+#checkbox1,
+#checkbox2,
+#checkbox3 {
+  display: none;
+}
+
+/* ----- */
+#checkbox1:checked ~ #box1,
+#checkbox2:checked ~ #box2,
+#checkbox3:checked ~ #box3 {
+  z-index: 3;
+}
+#checkbox1:checked ~ #box1 > *,
+#checkbox2:checked ~ #box2 > *,
+#checkbox3:checked ~ #box3 > * {
+  opacity: 1;
+}
+
+#checkbox1:checked ~ #label1,
+#checkbox2:checked ~ #label2,
+#checkbox3:checked ~ #label3 {
+  animation: labelAnimate 1s ease;
+  animation-fill-mode: forwards;
+  box-shadow: 0 0 10px #999;
+  border: none;
+}
+#checkbox1:not(checked) ~ #label1,
+#checkbox2:not(checked) ~ #label2,
+#checkbox3:not(checked) ~ #label3 {
+  animation: labelAnimate-off 1s ease;
+  animation-fill-mode: forwards;
+}
+
+/* --- other service --- */
+#other-service-container {
+  aspect-ratio: 4/1;
+  width: 100%;
+  max-width: 1440px;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 17vh 0 5vh 0;
+}
+#other-service-container button {
+  padding: 5px 10px 5px 10px;
+  margin-top: 3%;
+  font-size: 20px;
+}
+
+.black-hover-btn {
+  position: relative;
+  z-index: 5;
+  color: black;
+  transition: 0.3s;
+  cursor: pointer;
+  background-color: white;
+}
+.black-hover-btn::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background-color: black;
+  transition: 0.3s;
+}
+.black-hover-btn:hover::after {
+  width: 100%;
+}
+.black-hover-btn:hover {
+  color: white;
+}
+
+/* --------------------------------------- */
+@keyframes labelAnimate {
+  50% {
+    transform: translateY(-55%);
+  }
+  60% {
+    z-index: 5;
+  }
+  100% {
+    transform: translateY(-5%);
+    z-index: 5;
+  }
+}
+@keyframes labelAnimate-off {
+  0% {
+    z-index: 5;
+  }
+  50% {
+    transform: translateY(-55%);
+  }
+  60% {
+    z-index: 1;
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .service-title-box p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 950px) {
+  .service-title-box p {
+    font-size: 17px;
+  }
+  .content-title {
+    font-size: 20px;
+  }
+  .content {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .service-info-container {
+    width: 90%;
+  }
+  #other-service-container h2 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .service-title-box p {
+    font-size: 13px;
+  }
+  #service-card-container {
+    aspect-ratio: 2/1;
+  }
+  .service-title-box {
+    top: -22%;
+  }
+  #other-service-container button {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .service-title-box p {
+    font-size: 10px;
+  }
+  .content-title {
+    font-size: 13px;
+  }
+  .content {
+    font-size: 10px;
+  }
+  #other-service-container h2 {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .service-title-box p {
+    font-size: 8px;
+  }
+  .content-title {
+    font-size: 12px;
+  }
+  .content {
+    font-size: 10px;
+  }
+}

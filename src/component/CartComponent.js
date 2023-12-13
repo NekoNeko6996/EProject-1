@@ -6,6 +6,7 @@ import "../css/cart.css";
 
 // data
 import { productDB } from "../database/data";
+import { currency, locale } from "../database/data";
 
 // component
 import ProductContainerLoader from "./productContainer";
@@ -24,16 +25,23 @@ function CartComponent() {
 
   const checkboxComponent = useRef([]);
 
+  // login check
+  useEffect(() => {
+    if (!window.sessionStorage.getItem("user")) window.location.href = "/login";
+  });
+
   // load cart data
   useEffect(() => {
-    let sessionS = window.sessionStorage.getItem("productAdd");
-    if (sessionS) {
-      let stringArr = sessionS.split(",");
-      let cartArr = stringArr.map((value) => parseInt(value));
-      setCartArray(cartArr);
+    if (window.sessionStorage.getItem("user")) {
+      let sessionS = window.sessionStorage.getItem("productAdd");
+      if (sessionS) {
+        let stringArr = sessionS.split(",");
+        let cartArr = stringArr.map(Number);
+        setCartArray(cartArr);
 
-      let amountArray = new Array(cartArr.length).fill(1);
-      setCartAmountArray(amountArray);
+        let amountArray = new Array(cartArr.length).fill(1);
+        setCartAmountArray(amountArray);
+      }
     }
   }, []);
 
@@ -88,7 +96,9 @@ function CartComponent() {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        let removeArr = cartArr.filter((_, idx) => idx === index? false : true);
+        let removeArr = cartArr.filter((_, idx) =>
+          idx === index ? false : true
+        );
         let sessionStorageText = removeArr.join(",");
         setCartArray(removeArr);
         if (sessionStorageText)
@@ -125,9 +135,9 @@ function CartComponent() {
                 <span>
                   <p className="items-title">PRICE</p>
                   <p className="cart-product-price">
-                    {productDB[id].price.toLocaleString("VN-vi", {
+                    {productDB[id].price.toLocaleString(locale, {
                       style: "currency",
-                      currency: "VND",
+                      currency: currency,
                     })}
                   </p>
                 </span>
@@ -185,9 +195,9 @@ function CartComponent() {
         <div>
           <p className="items-title">TOTAL PRICE</p>
           <p className="cart-product-price">
-            {totalPrice.toLocaleString("VN-vi", {
+            {totalPrice.toLocaleString(locale, {
               style: "currency",
-              currency: "VND",
+              currency: currency,
             })}
           </p>
         </div>
@@ -212,6 +222,8 @@ function CartComponent() {
           sort={{ action: "", value: "" }}
           callback={useCallback(() => {}, [])}
           random={true}
+          currency={currency}
+          locale={locale}
         />
       </div>
     </>

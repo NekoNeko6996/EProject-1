@@ -16,6 +16,11 @@
 
 ## `npm start` TO RUN THIS PROJECT
 
+## V0.1.0
+- Add Service page.
+- Optimize user experience on UI.
+- Fix bug.
+
 ## V0.0.9
 - Add product page.
 - Add notification when logging out or when removing items from cart.

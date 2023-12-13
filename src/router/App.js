@@ -6,7 +6,7 @@ import swal from "sweetalert";
 // css
 import "../css/app.css";
 import "react-toastify/dist/ReactToastify.css";
-//
+
 
 // Resource
 import logo from "../resource/logo/Logo.png";
@@ -27,16 +27,17 @@ function App() {
   const CartDataSession = window.sessionStorage.getItem("productAdd");
 
   useEffect(() => {
-    let CartData;
+    if (window.sessionStorage.getItem("user")) {
+      let CartData;
+      // convert data from sessionStorage to ID array
+      if (CartDataSession) {
+        CartData = CartDataSession.split(",").map(Number);
+        setCartAmount(CartData.length);
+      }
 
-    // convert data from sessionStorage to ID array
-    if (CartDataSession) {
-      CartData = CartDataSession.split(",").map(Number);
-      setCartAmount(CartData.length);
+      // get user account
+      setUserStatus(window.sessionStorage.getItem("user"));
     }
-
-    // get user account
-    setUserStatus(window.sessionStorage.getItem("user"));
   }, [CartDataSession]);
 
   // when pressing log out
@@ -52,6 +53,7 @@ function App() {
         window.sessionStorage.removeItem("user");
         toast.success("Logout Success");
         setUserStatus(null);
+        window.location.href = "/";
       }
     });
   };
@@ -86,6 +88,23 @@ function App() {
     });
   };
 
+  // when click cart
+  const cartPageRedirect = () => {
+    if (!window.sessionStorage.getItem("user")) {
+      swal({
+        title: "Login required to enter cart",
+        text: "Do you want to redirect to the login page?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: false,
+      }).then((yes) => {
+        if (yes) {
+          window.location.href = "/login";
+        }
+      });
+    } else window.location.href = "/cart";
+  };
+
   return (
     <div id="App">
       <div
@@ -112,10 +131,10 @@ function App() {
               </a>
             )}
           </div>
-          <a href="/cart" id="cart-link-box">
+          <div id="cart-link-box" onClick={cartPageRedirect}>
             <img src={iconCart} alt="cart-icon" />
             <p id="home-cart-p">({cartAmount})</p>
-          </a>
+          </div>
         </div>
         <label className="nav-hidden-btn" onClick={onHideNavBtnClick}></label>
       </header>

@@ -57,7 +57,9 @@
 #cart-link-box {
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 }
+
 #cart-link-box img {
   height: 25px;
   aspect-ratio: 1/1;
@@ -65,6 +67,7 @@
 #cart-link-box p {
   color: #999;
 }
+
 
 /* navigation */
 #home-nav {

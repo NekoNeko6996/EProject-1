@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import swal from "sweetalert";
 
 // component
 import ProductContainerLoader from "./productContainer";
@@ -9,7 +10,7 @@ import ProductContainerLoader from "./productContainer";
 import "../css/productComponent.css";
 
 // resource
-import noImgData from "../resource/img/noImgData.png";
+import noImgData from "../resource/img/no_img_data.png";
 
 // data base
 import { productDB } from "../database/data";
@@ -42,18 +43,27 @@ function ProductComponent() {
     }
 
     if (!sessionS.getItem("user")) {
-      window.location.href = "/login";
-      return;
+      swal({
+        title: "Sign in to add this product to your cart?",
+        text: "Do you want to redirect to the login page?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: false,
+      }).then((yes) => {
+        if (yes) {
+          window.location.href = "/login";
+        } else return;
+      });
+    } else {
+      if (sessionS.getItem("productAdd"))
+        prevData = sessionS.getItem("productAdd");
+
+      window.sessionStorage.setItem(
+        "productAdd",
+        `${prevData ? prevData + "," + productId : productId}`
+      );
+      toast.success("Add to cart successfully!");
     }
-
-    if (sessionS.getItem("productAdd"))
-      prevData = sessionS.getItem("productAdd");
-
-    window.sessionStorage.setItem(
-      "productAdd",
-      `${prevData ? prevData + "," + productId : productId}`
-    );
-    toast.success("Add to cart successfully!");
   };
 
   // scroll when load new product

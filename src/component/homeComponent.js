@@ -18,8 +18,9 @@ import iconPayment from "../resource/icon/payment_icon_small.png";
 
 // database
 import { dataBanner } from "../database/data";
+import { min, max, unit, currency, locale } from "../database/data";
 
-// 
+//
 function HomeComponent() {
   // useState
   const [maxPage, setMaxPage] = useState(1);
@@ -53,14 +54,6 @@ function HomeComponent() {
 
   // limit item in one page
   const limitItems = 20;
-
-  // min, max, unit of price slider
-  const min = 10,
-    max = 500,
-    unit = "00000", // unit is 100.000 VND 100.000 * 500 = 50.000.000 (max)
-    currency = "VND", // or USD 
-    locale = "VN-vi"; // or en-US
-
 
   // scroll
   const scrollFunction = (step, delay) => {
@@ -100,7 +93,7 @@ function HomeComponent() {
     setInStock(inStock);
     setOutStock(outStock);
     setMaxPage(Math.ceil(data.length / limitItems));
-    if(data.length < limitItems) setPage(1);
+    if (data.length < limitItems) setPage(1);
 
     manufacturer.manufacturerList.forEach((value, index) => {
       let count = 0;
@@ -130,9 +123,7 @@ function HomeComponent() {
     setManufacturer((prev) => {
       const updatedManufacturerFilterList = prev.manufacturerFilterList.map(
         (value, idx) => {
-          if (idx === index) {
-            return !value;
-          }
+          if (idx === index) return !value;
           return value;
         }
       );
@@ -216,7 +207,11 @@ function HomeComponent() {
         <h1>{pageFilter ? pageFilter.toUpperCase() : "PRODUCT"}</h1>
       </nav>
       <section id="home-section">
-        <aside id="home-sort-option" className="sort-option-close" ref={sortBox}>
+        <aside
+          id="home-sort-option"
+          className="sort-option-close"
+          ref={sortBox}
+        >
           <button id="sort-option-close-btn" onClick={onHideBtnClick}></button>
           <div>
             <div>

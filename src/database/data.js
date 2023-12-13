@@ -3,6 +3,14 @@ import homeBanner02 from "../resource/img/home-banner-2.png";
 import homeBanner03 from "../resource/img/home-banner-3.png";
 
 // --- simulate data returned from the server --- //
+// min, max, unit of price slider
+const min = 10,
+  max = 500,
+  unit = "00000", // unit is 100.000 VND 100.000 * 500 = 50.000.000 (max)
+  currency = "VND", // or USD
+  locale = "VN-vi"; // or en-US
+export { min, max, unit, currency, locale };
+
 // banner img url
 const dataBanner = [
   {
@@ -18,6 +26,7 @@ const dataBanner = [
     link: "/",
   },
 ];
+export { dataBanner };
 
 // product data
 const productDB = [
@@ -1392,4 +1401,4 @@ const productDB = [
   },
 ];
 
-export { dataBanner, productDB };
+export { productDB };
