@@ -35,22 +35,20 @@ function ProductContainerLoader({
 
   // filter by tags
   useEffect(() => {
-    let filteredData = productDB.filter((item) => {
-      switch (pageFilter) {
-        case "mechanical":
-          return item.tech === "mechanical";
-        case "quartz":
-          return item.tech === "quartz";
-        case "sales":
-          return item.sale > 0;
-        case "her":
-          return item.gift === "her";
-        case "him":
-          return item.gift === "him";
-        default:
-          return true;
-      }
-    });
+    const filterConditions = {
+      mechanical: (item) => item.tech === "mechanical",
+      quartz: (item) => item.tech === "quartz",
+      sales: (item) => item.sale > 0,
+      her: (item) => item.gift === "her",
+      him: (item) => item.gift === "him",
+      vintage: (item) => item.product === "vintage",
+      luxury: (item) => item.product === "luxury",
+      smart: (item) => item.product === "smart-watch",
+    };
+
+    const filteredData = pageFilter
+      ? productDB.filter((item) => filterConditions[pageFilter](item))
+      : productDB;
     setDataNavFilter(filteredData);
   }, [pageFilter]);
 
@@ -103,6 +101,7 @@ function ProductContainerLoader({
         return true;
       };
 
+      // random
       const randomFilter = (data, count) => {
         let copyData = [...data];
         let result = [];

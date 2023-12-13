@@ -164,13 +164,13 @@ function App() {
           <p className="text-hover-animate">PRODUCT</p>
           <div className="hidden-option">
             <ul>
-              <a href="/">
+              <a href="/product_/vintage">
                 <li>Vintage</li>
               </a>
-              <a href="/">
+              <a href="/product_/luxury">
                 <li>Luxury</li>
               </a>
-              <a href="/">
+              <a href="/product_/smart">
                 <li>Smart Watches</li>
               </a>
             </ul>

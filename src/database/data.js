@@ -2,6 +2,13 @@ import homeBanner01 from "../resource/img/home-banner.png";
 import homeBanner02 from "../resource/img/home-banner-2.png";
 import homeBanner03 from "../resource/img/home-banner-3.png";
 
+
+/// ----> This data is for reference only in terms of how the interface will work. <----///
+/// ----> The content within this data may not be accurate to reality. <----///
+
+
+/// "vintage" , luxury, smart-watch
+
 // --- simulate data returned from the server --- //
 // min, max, unit of price slider
 const min = 10,
@@ -35,6 +42,7 @@ const productDB = [
     manufacturer: "citizen",
     name: "PCAT WATCH",
     SKU: " CB5916-59L",
+    product: "luxury",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/ShopifyPDt_6_4e8eb8da-5fb3-42a9-a313-8c3495d5ee1a_1800x1800.jpg?v=1637700071",
       no2: "https://shopalbertopr.com/cdn/shop/products/ShopifyPDt_7_a5e0ba84-54fc-47ae-b411-cff47f87ea55_1800x1800.jpg?v=1637700072",
@@ -70,6 +78,7 @@ const productDB = [
     manufacturer: "citizen",
     name: "GEN 4 RUNWAY SMARTWATCH",
     SKU: "MKT5045",
+    product: "smart-watch",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/MKT5045_1_1800x1800.png?v=1605662805",
       no2: "https://shopalbertopr.com/cdn/shop/products/MKT5044-2_728e72c8-606d-4c8b-b4fb-92c742aedce3_1400x1400.png?v=1605662805",
@@ -105,6 +114,7 @@ const productDB = [
     manufacturer: "citizen",
     name: "GEN 4 LEXINGTON SMARTWATCH",
     SKU: "MKT5077",
+    product: "smart-watch",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/MKT5077_1_1800x1800.png?v=1605662631",
       no2: "https://shopalbertopr.com/cdn/shop/products/MKT5077-2_1173x1800.jpg?v=1605662631",
@@ -177,6 +187,7 @@ const productDB = [
     gift: "her",
     name: "RUNWAY",
     SKU: "MK8086",
+    product: "luxury",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/MK8086_1_1800x1800.png?v=1605659858",
       no2: "https://shopalbertopr.com/cdn/shop/products/MK8086-2_400x400.png?v=1605659858",
@@ -211,6 +222,7 @@ const productDB = [
     gift: "her",
     name: "PARKER",
     SKU: "MK6414",
+    product: "luxury",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/MK6414_1_1800x1800.png?v=1605663901",
       no2: "https://shopalbertopr.com/cdn/shop/products/MK6414-2_1000x1000.png?v=1605663901",
@@ -245,6 +257,7 @@ const productDB = [
     gift: "her",
     name: "JARYN",
     SKU: "MK4438",
+    product: "luxury",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/MK4438_1800x1800.png?v=1605663280",
       no2: "https://shopalbertopr.com/cdn/shop/products/sd_1000x1200.jpg?v=1605663280",
@@ -279,6 +292,7 @@ const productDB = [
     gift: "her",
     name: "PYPER",
     SKU: "MK3901",
+    product: "luxury",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/MK3901_1_1800x1800.png?v=1605664238",
       no2: "https://shopalbertopr.com/cdn/shop/products/MK3901-3_900x900.png?v=1605664238",
@@ -313,6 +327,7 @@ const productDB = [
     gift: "her",
     name: "CINTHIA",
     SKU: "MK3641",
+    product: "luxury",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/MK3641_1_1800x1800.png?v=1605658658",
       no2: "https://shopalbertopr.com/cdn/shop/products/MK3641-2_1157x1157.png?v=1605658658",
@@ -347,6 +362,7 @@ const productDB = [
     gift: "her",
     name: "PORTIA",
     SKU: "MK3639",
+    product: "luxury",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/MK3639_1_1800x1800.png?v=1605664014",
       no2: "https://shopalbertopr.com/cdn/shop/products/MK3639-2_1200x1200.png?v=1605664014",
@@ -381,6 +397,7 @@ const productDB = [
     gift: "her",
     name: "LAURYN",
     SKU: "MK2757",
+    product: "luxury",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/MK2757_1800x1800.png?v=1605663383",
       no2: "https://shopalbertopr.com/cdn/shop/products/MK2757-2_900x900.png?v=1605663383",
@@ -414,6 +431,7 @@ const productDB = [
     gift: "her",
     name: "MOVADO BOLD MID-SIZE TWO-TONE ROSE GOLD WATCH",
     SKU: "3600504",
+    product: "luxury",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/3600504_1_1800x1800.png?v=1605653694",
       no2: "https://shopalbertopr.com/cdn/shop/products/3600504-2_533x533.jpg?v=1605653694",
@@ -448,6 +466,7 @@ const productDB = [
     gift: "her",
     name: "MUSEUM CLASSIC WATCH",
     SKU: "0606876",
+    product: "luxury",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/0606876_3e66cbb8-642d-47a7-93e4-2545179c37fd_1800x1800.png?v=1608220578",
       no2: "https://shopalbertopr.com/cdn/shop/products/0606876-2_bfd15eba-2e6a-4f1e-b4dc-afb713dae941_1056x1273.jpg?v=1608220578",
@@ -481,6 +500,7 @@ const productDB = [
     gift: "her",
     name: "LUNO SPORT WATCH",
     SKU: "0606380",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/0606380_1800x1800.png?v=1605652348",
       no2: "https://shopalbertopr.com/cdn/shop/products/0606380-3_96bcb4ed-5624-4b07-9df6-36399aab8f61_870x870.jpg?v=1605652348",
@@ -514,6 +534,7 @@ const productDB = [
     gift: "her",
     name: "PORTRAIT GENT WATCH",
     SKU: "SFDR00519",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/SFDR00519_1800x1800.png?v=1605657296",
       no2: "https://shopalbertopr.com/cdn/shop/products/ScreenShot2020-06-06at11.24.33PM_998x564.png?v=1605657296",
@@ -548,6 +569,7 @@ const productDB = [
     gift: "her",
     name: "MINUETTO WATCH",
     SKU: "SF8200519",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/SF8200519_1800x1800.png?v=1605657251",
       no2: "https://shopalbertopr.com/cdn/shop/products/ScreenShot2020-06-06at11.05.58PM_1222x530.png?v=1605657251",
@@ -582,6 +604,7 @@ const productDB = [
     gift: "her",
     name: "SAWYER",
     SKU: "MK2580",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/MK2580_1800x1800.png?v=1605659477",
       no2: "https://shopalbertopr.com/cdn/shop/products/MK2580-2_300x300.jpg?v=1605659477",
@@ -616,6 +639,7 @@ const productDB = [
     gift: "her",
     name: "MUSEUM SPORT BLACK PVD WATCH",
     SKU: "0606615",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/0606615_1800x1800.png?v=1605655357",
       no2: "https://shopalbertopr.com/cdn/shop/products/0606615-2_448cb9f8-8921-4bb9-9257-325e8876ac36_315x315.jpg?v=1605655357",
@@ -652,6 +676,7 @@ const productDB = [
     gift: "her",
     name: "SPORT EDGE WATCH",
     SKU: "0606927",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/0606927_1800x1800.png?v=1605656101",
       no2: "https://shopalbertopr.com/cdn/shop/products/0606927-2_40e09cab-4f1b-424b-b8cf-28266330099a_612x612.jpg?v=1605656101",
@@ -686,6 +711,7 @@ const productDB = [
     gift: "her",
     name: "MUSEUM CLASSIC WATCH",
     SKU: "0606610",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/0606610_1800x1800.png?v=1605655244",
       no2: "https://shopalbertopr.com/cdn/shop/products/0606610-2_860f9b47-f235-4c8a-845c-5f3999f3f1fb_1056x1273.jpg?v=1605655244",
@@ -721,6 +747,7 @@ const productDB = [
     gift: "her",
     name: "MOVADO BOLD BLACK TITANIUM WATCH",
     SKU: "3600190",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/3600190_1800x1800.png?v=1605652558",
       no2: "https://shopalbertopr.com/cdn/shop/products/3600190-2_225x225.jpg?v=1605652558",
@@ -755,6 +782,7 @@ const productDB = [
     gift: "him",
     name: "MOVADO BOLD MEDIUM TWO-TONE WATCH",
     SKU: "3600129",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/3600129_1800x1800.png?v=1605653527",
       no2: "https://shopalbertopr.com/cdn/shop/products/3600129-2_612x612.jpg?v=1605653527",
@@ -790,6 +818,7 @@ const productDB = [
     gift: "him",
     name: "MOVADO BOLD MEDIUM YELLOW GOLD WATCH",
     SKU: " 3600104",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/3600104_1_1800x1800.png?v=1605653583",
       no2: "https://shopalbertopr.com/cdn/shop/products/3600104-2_533x533.jpg?v=1605653583",
@@ -824,6 +853,7 @@ const productDB = [
     gift: "him",
     name: "HERITAGE SERIES CALENDOPLAN S CHRONOGRAPH WATCH",
     SKU: " 3650062",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/3650062_1_533x533.png?v=1605651794",
       no2: "https://shopalbertopr.com/cdn/shop/products/3650062-2_533x533.jpg?v=1605651794",
@@ -861,6 +891,7 @@ const productDB = [
     gift: "him",
     name: "MOVADO BOLD LARGE EVOLUTION WATCH",
     SKU: "3600510",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/3600510_1_1800x1800.png?v=1605653281",
       no2: "https://shopalbertopr.com/cdn/shop/products/3600510-2_533x533.jpg?v=1605653281",
@@ -895,6 +926,7 @@ const productDB = [
     gift: "him",
     name: "IT'S TIME",
     SKU: "REL0102BLNMAR0U",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/PDTSHOT_8_3cb3cd8a-41c7-43b0-baf1-a103b8378bd7_1000x.png?v=1635102820",
       no2: "https://shopalbertopr.com/cdn/shop/products/rel0102blnmar0u_1_1000x.jpg?v=1635102820",
@@ -929,6 +961,7 @@ const productDB = [
     gift: "him",
     name: "PRT WATCH",
     SKU: "AW7023-52A",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/AW7023-52A_1_1000x.png?v=1605669258",
       no2: "https://shopalbertopr.com/cdn/shop/products/AW7023-52A-2_1000x.png?v=1605669258",
@@ -963,6 +996,7 @@ const productDB = [
     gift: "him",
     name: "BRYCEN WATCH",
     SKU: "BL5568-54L",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/BL5568-54L_1_1000x.png?v=1605666756",
       no2: "https://shopalbertopr.com/cdn/shop/products/BL5568-54L-2_1000x.png?v=1605666756",
@@ -997,6 +1031,7 @@ const productDB = [
     gift: "him",
     name: "PROMASTER DIVER WATCH",
     SKU: "BN0191-55L",
+    product: "vintage",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/BN0191-55L_1_1000x.png?v=1605669002",
       no2: "https://shopalbertopr.com/cdn/shop/products/BN0191-55L-2_1000x.png?v=1605669002",
@@ -1031,6 +1066,7 @@ const productDB = [
     gift: "him",
     name: "Piccadilly Steel 40",
     SKU: "PC40MAD2R",
+    product: "vintage",
     imgUrl: {
       no1: "https://cdn.thewatchpages.com/app/uploads/2020/02/13214535/backes-strauss-piccadilly-steel-40-pc40mad2rstwrrbic-800x1431.jpg",
       no2: "https://cdn.thewatchpages.com/app/uploads/2020/09/13210923/backes-strauss-piccadilly-steel-40-pc40mad2rstwrrbic-1-800x533.jpg",
@@ -1065,6 +1101,7 @@ const productDB = [
     gift: "him",
     name: "Datejust 41",
     SKU: "126334",
+    product: "vintage",
     imgUrl: {
       no1: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2924.jpg",
       no2: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2929.jpg",
@@ -1099,6 +1136,7 @@ const productDB = [
     gift: "him",
     name: "Yacht-Master",
     SKU: "16622",
+    product: "luxury",
     imgUrl: {
       no1: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2918.jpg",
       no2: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2939-416x416.jpg",
@@ -1133,6 +1171,7 @@ const productDB = [
     gift: "him",
     name: "Submariner ",
     SKU: "14060M ",
+    product: "luxury",
     imgUrl: {
       no1: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2919.jpg",
       no2: "https://millenarywatches.com/wp-content/uploads/2023/12/IMG_2909-416x416.jpg",
@@ -1167,6 +1206,7 @@ const productDB = [
     gift: "him",
     name: "Daytona",
     SKU: "116508",
+    product: "luxury",
     imgUrl: {
       no1: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2870.jpg",
       no2: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2867-416x416.jpg",
@@ -1201,6 +1241,7 @@ const productDB = [
     gift: "him",
     name: "Datejust 36",
     SKU: "126233",
+    product: "luxury",
     imgUrl: {
       no1: "https://millenarywatches.com/wp-content/uploads/2023/08/IMG_1999.jpg",
       no2: "https://millenarywatches.com/wp-content/uploads/2023/08/IMG_2002-416x416.jpg",
@@ -1235,6 +1276,7 @@ const productDB = [
     gift: "him",
     name: "Oyster Date",
     SKU: "6919",
+    product: "luxury",
     imgUrl: {
       no1: "https://millenarywatches.com/wp-content/uploads/2023/09/IMG_2111.jpg",
       no2: "https://millenarywatches.com/wp-content/uploads/2023/09/IMG_2112-416x416.jpg",
@@ -1269,6 +1311,7 @@ const productDB = [
     gift: "him",
     name: "Daytona Two-Tone",
     SKU: "116503",
+    product: "luxury",
     imgUrl: {
       no1: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2686-2.jpg",
       no2: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2672-416x367.jpg",
@@ -1303,6 +1346,7 @@ const productDB = [
     gift: "him",
     name: "Sky-Dweller",
     SKU: "336934",
+    product: "luxury",
     imgUrl: {
       no1: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2777.jpg",
       no2: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2771-416x416.jpg",
@@ -1337,6 +1381,7 @@ const productDB = [
     gift: "him",
     name: "Explorer II ",
     SKU: "16550",
+    product: "luxury",
     imgUrl: {
       no1: "https://millenarywatches.com/wp-content/uploads/2023/11/IMG_2680.jpg",
       no2: "https://millenarywatches.com/wp-content/uploads/2023/11/Namnlo%CC%88st-1-416x416.jpg",
@@ -1371,6 +1416,7 @@ const productDB = [
     gift: "him",
     name: "Day Date",
     SKU: "118138",
+    product: "luxury",
     imgUrl: {
       no1: "https://millenarywatches.com/wp-content/uploads/2022/05/IMG_5233.jpg",
       no2: "https://millenarywatches.com/wp-content/uploads/2022/05/IMG_5235-768x768.jpg",

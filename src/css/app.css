@@ -1,6 +1,6 @@
 #App {
   width: 100%;
-  display: flex;  
+  display: flex;
   min-height: 100vh;
   flex-direction: column;
   align-items: center;
@@ -34,7 +34,7 @@
   color: #444444;
 }
 #hone-name-shop-header h1 {
- font-weight: 600;
+  font-weight: 600;
 }
 
 /* --- */
@@ -67,7 +67,6 @@
 #cart-link-box p {
   color: #999;
 }
-
 
 /* navigation */
 #home-nav {
@@ -126,31 +125,31 @@
   cursor: pointer;
 
   border-radius: 5px;
-  position: absolute; 
+  position: absolute;
   left: 20px;
   opacity: 0;
   z-index: -2;
   display: flex;
   justify-content: center;
-  transition: .3s;
+  transition: 0.3s;
 }
 .nav-hidden-btn::before {
   content: "";
-  position:absolute;
+  position: absolute;
   height: 3px;
-  width: 25px; 
+  width: 25px;
   background-color: #555;
   top: 10px;
-  transition: top .2s ease-in-out, rotate .2s ease-in-out .2s;
+  transition: top 0.2s ease-in-out, rotate 0.2s ease-in-out 0.2s;
 }
 .nav-hidden-btn::after {
   content: "";
-  position:absolute;
+  position: absolute;
   height: 3px;
-  width: 25px; 
+  width: 25px;
   background-color: #555;
   top: 20px;
-  transition: top .2s ease-in-out, rotate .2s ease-in-out .2s;
+  transition: top 0.2s ease-in-out, rotate 0.2s ease-in-out 0.2s;
 }
 
 #nav-hidden-btn-2 {
@@ -236,7 +235,7 @@
 /* - */
 #span-product .hidden-option {
   width: 130px;
-} 
+}
 #span-gifts .hidden-option {
   width: 150px;
 }
@@ -329,7 +328,7 @@
 #access-box {
   min-height: 40px;
   height: auto;
-  padding: 10px;  
+  padding: 10px;
 
   display: flex;
   align-items: center;
@@ -362,7 +361,6 @@
 #scroll-box:hover {
   animation: scroll-btn 1s linear infinite;
 }
-
 
 #hidden-layer-nav {
   position: fixed;
@@ -397,7 +395,6 @@
     overflow: visible;
   }
 }
-
 
 @media screen and (max-width: 850px) {
   #home-header {
@@ -434,7 +431,7 @@
   .home-nav-open {
     transform: translate(0px);
   }
-  .span-nav-option  {
+  .span-nav-option {
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -481,7 +478,7 @@
   #logo {
     height: 100px;
     width: 100px;
-  } 
+  }
   #home-account-box {
     right: 50px;
     font-size: 13px;
@@ -504,7 +501,35 @@
   #logo {
     height: 70px;
     width: 70px;
-  } 
+  }
+  #home-footer h4 {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  #home-footer p {
+    font-size: 12px;
+    margin: 10px 0px 10px 20px;
+  }
+  #home-footer a {
+    font-size: 12px;
+    margin: 10px 0px 10px 20px;
+  }
+
+  #footer-contact-icon-box {
+    margin: 0;
+  }
+  #footer-contact-icon-box a img {
+    height: 30px;
+    width: 30px;
+    margin: 5px 5px 5px 0;
+  }
+
+  #footer-register-btn {
+    height: 35px;
+    width: 130px;
+    font-size: 12px;
+  }
 }
 
 @media screen and (max-width: 400px) {

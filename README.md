@@ -16,6 +16,12 @@
 
 ## `npm start` TO RUN THIS PROJECT
 
+## V0.1.1
+- Complete functionality and navigation for the website.
+- Fixed most serious errors.
+- Basically complete service page.
+
+
 ## V0.1.0
 - Add Service page.
 - Optimize user experience on UI.

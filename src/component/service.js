@@ -46,10 +46,22 @@ function ServiceComponent() {
             <div className="service-info-box" id="box1">
               <p className="content-title">About return policy</p>
               <p className="content">
-                Products can be returned and refunded within 3 months.
+                - We have a 14-day return policy, which means you have 14 days
+                after receiving your item to request a return.
               </p>
-              <p className="content">The product has a manufacturer defect.</p>
-             
+              <br />
+              <p className="content">
+                - To be eligible for a return, your item must be in the same
+                condition that you received it, unworn or unused, with tags, and
+                in its original packaging. You’ll also need the receipt or proof
+                of purchase. You will be eligible for an exchange of the product
+                or a store credit.
+              </p>
+              <br />
+              <p className="content">
+                - Alternatively, you may return your purchased item in the
+                store. Please make sure to bring receipt or proof of purchase.
+              </p>
             </div>
           </div>
 
@@ -106,12 +118,19 @@ function ServiceComponent() {
             </label>
             <div className="service-info-box" id="box3">
               <p className="content-title">About transportation method</p>
-              <p className="content">(your shipping method here)</p>
-              <p className="content">(your shipping method here)</p>
-              <p className="content">(your shipping method here)</p>
-              <p className="content-title">Upon receiving the product</p>
               <p className="content">
-                Check the product before receiving the goods
+                - We offer FREE Standard Shipping on all PR orders over 2
+                million VND. We also offer FREE Curbside Pickup for online
+                orders.
+              </p>
+              <br />
+              <p className="content">
+                - Please note that shipping times are approximated from the time
+                your purchase leaves our warehouse and are not guarantee. Please
+                allow 3 to 5 business days from the date of purchase for your
+                order to ship (unless otherwise noted). We try to group all of
+                your orders together so that you receive a single package,
+                though sometimes your orders may arrive in separate packages.
               </p>
             </div>
           </div>

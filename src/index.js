@@ -59,6 +59,10 @@ const router = createBrowserRouter([
         path: "/gift/:status",
         element: <HomeComponent />,
       },
+      {
+        path: "/product_/:status",
+        element: <HomeComponent />,
+      },
     ],
   },
   {
