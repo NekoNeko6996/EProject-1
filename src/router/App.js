@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import swal from "sweetalert";
@@ -6,7 +6,6 @@ import swal from "sweetalert";
 // css
 import "../css/app.css";
 import "react-toastify/dist/ReactToastify.css";
-
 
 // Resource
 import logo from "../resource/logo/Logo.png";
@@ -20,12 +19,17 @@ import iconCart from "../resource/icon/icons8-cart-64.png";
 function App() {
   const [cartAmount, setCartAmount] = useState(0);
   const [userStatus, setUserStatus] = useState(null);
+  const [navSelectedElement, setNavSelectedElement] = useState(
+    new Array(7).fill(false)
+  );
+  const pathLocation = useLocation();
 
   // eslint-disable-next-line no-unused-vars
   const [numberAccess, setNumberAccess] = useState(2314);
   //
   const CartDataSession = window.sessionStorage.getItem("productAdd");
 
+  // get user account and cart
   useEffect(() => {
     if (window.sessionStorage.getItem("user")) {
       let CartData;
@@ -105,6 +109,29 @@ function App() {
     } else window.location.href = "/cart";
   };
 
+  // nav bar animation
+  useEffect(() => {
+    const pathName = pathLocation.pathname.split("/")[1];
+    const pathArray = [
+      "",
+      "tech",
+      "product_",
+      "gift",
+      "sale",
+      "service",
+      "contact",
+    ];
+    const navIndex = pathArray.indexOf(pathName);
+    if (navIndex >= 0) {
+      let navSelectedArray = navSelectedElement.map((boolean, index) =>
+        navIndex === index ? true : false
+      );
+      setNavSelectedElement(navSelectedArray);
+    }
+    console.log(navSelectedElement);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathLocation]);
+
   return (
     <div id="App">
       <div
@@ -141,12 +168,21 @@ function App() {
 
       <nav className="home-nav-close" id="home-nav">
         <a href="/">
-          <span className="span-nav-option">
+          <span
+            className={`span-nav-option ${
+              navSelectedElement[0] ? "nav-selected" : ""
+            }`}
+          >
             <p className="text-hover-animate">HOME</p>
           </span>
         </a>
 
-        <span id="span-tech" className="span-nav-option">
+        <span
+          id="span-tech"
+          className={`span-nav-option ${
+            navSelectedElement[1] ? "nav-selected" : ""
+          }`}
+        >
           <p className="text-hover-animate">TECHNOLOGY</p>
           <div className="hidden-option">
             <ul>
@@ -160,7 +196,12 @@ function App() {
           </div>
         </span>
 
-        <span id="span-product" className="span-nav-option">
+        <span
+          id="span-product"
+          className={`span-nav-option ${
+            navSelectedElement[2] ? "nav-selected" : ""
+          }`}
+        >
           <p className="text-hover-animate">PRODUCT</p>
           <div className="hidden-option">
             <ul>
@@ -177,7 +218,12 @@ function App() {
           </div>
         </span>
 
-        <span id="span-gifts" className="span-nav-option">
+        <span
+          id="span-gifts"
+          className={`span-nav-option ${
+            navSelectedElement[3] ? "nav-selected" : ""
+          }`}
+        >
           <p className="text-hover-animate">GIFTS</p>
           <div className="hidden-option">
             <ul>
@@ -195,19 +241,31 @@ function App() {
         </span>
 
         <a href="/sale/sales">
-          <span className="span-nav-option">
+          <span
+            className={`span-nav-option ${
+              navSelectedElement[4] ? "nav-selected" : ""
+            }`}
+          >
             <p className="text-hover-animate">SALES</p>
           </span>
         </a>
 
         <a href="/service">
-          <span className="span-nav-option">
+          <span
+            className={`span-nav-option ${
+              navSelectedElement[5] ? "nav-selected" : ""
+            }`}
+          >
             <p className="text-hover-animate">SERVICE</p>
           </span>
         </a>
 
         <a href="/contact">
-          <span className="span-nav-option">
+          <span
+            className={`span-nav-option ${
+              navSelectedElement[6] ? "nav-selected" : ""
+            }`}
+          >
             <p className="text-hover-animate">CONTACT US</p>
           </span>
         </a>
@@ -279,10 +337,8 @@ function App() {
         </div>
         <div id="footer-policies">
           <h4>POLICIES</h4>
-          <a href="/">Shipping Policy</a>
-          <a href="/">Return Policy</a>
-          <a href="/">Privacy Policy</a>
-          <a href="/">Terms of Use</a>
+          <a href="/service">Shipping Policy</a>
+          <a href="/service">Return Policy</a>
           <a href="/contact">Contact Us</a>
         </div>
         <div id="footer-create-new-account">

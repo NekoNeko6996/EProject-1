@@ -16,6 +16,9 @@
 
 ## `npm start` TO RUN THIS PROJECT
 
+## V0.1.2
+- Fix bug...
+
 ## V0.1.1
 - Complete functionality and navigation for the website.
 - Fixed most serious errors.

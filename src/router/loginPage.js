@@ -73,22 +73,22 @@ function LoginComponent() {
     <>
       <nav id="login-page-nav">
         <a href="/">
-          <span className="span-nav-option">
+          <span className="span-nav-option-login">
             <p className="text-hover-animate">HOME</p>
           </span>
         </a>
         <a href="/service">
-          <span className="span-nav-option">
+          <span className="span-nav-option-login">
             <p className="text-hover-animate">SERVICE</p>
           </span>
         </a>
         <a href="/sale/sales">
-          <span className="span-nav-option">
+          <span className="span-nav-option-login">
             <p className="text-hover-animate">SALES</p>
           </span>
         </a>
         <a href="/contact">
-          <span className="span-nav-option">
+          <span className="span-nav-option-login">
             <p className="text-hover-animate">CONTACT US</p>
           </span>
         </a>

@@ -219,7 +219,7 @@ const productDB = [
   {
     id: 5,
     manufacturer: "citizen",
-    gift: "her",
+    gift: "personalized",
     name: "PARKER",
     SKU: "MK6414",
     product: "luxury",
@@ -531,7 +531,7 @@ const productDB = [
   {
     id: 14,
     manufacturer: "michael-kors",
-    gift: "her",
+    gift: "personalized",
     name: "PORTRAIT GENT WATCH",
     SKU: "SFDR00519",
     product: "vintage",
@@ -566,7 +566,7 @@ const productDB = [
   {
     id: 15,
     manufacturer: "movado",
-    gift: "her",
+    gift: "personalized",
     name: "MINUETTO WATCH",
     SKU: "SF8200519",
     product: "vintage",
@@ -601,7 +601,7 @@ const productDB = [
   {
     id: 16,
     manufacturer: "movado",
-    gift: "her",
+    gift: "personalized",
     name: "SAWYER",
     SKU: "MK2580",
     product: "vintage",
@@ -1098,7 +1098,7 @@ const productDB = [
   {
     id: 30,
     manufacturer: "nautica",
-    gift: "him",
+    gift: "personalized",
     name: "Datejust 41",
     SKU: "126334",
     product: "vintage",
@@ -1273,7 +1273,7 @@ const productDB = [
   {
     id: 35,
     manufacturer: "swatch",
-    gift: "him",
+    gift: "personalized",
     name: "Oyster Date",
     SKU: "6919",
     product: "luxury",
@@ -1378,7 +1378,7 @@ const productDB = [
   {
     id: 38,
     manufacturer: "swatch",
-    gift: "him",
+    gift: "personalized",
     name: "Explorer II ",
     SKU: "16550",
     product: "luxury",

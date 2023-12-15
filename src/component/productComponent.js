@@ -116,9 +116,6 @@ function ProductComponent() {
             <p>({product.rate.amount} people rated it)</p>
           </div>
           <div id="detail">
-            {/* <div id="describe">
-              <p>{product.properties.describe}</p>
-            </div> */}
             <div className="product-detail-child">
               <p>Movement</p>
               <p>{product.properties.movement}</p>

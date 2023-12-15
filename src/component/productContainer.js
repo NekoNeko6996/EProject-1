@@ -41,6 +41,7 @@ function ProductContainerLoader({
       sales: (item) => item.sale > 0,
       her: (item) => item.gift === "her",
       him: (item) => item.gift === "him",
+      personalized: (item) => item.gift === "personalized",
       vintage: (item) => item.product === "vintage",
       luxury: (item) => item.product === "luxury",
       smart: (item) => item.product === "smart-watch",
@@ -198,7 +199,7 @@ function ProductContainerLoader({
               className="items-img-1"
             />
             <p className="items-name">{data.name}</p>
-            <p id="product-load-rate-star">{"⭐".repeat(data.rate.star)}</p>
+            <p id="product-load-rate-star">{"★".repeat(data.rate.star)}</p>
             <div className="items-price-container">
               <p className="items-price">
                 {data.price.toLocaleString(finalLocale, {
