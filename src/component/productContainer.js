@@ -175,7 +175,7 @@ function ProductContainerLoader({
   }, [finalData]);
 
   return (
-    <>
+    <div id="product-loader">
       {finalData.map((data, index) => (
         <Link
           to={`/product/${data.id}`}
@@ -230,7 +230,7 @@ function ProductContainerLoader({
           <h3>No products found that match the filter</h3>
         </div>
       ) : null}
-    </>
+    </div>
   );
 }
 

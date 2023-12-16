@@ -27,7 +27,7 @@ function App() {
   // eslint-disable-next-line no-unused-vars
   const [numberAccess, setNumberAccess] = useState(2314);
   //
-  const CartDataSession = window.sessionStorage.getItem("productAdd");
+  const CartDataSession = window.sessionStorage.getItem("cart");
 
   // get user account and cart
   useEffect(() => {
@@ -128,7 +128,6 @@ function App() {
       );
       setNavSelectedElement(navSelectedArray);
     }
-    console.log(navSelectedElement);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathLocation]);
 

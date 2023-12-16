@@ -1,3 +1,10 @@
+#service-page > * {
+  --service-info-box-bg: white;
+  --service-title-box-bg: white;
+  --service-title: #555;
+  --service-content: #555;
+}
+
 #service-page {
   width: 100%;
   padding-bottom: 5vw;
@@ -9,7 +16,7 @@
   flex-direction: column;
 }
 
-/* --- */
+/* -------- */
 .service-info-box {
   width: 90%;
   height: 100%;
@@ -17,7 +24,7 @@
   border-radius: 10px;
   top: 0;
   animation-fill-mode: forwards;
-  background-color: white;
+  background-color: var(--service-info-box-bg);
   box-shadow: 0 0 10px #ccc;
   display: flex;
   flex-direction: column;
@@ -31,7 +38,7 @@
   aspect-ratio: 4/1;
   width: 50%;
   border-radius: 10px;
-  background-color: white;
+  background-color: var(--service-title-box-bg);
   position: relative;
   font-size: 1rem;
   cursor: default;
@@ -56,20 +63,19 @@
 .content-title {
   font-weight: bold;
   font-size: 30px;
-  color: #555;
+  color: var(--service-title);
   margin: 10px;
 }
 .content {
   font-size: 23px;
-  color: #777;
+  color: var(--service-content);
   text-align: center;
 }
 
-/* --- other service --- */
+/* ----- other service ----- */
 #other-service-container {
   width: 100%;
   max-width: 1440px;
-  background-color: white;
   border-radius: 10px;
   position: relative;
   display: flex;

@@ -1,9 +1,25 @@
-/* items box */
-* {
-  --border: 1px solid rgb(196, 196, 196);
+/* ----- product loader ----- */
+#product-loader > * {
+  --name-color: #555;
+  --rate-star-color: #555;
+
+  --price-color: rgb(235, 68, 68);
+  --discounted-text: #555;
+
+  --sale-label-bg: rgb(255, 83, 83);
+  --sale-label-text: white;
+
+  --sold-out-bg: #AAA;
+  --sold-out-text: white;
+}
+#product-loader {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-/*load items animation */
+/* ----- load items animation ----- */
 .items-box {
   opacity: 0;
   transform: translateY(20px);
@@ -28,14 +44,14 @@
   width: 100%;
   max-width: 230px;
 
-  border: var(--border);
+  border: 1px solid rgb(196, 196, 196);
   position: relative;
   overflow: hidden;
   transition: 0.1s;
 
   text-decoration: none;
 }
-/* -item img- */
+/* - img- */
 .items-img {
   width: 100%;
   aspect-ratio: 1/1;
@@ -64,7 +80,8 @@
 .items-box:hover > .items-img {
   opacity: 0;
 }
-/* --- */
+
+/* ----- product name ----- */
 .items-name {
   text-align: center;
   word-wrap: normal;
@@ -74,23 +91,21 @@
   margin: 10px 0 10px 0;
   font-size: 15px;
   padding: 10px 10px 0 10px;
-  color: #555555;
+  color: var(--name-color);
   line-height: calc(1rem + 5px);
 
-  display: -webkit-box;
-  /* số dòng tối đa */
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+/* ----- rate star ----- */
 #product-load-rate-star {
   font-size: 18px;
   text-align: center;
-  color: #555555;
+  color: var(--rate-star-color);
 }
 
+/* ----- product price ----- */
 .items-price-container {
   width: 100%;
   position: relative;
@@ -103,7 +118,7 @@
 }
 
 .items-price {
-  color: rgb(235, 68, 68);
+  color: var(--price-color);
   font-size: 15px;
   text-align: center;
   display: flex;
@@ -111,7 +126,7 @@
   font-weight: bold;
 }
 .items-price-discounted {
-  color: #555555;
+  color: var(--discounted-text);
   text-decoration: line-through;
   font-size: 15px;
   text-align: center;
@@ -126,12 +141,12 @@
 
   margin-left: 5px;
   z-index: 4;
-  background-color: rgb(255, 83, 83);
+  background-color: var(--sale-label-bg);
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: var(--sale-label-text);
   font-weight: bold;
   font-size: 13px;
   position: absolute;
@@ -152,25 +167,21 @@
   z-index: 3;
   right: 10px;
   top: 10px;
-  color: white;
+  color: var(--sold-out-text);
   font-weight: bold;
-  background-color: #AAA;
+  background-color: var(--sold-out-bg);
   padding: 3px;
   font-size: 12px;
 }
 
-/* react paginate */
+/* ----- react paginate ----- */
 #paginate-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.page-link {
-  color: black;
-}
 
-
-/* not found box */
+/* ----- not found box ----- */
 #not-found-box {
   position: relative;
   left: calc(-230px/2);
@@ -184,7 +195,7 @@
   aspect-ratio: 1/1;
 }
 
-/* ------------- */
+/* --------------------------------------------------- */
 @media screen and (max-width: 950px) {
   #not-found-box > h3{
     font-size: 17px;

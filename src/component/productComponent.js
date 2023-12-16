@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import swal from "sweetalert";
@@ -26,23 +26,47 @@ function ProductComponent() {
   // load default page 1
   const defaultPage = 1;
 
-  const productCallback = () => {};
+  // scroll when load new product
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+    setQuantity(1);
+  }, [productId]);
+
+  // get user status
+  const getUserLoginStatus = () => {
+    let sessionS = window.sessionStorage.getItem("user");
+    return sessionS ? sessionS : false;
+  };
 
   // change img scr when click
   const onImgClick = (src) => {
     document.getElementById("watch-img").src = src;
   };
 
+  // when clicking add to cart
   const onAddToCartClick = (btn) => {
-    const sessionS = window.sessionStorage;
-    let prevData;
+    btn.disabled = true;
 
-    if (!product.availability.status) {
-      toast.error("The item is out of stock!");
-      return;
-    }
+    const processAddToCart = () => {
+      let prevCart = window.sessionStorage.getItem("cart"),
+        prevQuantity = window.sessionStorage.getItem("quantityCart");
 
-    if (!sessionS.getItem("user")) {
+      window.sessionStorage.setItem(
+        "cart",
+        `${prevCart ? `${prevCart},${productId}` : productId}`
+      );
+      window.sessionStorage.setItem(
+        "quantityCart",
+        `${prevQuantity ? `${prevQuantity},${quantity}` : quantity}`
+      );
+    };
+
+    // Check login status
+    if (!getUserLoginStatus()) {
+      btn.disabled = false;
       swal({
         title: "Sign in to add this product to your cart?",
         text: "Do you want to redirect to the login page?",
@@ -55,28 +79,87 @@ function ProductComponent() {
         } else return;
       });
     } else {
-      if (sessionS.getItem("productAdd"))
-        prevData = sessionS.getItem("productAdd");
+      // Change this promise if you want to actually send data to the server
+      const promise = new Promise((resolve) => setTimeout(resolve, 1000));
+      promise.then(() => {
+        processAddToCart();
+        btn.disabled = false;
+      });
 
-      window.sessionStorage.setItem(
-        "productAdd",
-        `${prevData ? prevData + "," + productId : productId}`
-      );
-      toast.success("Add to cart successfully!");
+      toast.promise(promise, {
+        pending: "Adding ...",
+        error: "Error",
+        success: "Add success!",
+      });
     }
   };
 
-  // scroll when load new product
-  useEffect(() => {
-    window.scroll({
-      top: 0,
-      behavior: "smooth",
-    });
-  }, [productId]);
+  // when clicking to buy the product
+  const onBuyClick = (btn) => {
+    btn.disabled = true;
+
+    const SessionStorage = (action, key, value) => {
+      if (action === "get") return window.sessionStorage.getItem(key) || "";
+      if (action === "add") sessionStorage.setItem(key, value);
+    };
+
+    const processPurchase = () => {
+      let prevPurchased = SessionStorage("get", "purchased");
+      let prevQuantityPurchased = SessionStorage("get", "quantityPurchased");
+      SessionStorage(
+        "add",
+        "purchased",
+        prevPurchased ? `${prevPurchased},${productId}` : productId
+      );
+      SessionStorage(
+        "add",
+        "quantityPurchased",
+        prevQuantityPurchased
+          ? `${prevQuantityPurchased},${quantity}`
+          : quantity
+      );
+    };
+
+    if (getUserLoginStatus()) {
+      // If you want to actually send a request to the server, modify this promise
+      const promise = new Promise((resolve) => setTimeout(resolve, 1000));
+      promise.then(() => {
+        swal({
+          title: "Successfully Purchase",
+          text: "Your order is awaiting approval",
+          icon: "success",
+          button: "Done",
+        });
+
+        // after send request //
+        processPurchase();
+        btn.disabled = false;
+      });
+      toast.promise(promise, {
+        pending: "Sending purchase request...",
+        success: "Done",
+        error: "Purchase application was rejected",
+      });
+    } else {
+      btn.disabled = false;
+      swal({
+        title: "You need to log in to purchase",
+        text: "Do you want to redirect to the login page?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: false,
+      }).then((yes) => {
+        if (yes) {
+          window.location.href = "/login";
+        } else return;
+      });
+    }
+  };
 
   return (
-    <>
+    <div id="product-page">
       <div id="info-product-container">
+        {/* img */}
         <div id="info-product-img">
           <img
             id="watch-img"
@@ -101,6 +184,8 @@ function ProductComponent() {
             />
           </div>
         </div>
+
+        {/* info */}
         <div id="info-product-buy-container">
           {product.availability.status ? null : (
             <p id="sold-out-box">SOLD OUT</p>
@@ -141,6 +226,7 @@ function ProductComponent() {
               <p>{product.properties.warranty}</p>
             </div>
           </div>
+
           <div id="quantity">
             <div id="quantity-input-container">
               <button
@@ -175,31 +261,39 @@ function ProductComponent() {
               </p>
             </div>
           </div>
+
           <div id="buttons">
             <button
               id="add-to-cart"
-              className="black-hover-btn"
+              className={product.availability.status ? "" : "disable-btn"}
               onClick={(event) => onAddToCartClick(event.target)}
+              disabled={!product.availability.status}
             >
               Add to cart
             </button>
-            <button id="buy-now" className="black-hover-btn">
+            <button
+              id="buy-now"
+              className={product.availability.status ? "" : "disable-btn"}
+              onClick={(event) => onBuyClick(event.target)}
+              disabled={!product.availability.status}
+            >
               Buy now
             </button>
           </div>
         </div>
       </div>
+
       <h2 id="your-also-like-title">YOUR MIGHT ALSO LIKE</h2>
       <div id="your-also-like-container">
         <ProductContainerLoader
           limit={limit}
           page={defaultPage}
           sort={{ action: "", value: "" }}
-          callback={productCallback}
+          callback={useCallback(() => {}, [])}
           random={true}
         />
       </div>
-    </>
+    </div>
   );
 }
 

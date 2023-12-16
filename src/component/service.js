@@ -31,7 +31,7 @@ function ServiceComponent() {
           <p className="content">
             To be eligible for a return, your item must be in the same condition
             that you received it, unworn or unused, with tags, and in its
-            original packaging. You’ll also need the receipt or proof of
+            original packaging. You'll also need the receipt or proof of
             purchase. You will be eligible for an exchange of the product or a
             store credit.
           </p>

@@ -81,13 +81,10 @@ function HomeComponent() {
     setPage(page.selected + 1);
 
     if (window.innerWidth < 850) step = 500;
-
-    window.scroll({
-      top: step,
-      behavior: "smooth",
-    });
+    scrollFunction(step, 0);
   };
 
+  
   // set maximum number of pages, in stock and out stock
   const productCallBackFunc = (data, inStock, outStock) => {
     setInStock(inStock);
@@ -107,6 +104,7 @@ function HomeComponent() {
     });
   };
 
+
   // sort hide
   const onHideBtnClick = () => {
     if (sortBox.current.className === "sort-option-close") {
@@ -122,10 +120,7 @@ function HomeComponent() {
   const onManufacturerFilterClick = (index) => {
     setManufacturer((prev) => {
       const updatedManufacturerFilterList = prev.manufacturerFilterList.map(
-        (value, idx) => {
-          if (idx === index) return !value;
-          return value;
-        }
+        (value, idx) => (idx === index)? !value : value
       );
       return {
         ...prev,
@@ -134,12 +129,12 @@ function HomeComponent() {
     });
   };
 
+  // when pressing reset filter
   const onResetFilterClick = () => {
     setManufacturer((prev) => {
       return {
         ...prev,
         manufacturerFilterList: [false, false, false, false, false],
-        manufacturerFilterStatus: false,
       };
     });
     setStock({ inStock: true, outStock: true });
@@ -149,13 +144,15 @@ function HomeComponent() {
   };
 
   return (
-    <>
+    <div id="home-page">
+      {/* The hidden layer is only visible when the screen is small and the navigation bar is pressed */}
       <div
         id="hidden-layer"
         className="hidden-layer-off"
         onClick={onHideBtnClick}
         ref={hiddenLayer}
       ></div>
+
       <div id="home-banner">
         <SlideShow data={dataBanner} scrollStep={1440} />
       </div>
@@ -188,6 +185,7 @@ function HomeComponent() {
           <p className="home-2-banner-item-p2">Strictly managed</p>
         </div>
       </div>
+
       <nav id="home-2-nav">
         <form action="/" id="search-box">
           <input
@@ -203,9 +201,12 @@ function HomeComponent() {
           FILTER
         </button>
       </nav>
+
+      {/* title */}
       <nav id="section-title">
         <h1>{pageFilter ? pageFilter.toUpperCase() : "PRODUCT"}</h1>
       </nav>
+
       <section id="home-section">
         <aside
           id="home-sort-option"
@@ -286,6 +287,8 @@ function HomeComponent() {
             </button>
           </div>
         </aside>
+
+        {/* where to load items */}
         <div id="paginate-container">
           <section id="home-product-section">
             <ProductContainerLoader
@@ -303,6 +306,8 @@ function HomeComponent() {
               locale={locale}
             />
           </section>
+
+          {/* pagination bar */}
           <ReactPaginate
             nextLabel=">"
             onPageChange={handlePageClick}
@@ -327,7 +332,7 @@ function HomeComponent() {
           />
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

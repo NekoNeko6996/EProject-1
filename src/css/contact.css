@@ -1,4 +1,4 @@
-/* contact container */
+/* ----- contact container ----- */
 #contact-container {
   max-width: 1440px;
   width: 100%;
@@ -57,7 +57,7 @@
   width: 18%;
 }
 
-/* --- */
+/* ----- other contact method ----- */
 #contact-title-h2 {
   margin: 40px 0 30px 0;
   position: relative;
@@ -84,6 +84,7 @@
   animation: contact-title-animate 0.4s 1.2s linear;
 }
 
+/* ----- google map ----- */
 #contact-map {
   width: 90%;
   max-width: 600px;
@@ -97,6 +98,7 @@
   animation-fill-mode: forwards;
 }
 
+/* ----- animation ----- */
 @keyframes contact-title-animate {
   0% {
     opacity: 0;
@@ -112,7 +114,7 @@
   }
 }
 
-/* ---------------------------------- */
+/* ------------------------------------------- */
 @media screen and (max-width: 660px) {
   #contact-title-h1 {
     font-size: 27px;

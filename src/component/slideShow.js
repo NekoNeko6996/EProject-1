@@ -6,9 +6,11 @@ import React, { useCallback, useEffect, useRef } from "react";
 const SlideShow = React.memo(function SlideShow({ data, scrollStep }) {
   const containerElement = useRef(null);
   const step = useRef(0);
-  //
-  const onSlideClick = useCallback(
 
+  const delaySlide = 4000;
+  
+  // when pressing to switch banner
+  const onSlideClick = useCallback(
     (direction) => {
       const container = document.getElementById("img-slide-container");
       const currentScroll = container.scrollLeft;
@@ -43,13 +45,14 @@ const SlideShow = React.memo(function SlideShow({ data, scrollStep }) {
             : (element.style.backgroundColor = "white")
         );
     },
-    [data.length, scrollStep]
+    [data, scrollStep]
   );
 
+  // load
   useEffect(() => {
     const interval = setInterval(() => {
       onSlideClick("right");
-    }, 4000);
+    }, delaySlide);
 
     return () => {
       clearInterval(interval);

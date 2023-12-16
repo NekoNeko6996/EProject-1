@@ -1,3 +1,11 @@
+#slideShow-container > * {
+  --slide-btn-bg: black;
+  --slide-btn: white;
+
+  --dot-not-check: white;
+  --dot-check: black;
+}
+
 #slideShow-container {
   height: 100%;
   width: 100%;
@@ -13,8 +21,8 @@
 #slide-btn-left {
   height: 55px;
   width: 30px;
-  background-color: black;
-  opacity: .3;
+  background-color: var(--slide-btn-bg);
+  opacity: 0.3;
   position: absolute;
   left: 5px;
 
@@ -32,7 +40,7 @@
 
   height: 15px;
   width: 3px;
-  background-color: white;
+  background-color: var(--slide-btn);
   rotate: -45deg;
   left: 10px;
   top: 25px;
@@ -44,7 +52,7 @@
 
   height: 15px;
   width: 3px;
-  background-color: white;
+  background-color: var(--slide-btn);
   rotate: 45deg;
   left: 10px;
   top: 16px;
@@ -53,8 +61,8 @@
 #slide-btn-right {
   height: 55px;
   width: 30px;
-  background-color: black;
-  opacity: .3;
+  background-color: var(--slide-btn-bg);
+  opacity: 0.3;
   position: absolute;
   right: 5px;
 
@@ -69,7 +77,7 @@
   left: 15px;
 }
 
-/* //////////////////////////// */
+/* ----- img ----- */
 #img-slide-container {
   width: 100%;
   display: flex;
@@ -88,7 +96,6 @@
 }
 
 .img-slide-elements {
-  
   width: 100% !important;
   cursor: pointer;
 
@@ -96,25 +103,25 @@
   scroll-snap-align: start;
 }
 
-
+/* ----- dot ----- */
 #stardust-carousel-dots {
-    position: absolute;
+  position: absolute;
 
-    display: flex;
-    flex-direction: row;
-    bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  bottom: 5px;
 }
 #stardust-carousel-dots span {
-    height: 10px;
-    width: 10px;
-    position: relative;
-    border-radius: 50%;
-    margin: 3px;
-    cursor: pointer;
+  height: 10px;
+  width: 10px;
+  position: relative;
+  border-radius: 50%;
+  margin: 3px;
+  cursor: pointer;
 }
 #carousel-dots-0 {
-    background-color: black;
+  background-color: var(--dot-check);
 }
 .carousel-dots {
-    background-color: white;
+  background-color: var(--dot-not-check);
 }

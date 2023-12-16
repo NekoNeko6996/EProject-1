@@ -1,10 +1,27 @@
-#cart-title {
+#cart-page > * {
+  --cart-title: #444;
+  --cart-product-price: red;
+  --cart-remove-item-text: red;
+  --cart-item-btn-bg: white;
+
+  --cart-purchase-btn-text: white;
+  --cart-purchase-btn-bg: #fa887e;
+
+  --other-product-title: #666;
+
+  --empty-cart: #666;
+  --empty-cart-btn-text: white;
+  --empty-cart-btn-bg: #fa887e;
+}
+
+
+.cart-title {
   max-width: 1440px;
   width: 100%;
-  margin: 30px 0 20px 0;
+  margin: 60px 0 20px 0;
   text-align: center;
   padding-bottom: 10px;
-  color: #444;
+  color: var(--cart-title);
 }
 
 #cart-container {
@@ -25,6 +42,11 @@
   flex-direction: row;
   position: relative;
   margin-bottom: 20px;
+  transition: .3s;
+}
+.cart-items-box:hover {
+  scale: 1.02;
+  border-color: black;
 }
 
 .cart-checkbox {
@@ -39,7 +61,7 @@
   width: 20px;
 }
 
-/* info box */
+/* ----- info box ----- */
 .cart-info-box {
   width: 95%;
   display: flex;
@@ -71,7 +93,7 @@
   max-width: 300px;
 }
 
-/* --price - quantity-- */
+/* ----- price and quantity ----- */
 .price-quantity-box {
   width: 50%;
   max-width: 350px;
@@ -87,30 +109,11 @@
 
 .cart-product-price {
   font-size: 26px;
-  color: red;
+  color: var(--cart-product-price);
   margin-top: 10px;
 }
 
-/* --btn-- */
-.cart-items-btn-box {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-}
-.cart-items-btn-box button {
-  height: 30px;
-  font-size: 14px;
-  padding: 5px;
-  margin: 5px;
-  background-color: white;
-  cursor: pointer;
-  border: 1px solid #aaa;
-}
-.cart-items-btn-box .remove {
-  color: red;
-}
-
-/* quantity input box */
+/* ----- quantity input box ----- */
 .quantity-input-container {
   display: flex;
   flex-direction: row;
@@ -156,7 +159,26 @@
   align-items: center;
 }
 
-/* -- bottom buy box -- */
+/* ------ btn ------ */
+.cart-items-btn-box {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.cart-items-btn-box button {
+  height: 30px;
+  font-size: 14px;
+  padding: 5px;
+  margin: 5px;
+  background-color: var(--cart-item-btn-bg);
+  cursor: pointer;
+  border: 1px solid #aaa;
+}
+.cart-items-btn-box .remove {
+  color: var(--cart-remove-item-text);
+}
+
+/* ----- bottom buy box ----- */
 #cart-bottom-buy-box {
   max-width: 1300px;
   width: 100%;
@@ -181,22 +203,48 @@
 
 .cart-purchase-btn-box .purchase {
   font-size: 22px;
-  color: white;
+  color: var(--cart-purchase-btn-text);
   border: none;
   padding: 10px 20px 10px 20px;
 
-  background-color: #fa887e;
+  background-color: var(--cart-purchase-btn-bg);
   cursor: pointer;
   border-radius: 5px;
 }
 
-/* other product box */
-#other-product-box-title {
-  text-align: center;
-  margin: 50px 0 0 0;
-  color: #666;
+
+/* ----- purchased product container ----- */
+#purchased-product-container {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+#purchased-product-container > .cart-info-box {
+  width: 90%;
+  border: 1px solid #999;
+  margin-bottom: 20px;
+  transition: .3s;
+  
 }
 
+#purchased-product-container .cart-info-name-box {
+  max-width: 500px;
+}
+#purchased-product-container .cart-product-name {
+  max-width: 500px;
+}
+
+#purchased-product-container > .cart-info-box:hover {
+  scale: 1.02;
+  border-color: black;
+}
+
+
+
+/* ----- other product box ----- */
 #other-products-box {
   width: 100%;
   max-width: 1440px;
@@ -214,7 +262,7 @@
 }
 
 
-/* empty cart */
+/* ----- empty cart ----- */
 #empty-cart-box {
   display: flex;
   align-items: center;
@@ -230,19 +278,20 @@
 }
 #empty-cart-box h1 {
   margin: 20px 0 30px 0;
-  color: #666;
+  color: var(--empty-cart);
 }
 #empty-cart-box button {
   font-size: 25px;
   padding: 5px 10px 5px 10px;
   cursor: pointer;
-  background-color: #fa887e;
-  color: white;
-  border: none;
+  background-color: var(--empty-cart-btn-bg);
+  color: var(--empty-cart-btn-text);
+  border: none; 
   border-radius: 5px;
 }
 
-/* ------------------------ */
+
+/* ------------------------------------------------- */
 @media screen and (max-width: 1210px) {
   .cart-items-btn-box button {
     min-width: 210px;
