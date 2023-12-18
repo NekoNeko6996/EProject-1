@@ -23,6 +23,7 @@
 - Fix bug.
 - Edit the interface of the login and service pages.
 - Optimize website performance.
+- Add zoom product img.
 
 ## V0.2.0
 
