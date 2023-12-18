@@ -11,7 +11,7 @@ import logo from "../resource/logo/Logo.png";
 import gear from "../resource/icon/gear.png";
 import gear_2 from "../resource/icon/gear-2.png";
 import gear_3 from "../resource/icon/gear-3.png";
-import clockHand from "../resource/icon/clockHand.png";
+// import clockHand from "../resource/icon/clockHand.png";
 
 //
 function LoginComponent() {
@@ -179,8 +179,8 @@ function LoginComponent() {
         <img src={gear_2} alt="gear" id="gear-2" className="gear_"/>
         <img src={gear_3} alt="gear" id="gear-3" className="gear_"/>
       </div>
-      <img src={clockHand} alt="clock hand" id="clock-hand" className="hand"/>
-      <img src={clockHand} alt="clock hand" id="clock-hand-minutes" className="hand" />
+      {/* <img src={clockHand} alt="clock hand" id="clock-hand" className="hand"/>
+      <img src={clockHand} alt="clock hand" id="clock-hand-minutes" className="hand" /> */}
       {/* message box */}
       <ToastContainer
         position="bottom-center"

@@ -142,9 +142,11 @@ function CartComponent() {
   };
 
   //when clicking to buy the product
-  const onPurchaseClick = () => {
+  const onPurchaseClick = (btn) => {
+    btn.disabled = true;
     if (!totalQuantity) {
       toast.warn("You need to choose at least 1 item to buy!");
+      btn.disabled = false;
       return;
     }
 
@@ -366,7 +368,10 @@ function CartComponent() {
         </div>
 
         <div className="cart-purchase-btn-box">
-          <button className="purchase" onClick={onPurchaseClick}>
+          <button
+            className="purchase"
+            onClick={(event) => onPurchaseClick(event.target)}
+          >
             PURCHASE
           </button>
         </div>

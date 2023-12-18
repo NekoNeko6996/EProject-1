@@ -15,6 +15,7 @@
 `web-vitals`
 `classnames`
 `sweetalert`
+`react-zoom-pan-pinch`
 
 ## `npm start` TO RUN THIS PROJECT
 

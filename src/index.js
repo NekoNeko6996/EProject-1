@@ -9,15 +9,15 @@ import "./css/index.css";
 // component
 import App from "./router/App";
 import LoginComponent from "./router/loginPage";
-import LoadingAnimation from "./component/loadingComponent";
+import LoadingAnimation from "./components/loadingComponent";
 
 // const App = lazy(() => import("./router/App"));
-const ErrorPage = lazy(() => import("./component/errorPage"));
-const HomeComponent = lazy(() => import("./component/homeComponent"));
-const ProductComponent = lazy(() => import("./component/productComponent"));
-const ContactComponent = lazy(() => import("./component/contactComponent"));
-const CartComponent = lazy(() => import("./component/CartComponent"));
-const ServiceComponent = lazy(() => import("./component/service"));
+const ErrorPage = lazy(() => import("./components/errorPage"));
+const HomeComponent = lazy(() => import("./components/homeComponent"));
+const ProductComponent = lazy(() => import("./components/productComponent"));
+const ContactComponent = lazy(() => import("./components/contactComponent"));
+const CartComponent = lazy(() => import("./components/CartComponent"));
+const ServiceComponent = lazy(() => import("./components/service"));
 // const LoginComponent = lazy(() => import("./router/loginPage"))
 
 // router

@@ -7,8 +7,8 @@ import "../css/home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // component
-import ProductContainerLoader from "../component/productContainer";
-import SlideShow from "../component/slideShow";
+import ProductContainerLoader from "./productContainer";
+import SlideShow from "./slideShow";
 import MultiRangeSlider from "./multiRangeSlide";
 
 // resource

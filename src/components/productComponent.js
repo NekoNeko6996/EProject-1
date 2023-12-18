@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import swal from "sweetalert";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 // component
 import ProductContainerLoader from "./productContainer";
@@ -17,6 +18,8 @@ import { productDB } from "../database/data";
 
 function ProductComponent() {
   const [quantity, setQuantity] = useState(1);
+  const [imgZoomLayer, setImgZoomLayer] = useState(false);
+  const ImgZoom = useRef(null);
 
   const productId = useParams().productId;
   const product = productDB[productId];
@@ -156,8 +159,35 @@ function ProductComponent() {
     }
   };
 
+  // watch img click
+  const onZoomImgClick = (src) => {
+    ImgZoom.current.src = src;
+    setImgZoomLayer(true);
+  };
+
   return (
     <div id="product-page">
+      <div
+        id="img-zoom-box-layer"
+        className={imgZoomLayer ? "img-zoom-show" : ""}
+      >
+        <div id="zoom-box">
+          <TransformWrapper
+            initialScale={1}
+            minScale={0.1}
+            initialPositionX={200}
+            initialPositionY={100}
+          >
+            <TransformComponent>
+              <img src={noImgData} alt="error" ref={ImgZoom} id="img-zoom" />
+            </TransformComponent>
+          </TransformWrapper>
+        </div>
+        <button
+          id="zoom-img-close-btn"
+          onClick={() => setImgZoomLayer(false)}
+        ></button>
+      </div>
       <div id="info-product-container">
         {/* img */}
         <div id="info-product-img">
@@ -165,26 +195,27 @@ function ProductComponent() {
             id="watch-img"
             src={product.imgUrl.no1 || noImgData}
             alt="Watch-img"
-            onError={(event) => event.target.src = noImgData}
+            onError={(event) => (event.target.src = noImgData)}
+            onClick={(event) => onZoomImgClick(event.target.src)}
           />
           <div id="more-watch-img">
             <img
               src={product.imgUrl.no1 || noImgData}
               alt="watch-img"
               onClick={(event) => onImgClick(event.target.src)}
-              onError={(event) => event.target.src = noImgData}
+              onError={(event) => (event.target.src = noImgData)}
             />
             <img
               src={product.imgUrl.no2 || noImgData}
               alt="watch-img"
               onClick={(event) => onImgClick(event.target.src)}
-              onError={(event) => event.target.src = noImgData}
+              onError={(event) => (event.target.src = noImgData)}
             />
             <img
               src={product.imgUrl.no3 || noImgData}
               alt="watch-img"
               onClick={(event) => onImgClick(event.target.src)}
-              onError={(event) => event.target.src = noImgData}
+              onError={(event) => (event.target.src = noImgData)}
             />
           </div>
         </div>
