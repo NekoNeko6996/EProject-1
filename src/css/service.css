@@ -72,6 +72,37 @@
   text-align: center;
 }
 
+/* ----- animation ----- */
+#box1 {
+  opacity: 0;
+  animation: animation .4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+#box2 {
+  opacity: 0;
+  animation: animation .4s .2s ease-in-out;
+  animation-fill-mode: forwards;
+}
+#box3 {
+  opacity: 0;
+  animation: animation .4s .4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+
+
+@keyframes animation {
+  0% {
+    opacity: 0;
+    left: -50px;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+
 /* ----- other service ----- */
 #other-service-container {
   width: 100%;

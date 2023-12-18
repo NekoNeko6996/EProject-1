@@ -1,9 +1,11 @@
 import { toast } from "react-toastify";
 import React from "react";
+import swal from "sweetalert";
 
 // css
 import "../css/contact.css";
 
+//
 function ContactComponent() {
   //
   const onBtnSendProblemClick = () => {
@@ -31,9 +33,15 @@ function ContactComponent() {
     }
 
     // Change this promise if you want to actually send data to the server
-    const promise = new Promise((resolve) => setTimeout(resolve, 2000));
+    const promise = new Promise((resolve) => setTimeout(resolve, 1500));
     promise.then(() => {
       sendBtn.disabled = false;
+      swal({
+        title: "Submitted Successfully",
+        text: "We will respond to you via email soon",
+        icon: "success",
+        button: "Done",
+      });
     });
 
     toast.promise(promise, {

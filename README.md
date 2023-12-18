@@ -18,6 +18,11 @@
 
 ## `npm start` TO RUN THIS PROJECT
 
+## V0.3.0
+- Fix bug.
+- Edit the interface of the login and service pages.
+- Optimize website performance.
+
 ## V0.2.0
 
 - Fix bug.

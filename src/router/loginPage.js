@@ -6,6 +6,13 @@ import { useEffect } from "react";
 import "../css/login.css";
 import "react-toastify/dist/ReactToastify.css";
 
+// resource
+import logo from "../resource/logo/Logo.png";
+import gear from "../resource/icon/gear.png";
+import gear_2 from "../resource/icon/gear-2.png";
+import gear_3 from "../resource/icon/gear-3.png";
+import clockHand from "../resource/icon/clockHand.png";
+
 //
 function LoginComponent() {
   const [loginEmail, setLoginEmail] = useState("");
@@ -71,27 +78,35 @@ function LoginComponent() {
 
   return (
     <>
+      <input type="checkbox" id="nav-check-open" />
       <nav id="login-page-nav">
-        <a href="/">
-          <span className="span-nav-option-login">
-            <p className="text-hover-animate">HOME</p>
-          </span>
-        </a>
-        <a href="/service">
-          <span className="span-nav-option-login">
-            <p className="text-hover-animate">SERVICE</p>
-          </span>
-        </a>
-        <a href="/sale/sales">
-          <span className="span-nav-option-login">
-            <p className="text-hover-animate">SALES</p>
-          </span>
-        </a>
-        <a href="/contact">
-          <span className="span-nav-option-login">
-            <p className="text-hover-animate">CONTACT US</p>
-          </span>
-        </a>
+        <div id="login-logo-box">
+          <img src={logo} alt="logo img" />
+          <p>Alberto</p>
+        </div>
+        <div id="login-page-nav-link">
+          <a href="/">
+            <span className="span-nav-option-login">
+              <p className="text-hover-animate">HOME</p>
+            </span>
+          </a>
+          <a href="/service">
+            <span className="span-nav-option-login">
+              <p className="text-hover-animate">SERVICE</p>
+            </span>
+          </a>
+          <a href="/sale/sales">
+            <span className="span-nav-option-login">
+              <p className="text-hover-animate">SALES</p>
+            </span>
+          </a>
+          <a href="/contact">
+            <span className="span-nav-option-login">
+              <p className="text-hover-animate">CONTACT US</p>
+            </span>
+          </a>
+        </div>
+        <label id="login-nav-open-btn" htmlFor="nav-check-open"></label>
       </nav>
       <div id="login-container">
         <input type="checkbox" id="chk" aria-hidden="true"></input>
@@ -135,9 +150,7 @@ function LoginComponent() {
               className="login-input"
               onInput={(event) => setSignUpUsername(event.target.value)}
             ></input>
-            <p className="login-page-request-p">
-              For example example@gmail.com
-            </p>
+            <p className="login-page-request-p">example example@gmail.com</p>
             <input
               type="email"
               name="email"
@@ -161,6 +174,13 @@ function LoginComponent() {
           </form>
         </div>
       </div>
+      <div id="gear-container">
+        <img src={gear} alt="gear" id="gear" className="gear_"/>
+        <img src={gear_2} alt="gear" id="gear-2" className="gear_"/>
+        <img src={gear_3} alt="gear" id="gear-3" className="gear_"/>
+      </div>
+      <img src={clockHand} alt="clock hand" id="clock-hand" className="hand"/>
+      <img src={clockHand} alt="clock hand" id="clock-hand-minutes" className="hand" />
       {/* message box */}
       <ToastContainer
         position="bottom-center"

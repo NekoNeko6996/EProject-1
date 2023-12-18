@@ -165,22 +165,26 @@ function ProductComponent() {
             id="watch-img"
             src={product.imgUrl.no1 || noImgData}
             alt="Watch-img"
+            onError={(event) => event.target.src = noImgData}
           />
           <div id="more-watch-img">
             <img
               src={product.imgUrl.no1 || noImgData}
               alt="watch-img"
               onClick={(event) => onImgClick(event.target.src)}
+              onError={(event) => event.target.src = noImgData}
             />
             <img
               src={product.imgUrl.no2 || noImgData}
               alt="watch-img"
               onClick={(event) => onImgClick(event.target.src)}
+              onError={(event) => event.target.src = noImgData}
             />
             <img
               src={product.imgUrl.no3 || noImgData}
               alt="watch-img"
               onClick={(event) => onImgClick(event.target.src)}
+              onError={(event) => event.target.src = noImgData}
             />
           </div>
         </div>

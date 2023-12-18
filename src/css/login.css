@@ -1,3 +1,7 @@
+#login-page {
+  overflow: hidden;
+}
+
 #login-page-nav {
   height: 60px;
   width: 100%;
@@ -6,9 +10,103 @@
   top: 0;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #999;
+  padding: 0 50px 0 50px;
+  transition: 0.3s;
+  z-index: 5;
+  background-color: white;
+  overflow: hidden;
+}
+/* --- logo --- */
+#login-logo-box {
+  height: 58px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#login-logo-box img {
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+#login-logo-box p {
+  font-weight: bold;
+  font-size: 27px;
+  color: #555;
+  margin-left: 10px;
+}
+
+/* --- open btn --- */
+#login-nav-open-btn {
+  height: 40px;
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: none;
+  padding: 0;
+  background-color: #fa887e;
+  border-radius: 5px;
+}
+#login-nav-open-btn::before {
+  content: "";
+  position: relative;
+  height: 4px;
+  width: 70%;
+  background-color: white;
+  top: -3px;
+  transform-origin: center;
+}
+#login-nav-open-btn::after {
+  content: "";
+  position: relative;
+  height: 4px;
+  width: 70%;
+  top: 3px;
+  background-color: white;
+  transform-origin: center;
+}
+
+/* ----- open checkbox ----- */
+#nav-check-open {
+  display: none;
+}
+
+#nav-check-open:checked ~ #login-page-nav > #login-nav-open-btn::before {
+  animation: beforeRotateOpen 0.3s ease-in-out;
+  animation-fill-mode: forwards;
+}
+#nav-check-open:checked ~ #login-page-nav > #login-nav-open-btn::after {
+  animation: afterRotateOpen 0.3s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes beforeRotateOpen {
+  50% {
+    top: 2px;
+  }
+  100% {
+    top: 2px;
+    rotate: 45deg;
+  }
+}
+
+@keyframes afterRotateOpen {
+  50% {
+    top: -2px;
+  }
+  100% {
+    top: -2px;
+    rotate: -45deg;
+  }
+}
+
+/* --- nav link --- */
+#login-page-nav-link {
+  display: flex;
+  flex-direction: row;
 }
 
 #login-page-nav a {
@@ -17,7 +115,7 @@
   padding: 0 20px 0 20px;
 }
 
-.span-nav-option-login{
+.span-nav-option-login {
   height: 50px;
   display: flex;
   position: relative;
@@ -60,6 +158,8 @@
   border-radius: 10px;
   box-shadow: 0 0 10px #999;
   position: relative;
+  z-index: 4;
+  background-color: white;
 }
 
 #chk {
@@ -110,7 +210,6 @@ label {
 #login .login-input {
   margin: 25px auto;
 }
-
 
 #sign-up {
   height: 460px;
@@ -166,18 +265,142 @@ label {
   color: white;
 }
 
+/* --- gear container ---- */
+#gear-container {
+  width: 700px;
+  aspect-ratio: 1/1;
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  animation: rotate_rev 120s linear infinite;
+}
 
+.gear_ {
+  aspect-ratio: 1/1;
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  background-color: white;
+}
 
+#gear {
+  width: 300px;
+  top: 50px;
+  left: 50px;
+  aspect-ratio: 1/1;
+  animation: rotate_rev 30s steps(60) infinite;
+}
+#gear-2 {
+  width: 200px;
+  top: 100px;
+  right: 150px;
+  animation: rotate_ 20s steps(60) infinite;
+}
+#gear-3 {
+  width: 200px;
+  z-index: 0;
+  bottom: 0;
+  animation: rotate_ 10s steps(60) infinite;
+}
 
-/* ------------ */
+.hand {
+  position: fixed;
+  top: auto;
+  left: auto;
+}
+#clock-hand {
+  width: 800px;
+  animation: rotate_ 60s steps(60) infinite;
+  z-index: 3;
+}
+
+#clock-hand-minutes {
+  width: 550px;
+  animation: rotate_ 360s steps(60) infinite;
+  z-index: 2;
+}
+
+@keyframes rotate_ {
+  0% {
+    rotate: -45deg;
+  }
+  100% {
+    rotate: 315deg;
+  }
+}
+@keyframes rotate_rev {
+  0% {
+    rotate: 360deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+
+/* -------------------------------------------------- */
+@media screen and (max-width: 700px) {
+  #login-page-nav {
+    flex-direction: column;
+  }
+
+  #login-nav-open-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #login-page-nav-link {
+    position: absolute;
+    top: 60px;
+  }
+
+  #nav-check-open:checked ~ #login-page-nav {
+    height: 110px;
+  }
+}
+
 @media screen and (max-width: 500px) {
+  #login-page-nav-link {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
   #login-page-nav a {
     padding: 0 10px 0 10px;
   }
+
+  #nav-check-open:checked ~ #login-page-nav {
+    height: 270px;
+  }
 }
+@media screen and (max-width: 400px) {
+  #gear-container {
+    overflow: hidden;
+    opacity: 0;
+  }
+  .hand {
+    opacity: 0;
+  }
+}
+
+
+
 @media screen and (max-width: 300px) {
   #login-page-nav p {
     font-size: 10px;
     height: auto;
+  }
+  #login-logo-box p {
+    font-size: 16px;
+    margin-left: 5px;
+  }
+  #login-nav-open-btn {
+    height: 30px;
+    top: 15px;
   }
 }

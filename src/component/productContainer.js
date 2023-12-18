@@ -7,6 +7,7 @@ import "../css/productContainer.css";
 
 // resource
 import notFoundIcon from "../resource/icon/Icon-Notfound-Black.png";
+import noImgData from "../resource/img/no_img_data.png";
 
 // product data
 import { productDB } from "../database/data";
@@ -192,11 +193,17 @@ function ProductContainerLoader({
             {data.availability.status ? null : (
               <p className="sold-out-box">SOLD OUT</p>
             )}
-            <img src={data.imgUrl.no1} alt={data.name} className="items-img" />
+            <img
+              src={data.imgUrl.no1}
+              alt={data.name}
+              className="items-img"
+              onError={(event) => event.target.src = noImgData}
+            />
             <img
               src={data.imgUrl.no2}
               alt={data.name}
               className="items-img-1"
+              onError={(event) => event.target.src = noImgData}
             />
             <p className="items-name">{data.name}</p>
             <p id="product-load-rate-star">{"★".repeat(data.rate.star)}</p>

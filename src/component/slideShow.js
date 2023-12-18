@@ -14,9 +14,9 @@ const SlideShow = React.memo(function SlideShow({ data, scrollStep }) {
     (direction) => {
       const container = document.getElementById("img-slide-container");
       const currentScroll = container.scrollLeft;
-      let finalScrollStep = scrollStep;
+      let finalScrollStep = scrollStep; 
 
-      if(containerElement.current.offsetWidth < scrollStep)
+      if(containerElement.current.offsetWidth !== scrollStep)
         finalScrollStep = containerElement.current.offsetWidth;
 
       if (direction === "left") {
