@@ -82,7 +82,7 @@ const productDB = [
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/MKT5045_1_1800x1800.png?v=1605662805",
       no2: "https://shopalbertopr.com/cdn/shop/products/MKT5044-2_728e72c8-606d-4c8b-b4fb-92c742aedce3_1400x1400.png?v=1605662805",
-      no3: "https://shopalbertopr.com/cdn/shop/products/MKT5044-3_af15e3a3-ae79-4749-93e6-cae0c3238899_1000x1000.png?v=1605662805",
+      no3: "",
       no4: "",
     },
     gift: "her",

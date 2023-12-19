@@ -2,6 +2,8 @@
 
 ## PROGRAMMED BY `GROUP 3` CLASS `CP2396G06` SCHOOL `APTECH CUSC CANTHO UNIVERSITY`
 
+## This project requires a network connection to function properly
+
 ## PACKAGE REQUIREMENTS
 
 `bootstrap`
@@ -18,6 +20,9 @@
 `react-zoom-pan-pinch`
 
 ## `npm start` TO RUN THIS PROJECT
+
+## V1.0.0
+- The project has been completed and maintenance will be carried out if errors are detected.
 
 ## V0.3.0
 - Fix bug.

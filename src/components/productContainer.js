@@ -175,6 +175,12 @@ function ProductContainerLoader({
     setShowItemsWithDelay();
   }, [finalData]);
 
+
+  useEffect(() => {
+
+  }, [])
+
+
   return (
     <div id="product-loader">
       {finalData.map((data, index) => (

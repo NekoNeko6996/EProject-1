@@ -7,11 +7,8 @@ import "../css/login.css";
 import "react-toastify/dist/ReactToastify.css";
 
 // resource
-import logo from "../resource/logo/Logo.png";
-import gear from "../resource/icon/gear.png";
-import gear_2 from "../resource/icon/gear-2.png";
-import gear_3 from "../resource/icon/gear-3.png";
-// import clockHand from "../resource/icon/clockHand.png";
+import logo from "../resource/logo/LogoClearBg.png";
+
 
 //
 function LoginComponent() {
@@ -77,7 +74,7 @@ function LoginComponent() {
   };
 
   return (
-    <>
+    <div id="login-page">
       <input type="checkbox" id="nav-check-open" />
       <nav id="login-page-nav">
         <div id="login-logo-box">
@@ -109,79 +106,76 @@ function LoginComponent() {
         <label id="login-nav-open-btn" htmlFor="nav-check-open"></label>
       </nav>
       <div id="login-container">
-        <input type="checkbox" id="chk" aria-hidden="true"></input>
-        <div id="login">
-          <form onSubmit={(event) => onLogin(event)}>
-            <label htmlFor="chk" aria-hidden="true">
-              Login
-            </label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email or Username"
-              required=""
-              className="login-input"
-              onInput={(event) => setLoginEmail(event.target.value)}
-            ></input>
-            <input
-              type="Password"
-              name="password"
-              placeholder="Password"
-              required=""
-              className="login-input"
-              onInput={(event) => setLoginPassword(event.target.value)}
-            ></input>
-            <button className="login-btn" onClick={onLogin}>
-              Login
-            </button>
-          </form>
+        <div id="slogan-box">
+          <h1>Welcome Back!</h1>
         </div>
-        <div id="sign-up">
-          <form onSubmit={(event) => onSignUp(event)} id="form-sign-up">
-            <label htmlFor="chk" aria-hidden="true">
-              Sign Up
-            </label>
-            <p className="login-page-request-p">3 to 16 characters</p>
-            <input
-              type="text"
-              name="txt"
-              placeholder="User name"
-              required
-              className="login-input"
-              onInput={(event) => setSignUpUsername(event.target.value)}
-            ></input>
-            <p className="login-page-request-p">example example@gmail.com</p>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              required
-              className="login-input"
-              onInput={(event) => setSignUpEmail(event.target.value)}
-            ></input>
-            <p className="login-page-request-p">4 to 16 characters</p>
-            <input
-              type="Password"
-              name="password"
-              placeholder="Password"
-              required
-              className="login-input"
-              onInput={(event) => setSignUpPassword(event.target.value)}
-            ></input>
-            <button className="login-btn" onClick={onSignUp}>
-              Sign Up
-            </button>
-          </form>
-        </div>
+        <span>
+          <input type="checkbox" id="chk" aria-hidden="true"></input>
+          <div id="login">
+            <form onSubmit={(event) => onLogin(event)}>
+              <label htmlFor="chk" aria-hidden="true">
+                Login
+              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email or Username"
+                required=""
+                className="login-input"
+                onInput={(event) => setLoginEmail(event.target.value)}
+              ></input>
+              <input
+                type="Password"
+                name="password"
+                placeholder="Password"
+                required=""
+                className="login-input"
+                onInput={(event) => setLoginPassword(event.target.value)}
+              ></input>
+              <button className="login-btn" onClick={onLogin}>
+                Login
+              </button>
+            </form>
+          </div>
+          <div id="sign-up">
+            <form onSubmit={(event) => onSignUp(event)} id="form-sign-up">
+              <label htmlFor="chk" aria-hidden="true">
+                Sign Up
+              </label>
+              <p className="login-page-request-p">3 to 16 characters</p>
+              <input
+                type="text"
+                name="txt"
+                placeholder="User name"
+                required
+                className="login-input"
+                onInput={(event) => setSignUpUsername(event.target.value)}
+              ></input>
+              <p className="login-page-request-p">example example@gmail.com</p>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                className="login-input"
+                onInput={(event) => setSignUpEmail(event.target.value)}
+              ></input>
+              <p className="login-page-request-p">4 to 16 characters</p>
+              <input
+                type="Password"
+                name="password"
+                placeholder="Password"
+                required
+                className="login-input"
+                onInput={(event) => setSignUpPassword(event.target.value)}
+              ></input>
+              <button className="login-btn" onClick={onSignUp}>
+                Sign Up
+              </button>
+            </form>
+          </div>
+        </span>
       </div>
-      <div id="gear-container">
-        <img src={gear} alt="gear" id="gear" className="gear_"/>
-        <img src={gear_2} alt="gear" id="gear-2" className="gear_"/>
-        <img src={gear_3} alt="gear" id="gear-3" className="gear_"/>
-      </div>
-      {/* <img src={clockHand} alt="clock hand" id="clock-hand" className="hand"/>
-      <img src={clockHand} alt="clock hand" id="clock-hand-minutes" className="hand" /> */}
-      {/* message box */}
       <ToastContainer
         position="bottom-center"
         autoClose={3000}
@@ -194,7 +188,7 @@ function LoginComponent() {
         pauseOnHover
         theme="light"
       />
-    </>
+    </div>
   );
 }
 

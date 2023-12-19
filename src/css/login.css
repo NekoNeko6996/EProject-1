@@ -1,12 +1,19 @@
 #login-page {
   overflow: hidden;
+  background-image: url("../resource/img/loginBg.jpg");
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 #login-page-nav {
   height: 60px;
   width: 100%;
   position: fixed;
-  background-color: white;
   top: 0;
   display: flex;
   flex-direction: row;
@@ -16,9 +23,27 @@
   padding: 0 50px 0 50px;
   transition: 0.3s;
   z-index: 5;
-  background-color: white;
+  overflow: hidden;
+  
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+  background: inherit;
   overflow: hidden;
 }
+#login-page-nav::after {
+  content: "";
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+  filter: blur(10px);
+  margin: -20px;
+}
+
+
 /* --- logo --- */
 #login-logo-box {
   height: 58px;
@@ -47,7 +72,7 @@
   right: 20px;
   display: none;
   padding: 0;
-  background-color: #fa887e;
+  background-color: var(--theme-color);
   border-radius: 5px;
 }
 #login-nav-open-btn::before {
@@ -148,18 +173,36 @@
 
 /* ----- container ----- */
 #login-container > * {
-  --theme-color: #fa887e;
+  --theme-color: #9EC5B7;
 }
 
 #login-container {
-  width: 350px;
+  width: 100%;
+  max-width: 1440px;
   height: 500px;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 0 10px #999;
   position: relative;
   z-index: 4;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 80px 0 80px;
+}
+
+#slogan-box {
+  font-size: 30px;
+  color: white;
+  text-shadow: 0 0 5px #aaa;
+}
+
+#login-container > span  {
+  max-width: 350px;
+  width: 50%;
+  position: relative;
   background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 #chk {
@@ -230,7 +273,7 @@ label {
   align-items: center;
   justify-content: center;
   margin: 30px auto;
-  background-color: #fa887e;
+  background-color: var(--theme-color);
   color: white;
   cursor: pointer;
 }
@@ -265,82 +308,24 @@ label {
   color: white;
 }
 
-/* --- gear container ---- */
-#gear-container {
-  width: 700px;
-  aspect-ratio: 1/1;
-  position: fixed;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  animation: rotate_rev 120s linear infinite;
-}
-
-.gear_ {
-  aspect-ratio: 1/1;
-  position: absolute;
-  z-index: 0;
-  border-radius: 50%;
-  background-color: white;
-}
-
-#gear {
-  width: 300px;
-  top: 50px;
-  left: 50px;
-  aspect-ratio: 1/1;
-  animation: rotate_rev 30s steps(60) infinite;
-}
-#gear-2 {
-  width: 200px;
-  top: 100px;
-  right: 150px;
-  animation: rotate_ 20s steps(60) infinite;
-}
-#gear-3 {
-  width: 200px;
-  z-index: 0;
-  bottom: 0;
-  animation: rotate_ 10s steps(60) infinite;
-}
-
-.hand {
-  position: fixed;
-  top: auto;
-  left: auto;
-}
-#clock-hand {
-  width: 800px;
-  animation: rotate_ 60s steps(60) infinite;
-  z-index: 3;
-}
-
-#clock-hand-minutes {
-  width: 550px;
-  animation: rotate_ 360s steps(60) infinite;
-  z-index: 2;
-}
-
-@keyframes rotate_ {
-  0% {
-    rotate: -45deg;
-  }
-  100% {
-    rotate: 315deg;
-  }
-}
-@keyframes rotate_rev {
-  0% {
-    rotate: 360deg;
-  }
-  100% {
-    rotate: 0deg;
-  }
-}
-
 /* -------------------------------------------------- */
+@media screen and (max-width: 1050px) {
+  #login-container {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+  #login-container > span {
+    height: 500px;
+    width: 350px;
+  }
+
+  #slogan-box {
+    font-size: 25px;
+    margin-bottom: 40px;
+  }
+}
+
 @media screen and (max-width: 700px) {
   #login-page-nav {
     flex-direction: column;
@@ -360,6 +345,20 @@ label {
 
   #nav-check-open:checked ~ #login-page-nav {
     height: 110px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  #login-container {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 0;
+  }
+
+  #slogan-box {
+    font-size: 20px;
+    margin-bottom: 40px;
   }
 }
 
@@ -388,6 +387,18 @@ label {
   }
 }
 
+@media screen and (max-width: 375px) {
+  #login-container > span {
+    height: 500px;
+    width: 100%;
+    max-width: none;
+  }
+
+  #slogan-box {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+}
 
 
 @media screen and (max-width: 300px) {

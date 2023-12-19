@@ -1,0 +1,42 @@
+#error-page {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#error-page img {
+    width: 30%;
+    aspect-ratio: 1/1;
+}
+
+#error-page button {
+    font-size: 25px;
+    padding: 5px 10px 5px 10px;
+    margin-top: 30px;
+    background-color: white;
+    border: 1px solid black;
+    transition: .3s;
+    cursor: pointer;
+}
+
+#error-page button:hover {
+    background-color: black;
+    color: white;
+}
+
+/* ----------------------------------- */
+@media screen and (max-width: 540px) {
+    #error-page h1 {
+        font-size: 25px;
+    }
+}
+@media screen and (max-width: 400px) {
+    #error-page h1 {
+        font-size: 18px;
+    }
+    #error-page button {
+        font-size: 18px;
+    }
+}
