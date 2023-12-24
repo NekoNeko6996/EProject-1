@@ -101,6 +101,7 @@
 
 #nav-check-open:checked ~ #login-page-nav > #login-nav-open-btn::before {
   animation: beforeRotateOpen 0.3s ease-in-out;
+  
   animation-fill-mode: forwards;
 }
 #nav-check-open:checked ~ #login-page-nav > #login-nav-open-btn::after {

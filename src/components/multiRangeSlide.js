@@ -101,7 +101,7 @@ const MultiRangeSlider = ({
         }}
         className="thumb thumb--zIndex-4"
         onMouseUp={handleMouseUp}
-        onTouchEnd={handleMouseUp}
+         onTouchEnd={handleMouseUp}
       />
 
       <div className="slider">

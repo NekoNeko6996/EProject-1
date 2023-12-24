@@ -17,7 +17,7 @@ function ContactComponent() {
     sendBtn.disabled = true;
 
     // check
-    const TEXT_PATTERN = /^\w{1,}$/;
+    const TEXT_PATTERN = /^[\w\s]{1,}$/;
     // eslint-disable-next-line no-useless-escape
     const EMAIL_PATTERN = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -30,7 +30,7 @@ function ContactComponent() {
       toast.error("Please input your Email before send it!");
       sendBtn.disabled = false;
       return;
-    }
+    } 
 
     // Change this promise if you want to actually send data to the server
     const promise = new Promise((resolve) => setTimeout(resolve, 1500));

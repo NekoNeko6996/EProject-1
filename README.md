@@ -21,6 +21,9 @@
 
 ## `npm start` TO RUN THIS PROJECT
 
+## V1.0.1
+- Fix bug.
+- About known errors: [Violation] Added non-passive event listener to a scroll-blocking 'touchstart' event. Consider marking event handler as 'passive' to make the page more responsive ---> This is an error of Google Map iframe. We have tried to find a way to fix it, but it seems impossible and in fact it is just a warning, not really a serious error, and it also does not affect the operation of the website.
 ## V1.0.0
 - The project has been completed and maintenance will be carried out if errors are detected.
 
