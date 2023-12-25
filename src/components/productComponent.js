@@ -19,6 +19,7 @@ import { productDB } from "../database/data";
 function ProductComponent() {
   const [quantity, setQuantity] = useState(1);
   const [imgZoomLayer, setImgZoomLayer] = useState(false);
+
   const ImgZoom = useRef(null);
 
   const productId = useParams().productId;
@@ -175,8 +176,8 @@ function ProductComponent() {
           <TransformWrapper
             initialScale={1}
             minScale={0.1}
-            initialPositionX={200}
-            initialPositionY={100}
+            initialPositionX={0}
+            initialPositionY={0}
           >
             <TransformComponent>
               <img src={noImgData} alt="error" ref={ImgZoom} id="img-zoom" />

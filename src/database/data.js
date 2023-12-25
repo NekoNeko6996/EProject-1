@@ -7,8 +7,6 @@ import homeBanner03 from "../resource/img/home-banner-3.png";
 /// ----> The content within this data may not be accurate to reality. <----///
 
 
-/// "vintage" , luxury, smart-watch
-
 // --- simulate data returned from the server --- //
 // min, max, unit of price slider
 const min = 10,
