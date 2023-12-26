@@ -378,15 +378,6 @@ label {
     height: 270px;
   }
 }
-@media screen and (max-width: 400px) {
-  #gear-container {
-    overflow: hidden;
-    opacity: 0;
-  }
-  .hand {
-    opacity: 0;
-  }
-}
 
 @media screen and (max-width: 375px) {
   #login-container > span {

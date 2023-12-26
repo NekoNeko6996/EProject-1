@@ -17,7 +17,7 @@ const SlideShow = React.memo(function SlideShow({ data, scrollStep }) {
       let finalScrollStep = scrollStep;
 
       if (containerElement.current.offsetWidth !== scrollStep)
-        finalScrollStep = containerElement.current.offsetWidth
+        finalScrollStep = containerElement.current
           ? containerElement.current.offsetWidth
           : scrollStep;
 

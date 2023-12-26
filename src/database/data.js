@@ -1,6 +1,6 @@
 import homeBanner01 from "../resource/img/home-banner.png";
 import homeBanner02 from "../resource/img/home-banner-2.png";
-// import homeBanner03 from "../resource/img/home-banner-3.png";
+import homeBanner03 from "../resource/img/home-banner-3.png";
 
 
 /// ----> This data is for reference only in terms of how the interface will work. <----///
@@ -27,10 +27,10 @@ const dataBanner = [
     url: homeBanner02,
     link: "/",
   },
-  // {
-  //   url: homeBanner03,
-  //   link: "/",
-  // },
+  {
+    url: homeBanner03,
+    link: "/",
+  },
 ];
 export { dataBanner };
 
@@ -68,7 +68,7 @@ const productDB = [
       warranty: "2 years",
     },
     rate: {
-      star: 5,
+      star: 4,
       amount: 213,
     },
   },
@@ -140,7 +140,7 @@ const productDB = [
       warranty: "2 years",
     },
     rate: {
-      star: 5,
+      star: 2,
       amount: 213,
     },
   },
@@ -386,7 +386,7 @@ const productDB = [
       warranty: "2 years",
     },
     rate: {
-      star: 5,
+      star: 4,
       amount: 213,
     },
   },
@@ -489,7 +489,7 @@ const productDB = [
       warranty: "4 years",
     },
     rate: {
-      star: 5,
+      star: 3,
       amount: 213,
     },
   },
@@ -825,7 +825,7 @@ const productDB = [
       no4: "https://shopalbertopr.com/cdn/shop/products/3600104-4_533x533.jpg?v=1605653583",
     },
     price: 21000000,
-    sale: 99,
+    sale: 10,
     tech: "mechanical",
     availability: {
       status: true,

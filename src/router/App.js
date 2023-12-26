@@ -13,6 +13,9 @@ import iconFacebook from "../resource/icon/icons8-facebook-50.png";
 import upArrow from "../resource/icon/icons8-double-up-50.png";
 import iconCart from "../resource/icon/icons8-cart-64.png";
 
+// component
+import ClockComponent from "../components/clockComponent";
+
 // number access
 import { numberAccess } from "../database/data";
 
@@ -337,6 +340,9 @@ function App() {
             REGISTER NOW
           </button>
           <p id="access-box">The Number Of Accesses: {numberAccess}</p>
+          <div id="clock-container">
+            <ClockComponent />
+          </div>
         </div>
       </footer>
       <div id="scroll-box" onClick={scrollUp}>
