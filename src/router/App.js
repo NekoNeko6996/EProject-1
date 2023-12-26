@@ -13,6 +13,8 @@ import iconFacebook from "../resource/icon/icons8-facebook-50.png";
 import upArrow from "../resource/icon/icons8-double-up-50.png";
 import iconCart from "../resource/icon/icons8-cart-64.png";
 
+// number access
+import { numberAccess } from "../database/data";
 
 // path on the navigation bar
 const pathArray = [
@@ -25,8 +27,6 @@ const pathArray = [
   "contact",
 ];
 
-// number access
-const numberAccess = 12405;
 
 //
 function App() {

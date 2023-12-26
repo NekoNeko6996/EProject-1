@@ -13,8 +13,9 @@ const min = 10,
   max = 500,
   unit = "00000", // unit is 100.000 VND 100.000 * 500 = 50.000.000 (max)
   currency = "VND", // or USD
-  locale = "VN-vi"; // or en-US
-export { min, max, unit, currency, locale };
+  locale = "VN-vi", // or en-US
+  numberAccess = 12405;
+export { min, max, unit, currency, locale, numberAccess };
 
 // banner img url
 const dataBanner = [
@@ -76,7 +77,7 @@ const productDB = [
     manufacturer: "citizen",
     name: "CORONADO BAY WATCH",
     SKU: "NAPCNF106",
-    product: "smart-watch",
+    product: "luxury",
     imgUrl: {
       no1: "https://shopalbertopr.com/cdn/shop/products/0731516000016_NAPCNF106_999_A_1800x1800.jpg?v=1645586157",
       no2: "https://shopalbertopr.com/cdn/shop/products/0731516000085_NAPCNF106_999_E_1800x1800.jpg?v=1645586158",
