@@ -44,6 +44,7 @@ function LoginComponent() {
     }
   };
 
+  // Test expression
   // eslint-disable-next-line no-useless-escape
   const EMAIL_PATTERN = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   const USERNAME_PATTERN = /^[a-zA-Z0-9_]{3,16}$/;

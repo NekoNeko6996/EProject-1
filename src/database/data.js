@@ -1,6 +1,6 @@
 import homeBanner01 from "../resource/img/home-banner.png";
 import homeBanner02 from "../resource/img/home-banner-2.png";
-import homeBanner03 from "../resource/img/home-banner-3.png";
+// import homeBanner03 from "../resource/img/home-banner-3.png";
 
 
 /// ----> This data is for reference only in terms of how the interface will work. <----///
@@ -26,10 +26,10 @@ const dataBanner = [
     url: homeBanner02,
     link: "/",
   },
-  {
-    url: homeBanner03,
-    link: "/",
-  },
+  // {
+  //   url: homeBanner03,
+  //   link: "/",
+  // },
 ];
 export { dataBanner };
 

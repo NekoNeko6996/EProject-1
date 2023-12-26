@@ -97,7 +97,6 @@
 
 .img-slide-elements {
   width: 100% !important;
-  cursor: pointer;
 
   flex: 0 0 auto;
   scroll-snap-align: start;

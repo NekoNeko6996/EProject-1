@@ -10,22 +10,33 @@ import "react-toastify/dist/ReactToastify.css";
 // Resource
 import logo from "../resource/logo/Logo.png";
 import iconFacebook from "../resource/icon/icons8-facebook-50.png";
-import iconInstagram from "../resource/icon/icons8-instagram-50.png";
-import iconTwitter from "../resource/icon/icons8-twitter-50.png";
 import upArrow from "../resource/icon/icons8-double-up-50.png";
 import iconCart from "../resource/icon/icons8-cart-64.png";
+
+
+// path on the navigation bar
+const pathArray = [
+  "",
+  "tech",
+  "product_",
+  "gift",
+  "sale",
+  "service",
+  "contact",
+];
+
+// number access
+const numberAccess = 12405;
 
 //
 function App() {
   const [cartAmount, setCartAmount] = useState(0);
   const [userStatus, setUserStatus] = useState(null);
   const [navSelectedElement, setNavSelectedElement] = useState(
-    new Array(7).fill(false)
+    new Array(pathArray.length).fill(false)
   );
   const pathLocation = useLocation();
 
-  // eslint-disable-next-line no-unused-vars
-  const [numberAccess, setNumberAccess] = useState(2314);
   //
   const CartDataSession = window.sessionStorage.getItem("cart");
 
@@ -112,15 +123,6 @@ function App() {
   // nav bar animation
   useEffect(() => {
     const pathName = pathLocation.pathname.split("/")[1];
-    const pathArray = [
-      "",
-      "tech",
-      "product_",
-      "gift",
-      "sale",
-      "service",
-      "contact",
-    ];
     const navIndex = pathArray.indexOf(pathName);
     if (navIndex >= 0) {
       let navSelectedArray = navSelectedElement.map((boolean, index) =>
@@ -201,7 +203,7 @@ function App() {
             navSelectedElement[2] ? "nav-selected" : ""
           }`}
         >
-          <p className="text-hover-animate">PRODUCT</p>
+          <p className="text-hover-animate">PRODUCTS</p>
           <div className="hidden-option">
             <ul>
               <a href="/product_/vintage">
@@ -302,7 +304,7 @@ function App() {
           <p>Email: sales@shopalbertopr.com</p>
           <div id="footer-contact-icon-box">
             <a
-              href="https://www.facebook.com/"
+              href="https://www.facebook.com/AlbertoCoPr/"
               target="_blank"
               rel="noreferrer"
             >
@@ -310,24 +312,6 @@ function App() {
                 src={iconFacebook}
                 alt="facebook icon"
                 id="footer-facebook-icon"
-              />
-            </a>
-            <a href="https://twitter.com/" target="_blank" rel="noreferrer">
-              <img
-                src={iconInstagram}
-                alt="instagram icon"
-                id="footer-instagram-icon"
-              />
-            </a>
-            <a
-              href="https://www.instagram.com/?hl=en"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img
-                src={iconTwitter}
-                alt="twitter icon"
-                id="footer-twitter-icon"
               />
             </a>
           </div>
